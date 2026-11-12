@@ -3382,7 +3382,7 @@ function speakBoth(ko,uz){
 const lvlCtl=()=>`<div class="lvl"><span>TOPIK darajasi</span><div class="seg" role="group" aria-label="TOPIK darajasi">${[1,2,3,4,5].map(n=>`<button data-lvl="${n}" aria-pressed="${n===S.lvl}">${n}</button>`).join("")}</div></div>`;
 const HANGUL=/[\uAC00-\uD7A3]/;
 let A={busy:"",err:"",q:"",dict:null};
-function aiErr(e){return e&&e.code==="bad_key"?"Kalit qabul qilinmadi. Sozlamalarda kalitni tekshiring.":e&&e.code==="bad_model"?"Model topilmadi. Sozlamalarda model nomini tekshiring.":e&&e.code==="network"?"Internetga ulanib bo'lmadi.":e&&e.code==="not_granted"?"AI'dan foydalanishga ruxsat berilmadi. Sahifani qayta ochib, ruxsat bering.":e&&e.code==="rate_limited"?"So'rovlar ko'payib ketdi. Bir daqiqadan keyin urinib ko'ring.":"AI javob bera olmadi. Qayta urinib ko'ring."}
+function aiErr(e){return e&&e.code==="bad_key"?"Kalit qabul qilinmadi. Sozlamalarda kalitni tekshiring.":e&&e.code==="bad_model"?"Model topilmadi. Sozlamalarda model nomini tekshiring.":e&&e.code==="network"?"Internetga ulanib bo'lmadi.":e&&e.code==="not_granted"?"AI'dan foydalanishga ruxsat berilmadi. Sahifani qayta ochib, ruxsat bering.":e&&e.code==="rate_limited"?(SOLO?"Gemini bepul chegarasi tugadi (daqiqalik yoki kunlik). Bir daqiqa kutib ko'ring; takrorlansa, ertaga davom eting yoki boshqa kalit kiriting.":"So'rovlar ko'payib ketdi. Bir daqiqadan keyin urinib ko'ring."):"AI javob bera olmadi. Qayta urinib ko'ring."}
 async function aiRun(kind,fn){
   if(A.busy||!sampleFn)return;A.busy=kind;A.err="";render(true);
   try{await fn()}catch(e){A.err=aiErr(e)}
@@ -3425,7 +3425,7 @@ function speakLocal(text){
     const u=new SpeechSynthesisUtterance(text);u.lang="ko-KR";u.rate=.85;
     const v=speechSynthesis.getVoices().find(v=>/^ko/i.test(v.lang));
     if(v)u.voice=v; else if(speechSynthesis.getVoices().length)toast("Qurilmada koreys ovozi topilmadi");
-    speechSynthesis.cancel();speechSynthesis.speak(u);
+    speechSynthesis.cancel();setTimeout(()=>{try{speechSynthesis.speak(u)}catch(e){}},80);
   }catch(e){toast("Ovozni chiqarib bo'lmadi")}
 }
 const ICON='<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 9v6h4l5 4V5L8 9H4zm12.5 3a4.5 4.5 0 0 0-2.5-4v8a4.5 4.5 0 0 0 2.5-4z"/></svg>';
@@ -3547,42 +3547,57 @@ const kget=k=>{try{return localStorage.getItem(k)||""}catch(e){return ""}};
 function makeAI(){
   const key=kget("hm_key");if(!key)return null;
   const fn=()=>{};
-  fn.json=async prompt=>{
-    const model=kget("hm_model")||"gemini-flash-latest";let r;
-    try{r=await fetch("https://generativelanguage.googleapis.com/v1beta/models/"+encodeURIComponent(model)+":generateContent",{method:"POST",headers:{"content-type":"application/json","x-goog-api-key":key},
-      body:JSON.stringify({contents:[{role:"user",parts:[{text:prompt}]}],generationConfig:{responseMimeType:"application/json",temperature:.7}})})}catch(e){throw {code:"network"}}
+  const call=async(model,prompt)=>{
+    const ac=new AbortController(),tm=setTimeout(()=>ac.abort(),25000);let r;
+    try{r=await fetch("https://generativelanguage.googleapis.com/v1beta/models/"+encodeURIComponent(model)+":generateContent",{method:"POST",signal:ac.signal,headers:{"content-type":"application/json","x-goog-api-key":key},
+      body:JSON.stringify({contents:[{role:"user",parts:[{text:prompt}]}],generationConfig:{responseMimeType:"application/json",temperature:.7}})})}catch(e){throw {code:"network"}}finally{clearTimeout(tm)}
     if(r.status===429)throw {code:"rate_limited"};
-    if(r.status===400||r.status===401||r.status===403)throw {code:"bad_key"};
     if(r.status===404)throw {code:"bad_model"};
+    if(r.status===400||r.status===401||r.status===403)throw {code:"bad_key"};
     if(!r.ok)throw {code:"upstream"};
     const j=await r.json(),t=(((j.candidates||[])[0]||{}).content||{}).parts;
     return JSON.parse((t||[]).map(x=>x.text||"").join("").replace(/^```(?:json)?|```$/g,"").trim());
+  };
+  fn.json=async prompt=>{
+    const first=kget("hm_model")||"gemini-flash-latest",models=[first,"gemini-flash-lite-latest","gemini-2.5-flash-lite","gemini-2.0-flash"].filter((m,i,a)=>a.indexOf(m)===i);
+    let last={code:"upstream"};
+    for(const m of models){
+      try{const out=await call(m,prompt);fn.used=m;return out}
+      catch(e){last=e;if(e.code==="bad_key"||e.code==="network")throw e;if(e&&!e.code)throw {code:"bad"}}
+    }
+    throw last;
   };
   return fn;
 }
 function makeRec(){
   const R=window.SpeechRecognition||window.webkitSpeechRecognition;if(!R)return null;
-  let rec=null,want=false,state="idle";const hp=[],hf=[],hs=[];
+  let rec=null,want=false,state="idle",cur=null;const hp=[],hf=[],hs=[];
   const set=(st,reason)=>{state=st;hs.forEach(f=>f({state:st,reason}))};
-  const api={native:true,onPartial(f){hp.push(f)},onFinal(f){hf.push(f)},onState(f){hs.push(f)},active:()=>state!=="idle",
+  const kill=()=>{const o=rec;rec=null;if(o){try{o.onresult=o.onerror=o.onend=o.onstart=null;o.abort()}catch(e){}}};
+  function boot(res,rej){
+    const r=new R();rec=r;let settled=!res;
+    r.lang=cur&&cur.language==="uz"?"uz-UZ":cur&&cur.language==="ko"?"ko-KR":(navigator.language||"en-US");
+    r.interimResults=true;r.continuous=!/Android/i.test(navigator.userAgent);
+    r.onstart=()=>{if(rec!==r)return;set("listening");if(!settled){settled=true;res()}};
+    r.onresult=e=>{if(rec!==r)return;for(let i=e.resultIndex;i<e.results.length;i++){const t=e.results[i][0].transcript;if(e.results[i].isFinal){hp.forEach(f=>f({text:""}));hf.forEach(f=>f({text:" "+t.trim()}))}else hp.forEach(f=>f({text:t}))}};
+    r.onerror=e=>{if(rec!==r)return;const c=e.error;if(c==="no-speech"||c==="aborted")return;
+      want=false;const code=c==="not-allowed"||c==="service-not-allowed"?"not_granted":c==="language-not-supported"?"unavailable":c==="network"?"upstream_error":"upstream_error";
+      if(!settled){settled=true;rej({code})}set("idle",code)};
+    r.onend=()=>{if(rec!==r)return;
+      if(want)setTimeout(()=>{if(want&&rec===r)try{boot()}catch(e){want=false;set("idle","upstream_error")}},200);
+      else{rec=null;set("idle","stopped")}};
+    r.start();
+  }
+  return {native:true,onPartial(f){hp.push(f)},onFinal(f){hf.push(f)},onState(f){hs.push(f)},active:()=>want,
    start(o){return new Promise((res,rej)=>{
-     if(want&&rec){res();return}
-     want=true;let settled=false;
-     const boot=()=>{
-       rec=new R();rec.lang=o&&o.language==="uz"?"uz-UZ":o&&o.language==="ko"?"ko-KR":(navigator.language||"en-US");
-       rec.interimResults=true;rec.continuous=!/Android/i.test(navigator.userAgent);
-       rec.onstart=()=>{set("listening");if(!settled){settled=true;res()}};
-       rec.onresult=e=>{for(let i=e.resultIndex;i<e.results.length;i++){const t=e.results[i][0].transcript;if(e.results[i].isFinal){hp.forEach(f=>f({text:""}));hf.forEach(f=>f({text:" "+t.trim()}))}else hp.forEach(f=>f({text:t}))}};
-       rec.onerror=e=>{const c=e.error;if(c==="no-speech"||c==="aborted")return;
-         want=false;const code=c==="not-allowed"||c==="service-not-allowed"?"not_granted":c==="language-not-supported"?"unavailable":"upstream_error";
-         if(!settled){settled=true;rej({code})}set("idle",code)};
-       rec.onend=()=>{if(want)setTimeout(()=>{if(want)try{boot()}catch(e){want=false;set("idle","upstream_error")}},250);else set("idle","stopped")};
-       rec.start();
-     };
-     set("starting");try{boot()}catch(e){want=false;set("idle","upstream_error");rej({code:"upstream_error"})}
+     const same=want&&rec&&cur&&o&&cur.language===o.language;cur=o||null;
+     if(same){res();return}
+     kill();want=true;set("starting");
+     try{boot(res,rej)}catch(e){want=false;rec=null;set("idle","upstream_error");rej({code:"upstream_error"})}
    })},
-   stop(){want=false;return new Promise(res=>{if(!rec||state==="idle"){res();return}const r=rec;const done=()=>res();r.addEventListener("end",done,{once:true});try{r.stop()}catch(e){res()}setTimeout(done,1200)})}};
-  return api;
+   stop(){return new Promise(res=>{want=false;const r=rec;if(!r){if(state!=="idle")set("idle","stopped");res();return}
+     let done=false;const fin=()=>{if(done)return;done=true;if(rec===r){rec=null;set("idle","stopped")}res()};
+     r.onend=fin;try{r.stop()}catch(e){fin()}setTimeout(fin,900)})}};
 }
 V.sozlama=()=>`<section class="view"><h2>Sozlamalar</h2>
  <p class="lead">AI bo'limlari (suhbat, AI lug'at, AI mashqlar) ishlashi uchun o'zingizning Google Gemini kalitingiz kerak. Kalit faqat shu qurilmada saqlanadi va faqat Google'ga yuboriladi.</p>
@@ -3636,7 +3651,10 @@ async function callSend(typed){
   else if(dict&&dict.native){try{await dict.stop()}catch(e){}}
   C.draft=text;CALL.heard="";CALL.state="think";await chatSend();
   if(!CALL.on)return;
-  if(C.err){CALL.gate=false;callSet(CALL.hf&&dict&&dict.active&&dict.active()?"listen":"idle",C.err);return}
+  if(C.err){CALL.gate=false;const er=C.err;
+    if(CALL.hf&&dict&&dict.native){callListen(false);CALL.note=er+" Tinglashda davom etyapman.";render(true)}
+    else callSet(CALL.hf&&dict&&dict.active&&dict.active()?"listen":"idle",er);
+    return}
   const m=C.msgs[C.msgs.length-1];callSet("speak","");
   if(CALL.hf){
     if(dict&&dict.native){try{await dict.stop()}catch(e){}}
@@ -3832,7 +3850,8 @@ V.lugat=()=>`<section class="view"><h2>Koreyscha–o'zbekcha lug'at</h2>
 const PZ={read:{lv:0,p:null,pick:{},show:false},listen:{lv:0,p:null,pick:{},show:false}};
 function prepP(p){return {title:p.title,lines:p.lines,uz:p.uz,qs:p.qs.map(q=>({q:q[0],ans:q[1][0],opts:shuffle(q[1])}))}}
 function loadP(mode){const st=PZ[mode];if(st.lv!==S.lvl||!st.p){st.lv=S.lvl;st.p=prepP((mode==="read"?READ:LISTEN)[S.lvl-1]);st.pick={};st.show=false}return st}
-function playP(mode){const p=PZ[mode].p;if(!p)return;const r=S.lvl<3?.85:1;
+function stopAudio(){try{ttsNs&&ttsNs.stop&&ttsNs.stop()}catch(e){}try{speechSynthesis.cancel()}catch(e){}}
+function playP(mode){stopAudio();const p=PZ[mode].p;if(!p)return;const r=S.lvl<3?.85:1;
   if(ttsNs)ttsNs.speak(p.lines.map(l=>({text:l[1],language:"ko",voice:l[0]?"airy":"buttery",rate:r}))).catch(e=>{if(e&&(e.code==="busy"||e.code==="rate_limited"))toast("Biroz kutib, qayta bosing")});
   else speakLocal(p.lines.map(l=>l[1]).join(" "))}
 function passView(mode){
@@ -3906,7 +3925,7 @@ function render(keepScroll){
   document.querySelectorAll("#nav a").forEach(a=>{if(a.getAttribute("href")==="#"+r)a.setAttribute("aria-current","page");else a.removeAttribute("aria-current")});
   if(!keepScroll){window.scrollTo(0,0);const v=$("#app").firstElementChild;if(v)v.classList.add("enter");const c=$('#nav a[aria-current]');if(c&&c.scrollIntoView)c.scrollIntoView({block:"nearest",inline:"center"})}
 }
-addEventListener("hashchange",()=>{flip=false;A.err="";if(CALL.on)callEnd();stopGame();if(G.on&&!G.over)G.on="";drawer(false);render()});
+addEventListener("hashchange",()=>{flip=false;A.err="";if(CALL.on)callEnd();else stopAudio();stopGame();if(G.on&&!G.over)G.on="";drawer(false);render()});
 if(SOLO)$("#nav").insertAdjacentHTML("beforeend",'<a href="#sozlama"><i>⚙</i>Sozlamalar</a>');
 let installEv=null;
 if(SOLO){
@@ -3921,7 +3940,7 @@ $("#burger").addEventListener("click",()=>drawer(true));$("#dclose").addEventLis
 $("#drawer").addEventListener("click",e=>{if(e.target.closest("a"))drawer(false)});
 $("#app").addEventListener("click",e=>{
   const b=e.target.closest("button");if(!b)return;const d=b.dataset;
-  if(b.classList.contains("say")){b.classList.remove("ping");void b.offsetWidth;b.classList.add("ping");try{navigator.vibrate&&navigator.vibrate(12)}catch(e){}}
+  if(b.classList.contains("say")){b.classList.remove("ping");void b.offsetWidth;b.classList.add("ping");setTimeout(()=>b.classList.remove("ping"),600);try{navigator.vibrate&&navigator.vibrate(12)}catch(e){}}
   if("play" in d){playP(d.play||"listen");return}
   if(d.show){PZ[d.show].show=!PZ[d.show].show;render(true);return}
   if(d.pm){const st=PZ[d.pm];if(st.pick[d.pq]===undefined){st.pick[d.pq]=d.po;if(d.po===st.p.qs[d.pq].ans)gain(10);render(true)}return}
@@ -3952,13 +3971,13 @@ $("#app").addEventListener("click",e=>{
   if(d.lane!==undefined&&G.on==="lane"&&!G.over){if(d.lane===G.q.ans){G.score++;laneQ();render(true)}else laneMiss();return}
   if(d.dst!==undefined){DQ.st=+d.dst;render(true);return}
   if(d.dp){S.dp[S.lvl]=Math.max(0,(S.dp[S.lvl]||0)+(+d.dp));ci=0;flip=false;save();render(true);return}
-  if(d.ai==="read"||d.ai==="listen"){aiPass(d.ai);return}
+  if(d.ai==="read"||d.ai==="listen"){stopAudio();aiPass(d.ai);return}
   if(d.say)speak(d.say);
   if("mic" in d&&dict){
     if(micOn){dict.stop().catch(()=>{})}
     else dict.start(micOpts()).catch(e=>{if(e&&e.code==="not_granted"){dict=null;b.hidden=true;toast("Mikrofonga ruxsat berilmadi. Yozib javob bering.")}else if(!e||e.code!=="dismissed")toast("Ovozni tanib bo'lmadi. Yozib javob bering.")});
     return}
-  if(d.lvl){S.lvl=+d.lvl;save();TL.topic=TL.wt=null;TL.fb=null;if(Q&&Q.kind==="vocab")newQuiz("vocab");render(true);return}
+  if(d.lvl){if(!CALL.on)stopAudio();S.lvl=+d.lvl;save();TL.topic=TL.wt=null;TL.fb=null;if(Q&&Q.kind==="vocab")newQuiz("vocab");render(true);return}
   if(d.sayuz){speakUz(d.sayuz);return}
   if("auto" in d){S.auto=!S.auto;save();render(true);return}
   if("miclang" in d){S.mic=S.mic==="uz"?"ko":"uz";save();if(CALL.on){clearTimeout(callT);CALL.heard="";if(dict&&CALL.state!=="think"&&CALL.state!=="speak"){micSink=callSink;CALL.gate=false;CALL.state="listen";CALL.note="";const pr=dict.active&&dict.active()?dict.stop().catch(()=>{}):null;dict.start(micOpts()).catch(()=>{if(CALL.on)callSet("idle","Davom etish uchun yuzni bosing")});}render(true)}else b.textContent=S.mic==="uz"?"UZ":"KO";return}
