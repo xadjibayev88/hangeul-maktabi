@@ -1,4 +1,4 @@
-<!doctype html><html lang="uz"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="description" content="Koreys tilini noldan TOPIK 5 gacha o'rgatadigan o'zbekcha platforma."><style>body{margin:0}img{max-width:100%}[hidden]{display:none!important}</style></head><body><title>Hangeul Maktabi</title>
+<!doctype html><html lang="uz"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="description" content="Koreys tilini noldan TOPIK 5 gacha o'rgatadigan o'zbekcha platforma."><link rel="manifest" href="manifest.webmanifest"><meta name="theme-color" content="#0d1226"><link rel="icon" href="icon-192.png"><link rel="apple-touch-icon" href="icon-192.png"><meta name="mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-capable" content="yes"><style>body{margin:0}img{max-width:100%}[hidden]{display:none!important}</style></head><body><title>Hangeul Maktabi</title>
 <meta name="claude:viewport-fit-sides" content="cover">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Black+Han+Sans&family=Noto+Sans+KR:wght@400;500;700&family=Onest:wght@400;500;600;700&family=Unbounded:wght@600;800&display=swap">
 <style>
@@ -3592,6 +3592,7 @@ V.sozlama=()=>`<section class="view"><h2>Sozlamalar</h2>
   <label style="font-size:.85rem;font-weight:600">Model nomi<input class="field" id="set-model" autocomplete="off" value="${esc(kget("hm_model")||"gemini-flash-latest")}" style="width:100%;margin-top:4px"></label>
   <div class="row"><button class="btn" data-set="save">Saqlash</button><button class="btn ghost" data-set="test" ${sampleFn?"":"disabled"}>Tekshirib ko'rish</button><button class="btn ghost" data-set="clear">Kalitni o'chirish</button></div>
   <p class="muted" id="set-out"></p></div>
+ <div class="panel"><h3>Ilova sifatida o'rnatish</h3><p class="muted">${matchMedia("(display-mode: standalone)").matches?"Ilova o'rnatilgan va ilova rejimida ochilgan.":installEv?"Bir tugma bilan telefoningiz bosh ekraniga o'rnatiladi.":"Chrome menyusi (⋮) → «Bosh ekranga qo'shish» yoki «Ilovani o'rnatish»ni tanlang. iPhone'da: Safari → Ulashish → «Bosh ekranga»."}</p>${installEv?`<div class="row"><button class="btn" data-inst>Ilovani o'rnatish</button></div>`:""}</div>
  <div class="panel"><h3>Mikrofon<small>${dict?"brauzerda bor":"bu brauzerda yo'q"}</small></h3><p class="muted">${dict?"Jonli suhbatda birinchi marta mikrofonga ruxsat so'raladi. Ovozni tanish Chrome brauzerida ishlaydi.":"Bu brauzer ovozni tanimaydi. Chrome brauzeridan foydalaning."}</p></div>
 </section>`;
 
@@ -3907,6 +3908,13 @@ function render(keepScroll){
 }
 addEventListener("hashchange",()=>{flip=false;A.err="";if(CALL.on)callEnd();stopGame();if(G.on&&!G.over)G.on="";drawer(false);render()});
 if(SOLO)$("#nav").insertAdjacentHTML("beforeend",'<a href="#sozlama"><i>⚙</i>Sozlamalar</a>');
+let installEv=null;
+if(SOLO){
+  if("serviceWorker" in navigator&&location.protocol==="https:")navigator.serviceWorker.register("sw.js").catch(()=>{});
+  addEventListener("beforeinstallprompt",e=>{e.preventDefault();installEv=e;const f=$(".dfoot");if(f&&!$("#inst"))f.insertAdjacentHTML("afterbegin",'<button class="btn ghost cta" id="inst">Ilovani o\'rnatish</button>');if(route()==="sozlama")render(true)});
+  addEventListener("appinstalled",()=>{installEv=null;const b=$("#inst");if(b)b.remove();toast("Ilova o'rnatildi")});
+  document.addEventListener("click",e=>{if(e.target.closest("#inst,[data-inst]")&&installEv){installEv.prompt();installEv=null}});
+}
 function drawer(o){$("#drawer").hidden=!o;$("#scrim").hidden=!o;$("#burger").setAttribute("aria-expanded",o)}
 addEventListener("keydown",e=>{if(CALL.on&&e.code==="Space"&&!/INPUT|TEXTAREA/.test(e.target.tagName)){e.preventDefault();callOrb()}if(CALL.on&&e.key==="Escape"){callEnd();render(true)}});
 $("#burger").addEventListener("click",()=>drawer(true));$("#dclose").addEventListener("click",()=>drawer(false));$("#scrim").addEventListener("click",()=>drawer(false));
