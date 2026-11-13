@@ -162,6 +162,10 @@ section.view.enter{animation:in .22s ease-out}
 .msg .say{width:36px;height:36px}
 .send{display:flex;gap:8px;align-items:center}
 .send input{flex:1;min-width:0;font:inherit;font-family:var(--f-ko);color:var(--ink);background:var(--surface);border:1px solid var(--edge);border-radius:14px;padding:12px 14px}
+.chip,.seg button,.pick button,.tcard{transition:transform .12s ease,box-shadow .2s ease}
+.chip:active,.seg button:active,.pick button:active,.tcard:active{transform:scale(.93)}
+.tapped .chip[aria-pressed="true"],.tapped .seg button[aria-pressed="true"]{animation:pop .32s ease-out}
+@keyframes pop{0%{transform:scale(.86);box-shadow:0 0 0 0 var(--a2)}60%{transform:scale(1.07);box-shadow:0 0 0 10px transparent}100%{transform:scale(1);box-shadow:0 0 0 0 transparent}}
 .send.dock{position:sticky;bottom:calc(8px + env(safe-area-inset-bottom,0px));z-index:5;background:var(--bar);-webkit-backdrop-filter:blur(16px);backdrop-filter:blur(16px);border:1px solid var(--edge);border-radius:20px;padding:8px;box-shadow:var(--shadow)}
 .top .wrap{gap:10px}
 .brand{min-width:0}
@@ -3835,13 +3839,13 @@ V.oyinlar=()=>{
  </section>`};
 
 /* dictionary */
-let DQ={q:"",st:-1};
+let DQ={q:"",st:-1,n:60};
 const nq=t=>t.toLowerCase().replace(/[‘’`ʻʼ]/g,"'");
 function dictRows(){
   const q=nq(DQ.q.trim());let out=[],n=0;
-  for(const d of DRAW){if(DQ.st>=0&&d[3]!==DQ.st)continue;if(q&&!d[0].includes(q)&&!nq(d[1]).includes(q))continue;n++;if(out.length<60)out.push(d)}
+  for(const d of DRAW){if(DQ.st>=0&&d[3]!==DQ.st)continue;if(q&&!d[0].includes(q)&&!nq(d[1]).includes(q))continue;n++;if(out.length<DQ.n)out.push(d)}
   if(!n)return `<p class="muted">Topilmadi. Boshqacha yozib ko'ring${sampleFn?" yoki So'zlar bo'limidagi AI lug'atdan qidiring":""}.</p>`;
-  return `<p class="muted">${n} ta so'z${n>60?", birinchi 60 tasi ko'rsatilgan":""}</p><ul class="phr">${out.map(d=>`<li><div><div class="k">${esc(d[0])} <span class="tag">${d[3]?"B":"A"}</span></div><div class="r">${esc(DPOS[d[2]])}</div><div>${esc(d[1])}</div></div><button class="say" data-say="${esc(d[0])}" aria-label="Eshitish">${ICON}</button></li>`).join("")}</ul>`;
+  return `<p class="muted">${n} ta so'zdan ${out.length} tasi ko'rsatilgan</p><ul class="phr">${out.map(d=>`<li><div><div class="k">${esc(d[0])} <span class="tag">${d[3]?"B":"A"}</span></div><div class="r">${esc(DPOS[d[2]])}</div><div>${esc(d[1])}</div></div><button class="say" data-say="${esc(d[0])}" aria-label="Eshitish">${ICON}</button></li>`).join("")}</ul>${n>out.length?`<div class="row" style="justify-content:center;margin-top:14px"><button class="btn" data-more>Yana 60 ta ko'rsatish</button><button class="btn ghost" data-more="all">Hammasini ko'rsatish (${n})</button></div>`:""}`;
 }
 V.lugat=()=>`<section class="view"><h2>Koreyscha–o'zbekcha lug'at</h2>
  <p class="lead">${DRAW.length} ta so'z, eng ko'p ishlatiladiganidan boshlab. Koreyscha yoki o'zbekcha yozib qidiring.</p>
@@ -3945,6 +3949,7 @@ $("#burger").addEventListener("click",()=>drawer(true));$("#dclose").addEventLis
 $("#drawer").addEventListener("click",e=>{if(e.target.closest("a"))drawer(false)});
 $("#app").addEventListener("click",e=>{
   const b=e.target.closest("button");if(!b)return;const d=b.dataset;
+  if(b.matches(".chip,.seg button")){document.body.classList.add("tapped");clearTimeout(window.__tp);window.__tp=setTimeout(()=>document.body.classList.remove("tapped"),400);try{navigator.vibrate&&navigator.vibrate(8)}catch(e){}}
   if(b.classList.contains("say")){b.classList.remove("ping");void b.offsetWidth;b.classList.add("ping");setTimeout(()=>b.classList.remove("ping"),600);try{navigator.vibrate&&navigator.vibrate(12)}catch(e){}}
   if("play" in d){playP(d.play||"listen");return}
   if(d.show){PZ[d.show].show=!PZ[d.show].show;render(true);return}
@@ -3974,7 +3979,8 @@ $("#app").addEventListener("click",e=>{
   if(d.game==="talk"){startTalk();return}
   if(d.game==="quit"){gameOver();return}
   if(d.lane!==undefined&&G.on==="lane"&&!G.over){if(d.lane===G.q.ans){G.score++;laneQ();render(true)}else laneMiss();return}
-  if(d.dst!==undefined){DQ.st=+d.dst;render(true);return}
+  if(d.dst!==undefined){DQ.st=+d.dst;DQ.n=60;render(true);return}
+  if(d.more!==undefined){DQ.n=d.more==="all"?1e6:DQ.n+60;$("#dres").innerHTML=dictRows();return}
   if(d.dp){S.dp[S.lvl]=Math.max(0,(S.dp[S.lvl]||0)+(+d.dp));ci=0;flip=false;save();render(true);return}
   if(d.ai==="read"||d.ai==="listen"){stopAudio();aiPass(d.ai);return}
   if(d.say)speak(d.say);
@@ -4003,7 +4009,7 @@ $("#app").addEventListener("click",e=>{
   else if(d.restart){newQuiz(d.restart);render(true)}
 });
 $("#app").addEventListener("submit",e=>{if(e.target.matches("[data-chat]")){e.preventDefault();chatSend()}if(e.target.matches("[data-calltext]")){e.preventDefault();const v=$("#call-input").value;if(v.trim())callSend(v)}if(e.target.matches("[data-dict]")){e.preventDefault();aiDict()}});
-$("#app").addEventListener("input",e=>{if(e.target.id==="chat-input")C.draft=e.target.value;if(e.target.id==="ai-q")A.q=e.target.value;if(e.target.id==="wr-text")$("#wr-n").textContent=wrCount()+" belgi";if(/^calc-/.test(e.target.id))$("#calc-out").innerHTML=topikLevel();if(e.target.id==="dict-q"){DQ.q=e.target.value;$("#dres").innerHTML=dictRows()}});
+$("#app").addEventListener("input",e=>{if(e.target.id==="chat-input")C.draft=e.target.value;if(e.target.id==="ai-q")A.q=e.target.value;if(e.target.id==="wr-text")$("#wr-n").textContent=wrCount()+" belgi";if(/^calc-/.test(e.target.id))$("#calc-out").innerHTML=topikLevel();if(e.target.id==="dict-q"){DQ.n=60;DQ.q=e.target.value;$("#dres").innerHTML=dictRows()}});
 try{speechSynthesis.getVoices()}catch(e){}
 drawXp();render();
 </script>
