@@ -162,6 +162,11 @@ section.view.enter{animation:in .22s ease-out}
 .msg .say{width:36px;height:36px}
 .send{display:flex;gap:8px;align-items:center}
 .send input{flex:1;min-width:0;font:inherit;font-family:var(--f-ko);color:var(--ink);background:var(--surface);border:1px solid var(--edge);border-radius:14px;padding:12px 14px}
+.send.dock{position:sticky;bottom:calc(8px + env(safe-area-inset-bottom,0px));z-index:5;background:var(--bar);-webkit-backdrop-filter:blur(16px);backdrop-filter:blur(16px);border:1px solid var(--edge);border-radius:20px;padding:8px;box-shadow:var(--shadow)}
+.top .wrap{gap:10px}
+.brand{min-width:0}
+.brand span{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.xp{flex:none}
 .err{color:var(--red);font-weight:600}
 
 :root{--c3:#f2b10c;--c4:#f5640a;--c5:#c873d9;--night:#0d1226;--night2:#1b2140;--on-night:#f2f4ff;--on-night-muted:#a9b1d6}
@@ -3526,6 +3531,7 @@ V.suhbat=()=>{
  if(!sampleFn)return `<section class="view">${head}<p class="note">${SOLO?"AI suhbat uchun kalit kerak. Menyudagi «Sozlamalar» bo'limida Gemini kalitingizni kiriting.":"AI suhbat bu yerda ishlamayapti. Sahifani Claude hisobingizga kirgan holda oching."} Qolgan bo'limlar odatdagidek ishlaydi.</p>${SOLO?`<div class="row"><a class="btn" href="#sozlama">Sozlamalarni ochish →</a></div>`:""}</section>`;
  if(CALL.on)return callView();
  return `<section class="view">${head}
+ <div class="row"><button class="btn cta" data-call="start">Jonli ovozli suhbat →</button><span class="muted" style="font-size:.85rem">${dict?"Bir marta bosasiz, keyin AI o'zi tinglab, ovoz bilan javob beradi.":MICHELP}</span></div>
  <div class="row">${lvlCtl()}<button class="chip" data-auto aria-pressed="${!!S.auto}">Javobni ovoz chiqarib o'qish</button></div>
  <div class="chips">${SCN.map((s,i)=>`<button class="chip" data-scn="${i}" aria-pressed="${i===C.scn}">${esc(s[0])}</button>`).join("")}</div>
  <div class="chat" id="chat">${C.msgs.map(m=>m.who==="ai"
@@ -3533,8 +3539,7 @@ V.suhbat=()=>{
    :`<div class="msg me"><div class="k">${esc(m.text)}</div></div>`).join("")}
    ${C.busy?`<div class="msg ai"><div class="r">AI yozmoqda…</div></div>`:""}</div>
  ${C.err?`<p class="err">${esc(C.err)}</p>`:""}
- <div class="row"><button class="btn cta" data-call="start">Jonli ovozli suhbat →</button><span class="muted" style="font-size:.85rem">${dict?"Bir marta bosasiz, keyin AI o'zi tinglab, ovoz bilan javob beradi.":MICHELP}</span></div>
- <form class="send" data-chat>
+ <form class="send dock" data-chat>
   ${dict?`<button type="button" class="say" id="mic" data-mic aria-label="Gapirish">${MIC}</button><button type="button" class="chip" data-miclang title="Mikrofon tili">${S.mic==="uz"?"UZ":"KO"}</button>`:""}
   <input id="chat-input" autocomplete="off" placeholder="Javobingizni yozing…" value="${esc(C.draft)}" ${C.busy?"disabled":""} aria-label="Xabar">
   <button class="btn" ${C.busy?"disabled":""}>Yuborish</button>
@@ -3723,7 +3728,7 @@ ${log}`;
   }
   C.busy=false;if(route()==="suhbat"){render(true);scrollChat()}
 }
-function scrollChat(){const c=$("#chat");if(c&&c.lastElementChild)c.lastElementChild.scrollIntoView({block:"nearest"})}
+function scrollChat(){const c=$("#chat");if(c&&c.lastElementChild)c.lastElementChild.scrollIntoView({block:"center"})}
 (async()=>{
   try{
     {
