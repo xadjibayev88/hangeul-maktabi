@@ -8,7 +8,7 @@ APK GitHub Actions'da yig'iladi: *Actions → "Go Topic APK (AdMob)" → Run wor
 
 Sozlamalar (Run workflow oynasida):
 - `site_url` — sayt manzili (domen ulangach o'zgartiring);
-- `admob_app_id` — AdMob'dagi **App ID** (`ca-app-pub-…~…`). Bo'sh bo'lsa Google'ning sinov ID'si ishlatiladi.
+- `admob_app_id` — AdMob App ID. Bo'sh bo'lsa Go Topic'ning App ID'si (`ca-app-pub-2780590832331724~3171623975`) ishlatiladi.
 
 Banner ID (`ca-app-pub-…/…`) saytdagi `public/ads-config.js` → `admobBanner` ga yoziladi; ilovani qayta yig'ish shart emas.
 

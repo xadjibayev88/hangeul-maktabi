@@ -8,7 +8,7 @@ on:
         default: "https://gotopik-a749akip.manus.space"
         required: true
       admob_app_id:
-        description: "AdMob App ID (ca-app-pub-...~...). Bo'sh: Google sinov ID"
+        description: "AdMob App ID (bo'sh: Go Topic App ID)"
         default: ""
         required: false
   push:
@@ -28,7 +28,7 @@ jobs:
         working-directory: gotopik-app
     env:
       SITE_URL: ${{ github.event.inputs.site_url || 'https://gotopik-a749akip.manus.space' }}
-      ADMOB_APP_ID: ${{ github.event.inputs.admob_app_id || 'ca-app-pub-3940256099942544~3347511713' }}
+      ADMOB_APP_ID: ${{ github.event.inputs.admob_app_id || 'ca-app-pub-2780590832331724~3171623975' }}
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
