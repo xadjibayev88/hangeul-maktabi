@@ -91,3 +91,14 @@ curl -N -X POST http://localhost:3000/api/tts \
 ```
 
 Google va ElevenLabs audio codecini backend bir xil `audio/ogg; codecs=opus` ko‘rinishiga moslashi kerak. ElevenLabs accountidagi voice ID koreyscha multilingual voice bo‘lishi lozim.
+
+## Gemini matni → ElevenLabs WebSocket
+
+Real-time pipeline qo‘shildi. `createGeminiVoiceStream()` Gemini SSE tokenlarini to‘liq koreyscha gaplarga yig‘adi va ElevenLabs WebSocket orqali audio chunklarga aylantiradi. API keylar faqat serverda qoladi. [REALTIME.md](./REALTIME.md)da to‘liq API, `npm run voice:demo`, offline testlar, PCM format va serverga ulash namunasi bor.
+
+```bash
+cd server/tts
+npm ci
+npm run typecheck
+npm test
+```

@@ -1,18 +1,50 @@
 plugins { id 'com.android.application' }
 
+def buildVersionCode = (project.findProperty('verCode') ?: '1').toString().toInteger()
+def buildVersionName = (project.findProperty('versionName') ?: '1.0.0').toString()
+def releaseSigningValues = [
+    System.getenv('RELEASE_KEYSTORE_FILE'),
+    System.getenv('RELEASE_STORE_PASSWORD'),
+    System.getenv('RELEASE_KEY_ALIAS'),
+    System.getenv('RELEASE_KEY_PASSWORD')
+]
+def hasReleaseSigning = releaseSigningValues.every { value -> value != null && !value.isEmpty() }
+
 android {
     namespace 'uz.hangeulmaktabi.app'
-    compileSdk 34
+    compileSdk 35
+
     defaultConfig {
         applicationId 'uz.hangeulmaktabi.app'
         minSdk 23
-        targetSdk 34
-        versionCode((project.findProperty('verCode') ?: '1') as Integer)
-        versionName "1.0.${project.findProperty('verCode') ?: '1'}"
+        targetSdk 35
+        versionCode buildVersionCode
+        versionName buildVersionName
     }
+
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_17
         targetCompatibility JavaVersion.VERSION_17
+    }
+
+    signingConfigs {
+        if (hasReleaseSigning) {
+            release {
+                storeFile file(System.getenv('RELEASE_KEYSTORE_FILE'))
+                storePassword System.getenv('RELEASE_STORE_PASSWORD')
+                keyAlias System.getenv('RELEASE_KEY_ALIAS')
+                keyPassword System.getenv('RELEASE_KEY_PASSWORD')
+            }
+        }
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            if (hasReleaseSigning) {
+                signingConfig signingConfigs.release
+            }
+        }
     }
 }
 
