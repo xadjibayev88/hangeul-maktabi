@@ -8,7 +8,7 @@ import { searchDictionary, dictionaryStatistics } from "./dictionary.js";
 import { learningCatalog } from "./catalog.js";
 import { authRouter, getUser } from "./auth.js";
 import { db, loadProgress, saveProgress, acquireLease, consumeBudget, refundBudget } from "./database.js";
-import { aiInput, tutorInput, voicePrompt, feedbackPrompt, tutorReply, jsonFragments, jsonReply, parseJson, model, safeAiError } from "./ai-service.js";
+import { aiInput, tutorInput, voicePrompt, tutorSystemInstruction, normalizeTutorReply, partialTutorReply, jsonFragments, parseJson, model, safeAiError } from "./ai-service.js";
 import { createGeminiVoiceStream } from "./tts/gemini-elevenlabs.js";
 import { reserveVoiceBudget, settleVoiceBudget, type VoiceReservation } from "./guards.js";
 import { canUseProvider, providerSuccess, providerFailure, recordRequest, metrics } from "./telemetry.js";
@@ -43,10 +43,10 @@ async function userBudget(userId: string) {
   if (!await consumeBudget(`minute:${userId}`, minute(), number("AI_REQUESTS_PER_MINUTE", 6, 30))) throw budgetError();
   if (!await consumeBudget(`daily:${userId}`, day(), number("AI_DAILY_LIMIT", 80, 1000))) throw budgetError();
 }
-function publicError(res: Response, error: unknown) {
+function publicError(res: Response, error: unknown, stage?: string) {
   const safe = safeAiError(error);
   res.set("Retry-After", String(safe.retryAfter));
-  return res.status(safe.status).json({ error: safe });
+  return res.status(safe.status).json({ error: stage ? { ...safe, stage } : safe });
 }
 
 export function createApp() {
@@ -121,7 +121,7 @@ export function createApp() {
       let raw = "";
       const streaming = req.path.endsWith("/stream");
       if (streaming) { beginStream(res); await sendEvent(res, lifecycle.signal, "meta", { requestId: randomUUID() }); }
-      for await (const text of jsonFragments(parsed.data.prompt, lifecycle.signal, parsed.data.generationConfig?.temperature)) {
+      for await (const text of jsonFragments(parsed.data.prompt, lifecycle.signal, parsed.data.generationConfig?.temperature, parsed.data.generationConfig?.maxOutputTokens)) {
         raw += text; if (raw.length > 20000) throw new Error("AI response too large");
         if (streaming) await sendEvent(res, lifecycle.signal, "text", { text });
       }
@@ -160,7 +160,8 @@ export function createApp() {
       // Callbacks send only small text/latency events. Audio observes network backpressure below.
       voice = await createGeminiVoiceStream(voicePrompt(parsed.data), {
         signal: lifecycle.signal,
-        gemini: { model: model(), maxOutputTokens: 256, temperature: .35 },
+        structuredReply: true,
+        gemini: { model: model(), maxOutputTokens: 512, temperature: .35, responseMimeType: "application/json", systemInstruction: tutorSystemInstruction },
         elevenlabs: { connectTimeoutMs: 5000, turnTimeoutMs: 30000, maxBufferedAudioBytes: 512000 },
         onText: text => {
           if (raw.length + text.length > reservation) throw budgetError();
@@ -172,20 +173,31 @@ export function createApp() {
       for await (const chunk of voice.chunks) await sendEvent(res, lifecycle.signal, "audio", { audio: Buffer.from(chunk).toString("base64") });
       providerSuccess("elevenlabs"); providerSuccess("gemini");
       await sendEvent(res, lifecycle.signal, "audio_end", {});
-      // Metadata is outside TTS; short feedback can arrive while the browser finishes playback.
       let reply: unknown;
       try {
-        const value = tutorReply.parse(await jsonReply(feedbackPrompt(parsed.data, raw.trim()), AbortSignal.any([lifecycle.signal, AbortSignal.timeout(12000)])));
-        reply = { ...value, ko: raw.trim(), pronunciation: "" };
-      } catch { if (!lifecycle.signal.aborted) providerFailure("gemini"); reply = { ko: raw.trim(), rom: "", uz: "Tarjima hozir olinmadi. Koreyscha javobni takrorlab ko‘ring.", fix: "", fixes: [], pronunciation: "" }; }
+        reply = normalizeTutorReply(parseJson(await voice.responseText), raw.trim());
+      } catch {
+        if (!lifecycle.signal.aborted) providerFailure("gemini");
+        if (!raw.trim()) throw new Error("Gemini reply did not include Korean text");
+        reply = partialTutorReply(raw, "translation_unavailable");
+      }
       await sendEvent(res, lifecycle.signal, "done", { value: reply });
       res.end(); failed = false;
     } catch (error) {
       const safe = safeAiError(error);
       if (!["busy", "quota_exceeded", "timeout"].includes(safe.code)) providerFailure(/Gemini|SSE|generation|candidate/i.test((error as Error).message || "") ? "gemini" : "elevenlabs");
       if (!res.destroyed) {
-        if (res.headersSent) { res.write(`event: error\ndata: ${JSON.stringify(safe)}\n\n`); res.end(); }
-        else publicError(res, error);
+        if (res.headersSent && raw.trim()) {
+          let reply: unknown = partialTutorReply(raw, "voice_unavailable");
+          if (!lifecycle.signal.aborted && voice) {
+            try {
+              reply = { ...normalizeTutorReply(parseJson(await voice.responseText), raw.trim()), warning: "voice_unavailable" };
+            } catch { /* Keep the Korean text already streamed to the browser. */ }
+          }
+          res.write(`event: done\ndata: ${JSON.stringify({ value: reply })}\n\n`);
+          res.end();
+        } else if (res.headersSent) { res.write(`event: error\ndata: ${JSON.stringify({ ...safe, stage: "voice" })}\n\n`); res.end(); }
+        else publicError(res, error, "voice");
       }
     } finally {
       clearInterval(heartbeat); voice?.cancel(); lifecycle.cleanup();

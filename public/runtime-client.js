@@ -23,7 +23,7 @@
     if (!response.ok) {
       let value; try { value = await response.json(); } catch (_) {}
       const detail = value?.error;
-      throw error(detail?.code || (response.status === 401 ? "login_required" : "network"), detail?.message, { retryAfter: Number(response.headers.get("Retry-After")) || 5, status: response.status });
+      throw error(detail?.code || (response.status === 401 ? "login_required" : "network"), detail?.message, { retryAfter: Number(response.headers.get("Retry-After")) || 5, status: response.status, stage: detail?.stage });
     }
     return response;
   }
@@ -35,7 +35,7 @@
     const emit = async () => {
       if (!data.length) { eventType = "message"; return; }
       const value = JSON.parse(data.join("\n")); data = [];
-      if (eventType === "error") throw error(value.code || "upstream", value.message, { retryAfter: value.retryAfter });
+      if (eventType === "error") throw error(value.code || "upstream", value.message, { retryAfter: value.retryAfter, stage: value.stage });
       await onEvent(eventType, value);
       if (eventType === "done") { completed = true; result = value.value; }
       eventType = "message";

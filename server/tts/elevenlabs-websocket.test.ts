@@ -37,6 +37,61 @@ test("sentence buffer keeps fragmented Korean text and decimals", () => {
   assert.equal(buffer.finish(), "");
 });
 
+test("structured Gemini reply streams Korean to TTS and returns translation from the same request", async (t) => {
+  const sent: Record<string, unknown>[] = [];
+  let sseController!: ReadableStreamDefaultController<Uint8Array>;
+  let requestCount = 0;
+  let requestBody: Record<string, unknown> = {};
+  let textComplete = false;
+  const spoken: string[] = [];
+  const encode = new TextEncoder();
+  const sseEvent = (text: string) => encode.encode("data: " + JSON.stringify({
+    candidates: [{ content: { parts: [{ text }] } }],
+  }) + "\n\n");
+  const mock = await mockServer((socket, message) => {
+    sent.push(message);
+    if (typeof message.text === "string" && message.text.trim()) audioMessage(socket, [7, 8]);
+    if (message.text === "") socket.send(JSON.stringify({ is_final: true }));
+  });
+  t.after(mock.close);
+  const fetchImpl: typeof fetch = async (_input, init) => {
+    requestCount += 1;
+    requestBody = JSON.parse(String(init?.body)) as Record<string, unknown>;
+    return new Response(new ReadableStream({
+      start(controller) {
+        sseController = controller;
+        controller.enqueue(sseEvent('{"ko":"안녕하세요.'));
+      },
+    }), { headers: { "content-type": "text/event-stream" } });
+  };
+  const stream = await createGeminiVoiceStream("learner practice data", {
+    structuredReply: true,
+    gemini: { apiKey: "gemini-test", fetchImpl, responseMimeType: "application/json" },
+    elevenlabs: { apiKey: "eleven-test", socketFactory: mock.socketFactory },
+    onText: (fragment) => spoken.push(fragment),
+    onEvent: ({ type }) => { if (type === "gemini_text_complete") textComplete = true; },
+  });
+  const iterator = stream.chunks[Symbol.asyncIterator]();
+  const first = await iterator.next();
+  assert.deepEqual([...first.value!], [7, 8]);
+  assert.equal(textComplete, false);
+  assert.equal(spoken.join(""), "안녕하세요.");
+
+  sseController.enqueue(sseEvent(' 오늘은 어때요?","rom":"annyeonghaseyo","uz":"Salom, bugun qalaysiz?","fixes":[],"pronunciation":""}'));
+  sseController.enqueue(encode.encode('data: {"candidates":[{"finishReason":"STOP"}]}\n\n'));
+  sseController.close();
+  for (;;) { const value = await iterator.next(); if (value.done) break; }
+
+  const responseText = await stream.responseText;
+  assert.equal(requestCount, 1);
+  assert.equal((requestBody.generationConfig as Record<string, unknown>).responseMimeType, "application/json");
+  assert.equal(JSON.parse(responseText).uz, "Salom, bugun qalaysiz?");
+  assert.equal(spoken.join(""), "안녕하세요. 오늘은 어때요?");
+  assert.ok(sent.some((message) => String(message.text).trim() === "안녕하세요."));
+  assert.ok(!sent.some((message) => String(message.text).includes('"uz"')));
+  assert.equal(textComplete, true);
+});
+
 test("audio arrives before the text producer finishes; no duplicated sentences", async (t) => {
   const sent: Record<string, unknown>[] = [];
   let finishText!: () => void;
