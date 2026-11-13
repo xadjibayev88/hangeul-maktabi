@@ -18,10 +18,11 @@
     if (!value || typeof value.ko !== "string" || !value.ko.trim()) throw new Error("AI javobi noto‘g‘ri.");
     const translation = String(value.uz || "").trim();
     const warning = String(value.warning || (!translation ? "translation_unavailable" : ""));
-    const visibleTranslation = translation || (warning === "voice_unavailable" ? "Ovozli javob uzildi; o‘zbekcha tarjima to‘liq olinmadi." : "Koreyscha javob tayyor, ammo o‘zbekcha tarjima olinmadi.");
+    const partialStatus = "Javob qisman keldi: koreyscha matn saqlandi, ammo javob to‘liq emas.";
+    const visibleTranslation = warning === "partial_answer" ? `${translation ? `${translation} ` : ""}${partialStatus}` : translation || (warning === "voice_unavailable" ? "Ovozli javob uzildi; o‘zbekcha tarjima to‘liq olinmadi." : "Koreyscha javob tayyor, ammo o‘zbekcha tarjima olinmadi.");
     C.msgs.push({ who: "ai", ko: value.ko.trim(), rom: String(value.rom || ""), uz: visibleTranslation, fix: String(value.fix || ""), fixes: Array.isArray(value.fixes) ? value.fixes.slice(0, 1) : [], pronunciation: "", warning });
     if (C.msgs.length > 60) C.msgs.splice(0, C.msgs.length - 60);
-    if (award) gain(5);
+    if (award && warning !== "partial_answer") gain(5);
   }
   function partialReply(raw) {
     const match = raw.match(/"ko"\s*:\s*"((?:\\.|[^"\\])*)/);
@@ -56,7 +57,7 @@
       try { recovered = parseAIJson(raw); } catch (_) { recovered = null; }
       const korean = typeof recovered?.ko === "string" && recovered.ko.trim() ? recovered.ko : partialReply(raw);
       if (korean.trim()) {
-        appendReply(recovered?.ko ? recovered : { ko: korean, uz: "", fixes: [], warning: "translation_unavailable" }, false);
+        appendReply(recovered?.ko ? recovered : { ko: korean, uz: "", fixes: [], warning: "partial_answer" }, false);
         C.draft = ""; C.err = "";
       } else {
         if (C.msgs[C.msgs.length - 1]?.who === "me") C.msgs.pop();

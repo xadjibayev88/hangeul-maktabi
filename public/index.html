@@ -3527,7 +3527,7 @@ ${log}`;
     CALL.streamSpoken=false;
     if(ko.trim()){
       const answer=ko.trim(),remaining=answer.slice(Math.min(spoken,answer.length)).trim();
-      C.msgs.push({who:"ai",ko:answer,rom:"",uz:"Koreyscha javob saqlandi, ammo o‘zbekcha tarjima olinmadi.",fix:"",fixes:[],pronunciation:"",warning:"translation_unavailable"});
+      C.msgs.push({who:"ai",ko:answer,rom:"",uz:"Javob qisman keldi: koreyscha matn saqlandi, ammo javob to‘liq emas; o‘zbekcha tarjima olinmadi.",fix:"",fixes:[],pronunciation:"",warning:"partial_answer"});
       if(remaining){CALL.state="speak";queue=queue.then(()=>sayLocal(remaining,"ko"))}
       await queue.catch(()=>{});CALL.streamSpoken=true;C.err="";
     }else if(!spoken){

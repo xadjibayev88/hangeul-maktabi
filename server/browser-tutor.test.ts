@@ -13,6 +13,7 @@ function loadChatController(stream: Stream) {
   const C = { msgs: [] as Array<Record<string, any>>, draft: "", busy: false, err: "", scn: 0 };
   const S = { lvl: 2, auto: false, xp: 0, known: {}, seen: {}, decks: {}, savedPlans: [] as unknown[] };
   const CALL = { on: false, state: "idle", note: "", gate: false, streamSpoken: false };
+  let xpAwards = 0;
   const api = {
     user: { name: "Learner" },
     ai: { stream },
@@ -34,13 +35,13 @@ function loadChatController(stream: Stream) {
     document: { querySelector: () => null, addEventListener: () => undefined, documentElement: { dataset: {} }, hidden: false },
     AbortController, setTimeout, clearTimeout,
     C, S, CALL, V: { sozlama: () => "", reyting: () => "" }, SCN: [["scenario", "friendly tutor"]], FB: { ready: false }, TOPICS: {},
-    route: () => "suhbat", render: () => undefined, scrollChat: () => undefined, gain: () => undefined,
+    route: () => "suhbat", render: () => undefined, scrollChat: () => undefined, gain: () => { xpAwards += 1; },
     buildDict: () => undefined, rebuild: () => undefined, save: () => undefined, drawXp: () => undefined, toast: () => undefined,
     parseAIJson: (raw: string) => JSON.parse(raw), speakBoth: () => undefined,
     localStorage: { getItem: () => null, setItem: () => undefined },
   };
   runInNewContext(controllerSource, context);
-  return { C, chatSend: windowObject.chatSend as (text: string) => Promise<void> };
+  return { C, chatSend: windowObject.chatSend as (text: string) => Promise<void>, xpAwards: () => xpAwards };
 }
 
 function extractFunction(source: string, start: string, end: string): string {
@@ -68,7 +69,7 @@ test("text controller shows Korean reply when a complete response has an empty U
 });
 
 test("text controller preserves streamed Korean when the response fails before translation arrives", async () => {
-  const { C, chatSend } = loadChatController(async (_prompt, onChunk) => {
+  const { C, chatSend, xpAwards } = loadChatController(async (_prompt, onChunk) => {
     onChunk('{"ko":"안녕하세요.');
     throw Object.assign(new Error("stream interrupted"), { code: "network" });
   });
@@ -76,30 +77,41 @@ test("text controller preserves streamed Korean when the response fails before t
   assert.equal(C.msgs.length, 2);
   assert.equal(C.msgs[0]?.who, "me");
   assert.equal(C.msgs[1]?.ko, "안녕하세요.");
-  assert.equal(C.msgs[1]?.uz, missingUz);
-  assert.equal(C.msgs[1]?.warning, "translation_unavailable");
+  assert.match(String(C.msgs[1]?.uz), /Javob qisman keldi/);
+  assert.equal(C.msgs[1]?.warning, "partial_answer");
   assert.equal(C.draft, "");
+  assert.equal(xpAwards(), 0);
+});
+
+test("a reply marked partial never earns XP, even if it includes a translation", async () => {
+  const raw = JSON.stringify({ ko: "안녕하세요.", uz: "Salom.", warning: "partial_answer" });
+  const { C, chatSend, xpAwards } = loadChatController(async (_prompt, onChunk) => { onChunk(raw); return raw; });
+  await chatSend("안녕하세요");
+  assert.equal(C.msgs[1]?.warning, "partial_answer");
+  assert.match(String(C.msgs[1]?.uz), /Javob qisman keldi/);
+  assert.equal(xpAwards(), 0);
 });
 
 test("Chrome hands-free voice keeps a Korean partial when its stream fails", async () => {
   const C = { msgs: [] as Array<Record<string, any>>, draft: "", busy: false, err: "", scn: 0 };
   const CALL = { streamSpoken: false, state: "think" };
-  let fallbackCalls = 0;
+  let fallbackCalls = 0, xpAwards = 0;
   const dependencies = {
     C, CALL, S: { lvl: 2 }, SCN: [["scenario"]],
     sampleFn: { stream: async (_prompt: string, onChunk: (chunk: string) => void) => { onChunk('{"ko":"안녕하세요. 다음'); throw new Error("stream interrupted"); } },
     route: () => "suhbat", render: () => undefined, sayLocal: async () => undefined,
-    parseAIJson: (raw: string) => JSON.parse(raw), gain: () => undefined,
+    parseAIJson: (raw: string) => JSON.parse(raw), gain: () => { xpAwards += 1; },
     chatSend: async () => { fallbackCalls += 1; },
   };
   const streamVoiceSend = loadInlineFunction(indexSource, "async function streamVoiceSend(", "\nasync function chatSend(", dependencies);
   await streamVoiceSend("잘 지내요?", 0.9);
   assert.equal(C.msgs[1]?.ko, "안녕하세요. 다음");
-  assert.equal(C.msgs[1]?.uz, "Koreyscha javob saqlandi, ammo o‘zbekcha tarjima olinmadi.");
-  assert.equal(C.msgs[1]?.warning, "translation_unavailable");
+  assert.match(String(C.msgs[1]?.uz), /Javob qisman keldi/);
+  assert.equal(C.msgs[1]?.warning, "partial_answer");
   assert.equal(CALL.streamSpoken, true);
   assert.equal(C.err, "");
   assert.equal(fallbackCalls, 0);
+  assert.equal(xpAwards, 0);
 });
 
 test("inline text tutor displays Korean when its Uzbek field is empty", async () => {
