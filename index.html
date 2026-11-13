@@ -3640,6 +3640,27 @@ function makeAI(){
     }
     throw last;
   };
+  fn.stream=async(prompt,onText,opts={})=>{
+    const first=kget("hm_model")||"gemini-flash-latest",models=[first,"gemini-flash-lite-latest","gemini-2.5-flash-lite","gemini-2.0-flash"].filter((m,i,a)=>a.indexOf(m)===i);
+    let last={code:"upstream"};
+    for(const model of models){
+      const ac=new AbortController(),tm=setTimeout(()=>ac.abort(),18000);
+      try{
+        const r=await fetch("https://generativelanguage.googleapis.com/v1beta/models/"+encodeURIComponent(model)+":streamGenerateContent?alt=sse",{method:"POST",signal:ac.signal,headers:{"content-type":"application/json","x-goog-api-key":key},body:JSON.stringify({contents:[{role:"user",parts:[{text:prompt}]}],generationConfig:Object.assign({responseMimeType:"application/json",temperature:.35,maxOutputTokens:240},opts&&opts.generationConfig||{})})});
+        if(r.status===404){last={code:"bad_model"};continue}
+        if(r.status===429){last={code:"rate_limited"};continue}
+        if(r.status===400||r.status===401||r.status===403)throw {code:"bad_key"};
+        if(!r.ok||!r.body)throw {code:"upstream"};
+        const reader=r.body.getReader(),dec=new TextDecoder(),chunks=[];let buf="";
+        const emit=raw=>{try{const j=JSON.parse(raw),parts=(((j.candidates||[])[0]||{}).content||{}).parts||[],text=parts.map(x=>x.text||"").join("");if(text){chunks.push(text);onText(text)}}catch(e){}};
+        for(;;){const x=await reader.read();if(x.done)break;buf+=dec.decode(x.value,{stream:true});const lines=buf.split(/\r?\n/);buf=lines.pop()||"";for(const line of lines){const q=line.replace(/^data:\s*/,"").trim();if(q&&q!=="[DONE]")emit(q)}}
+        if(buf.trim()&&buf.trim()!=="[DONE]")emit(buf.trim());
+        fn.used=model;return chunks.join("");
+      }catch(e){last=e&&e.code?e:{code:e&&e.name==="AbortError"?"network":"upstream"};if(last.code==="bad_key"||last.code==="network")throw last;if(last.code!=="bad_model"&&last.code!=="rate_limited")throw last}
+      finally{clearTimeout(tm)}
+    }
+    throw last;
+  };
   return fn;
 }
 function makeRec(){
@@ -3685,7 +3706,7 @@ V.sozlama=()=>`<section class="view"><h2>Sozlamalar</h2>
 </section>`;
 
 /* live voice call */
-let CALL={on:false,state:"idle",heard:"",note:"",hf:false,gate:false,t0:0,confidence:null};
+let CALL={on:false,state:"idle",heard:"",note:"",hf:false,gate:false,t0:0,confidence:null,streamSpoken:false};
 let noLang=false;const micOpts=()=>noLang?{}:{language:S.mic};
 const MICHELP=SOLO?"Bu brauzer ovozni tanimaydi. Chrome brauzerida oching.":"Bu oynada mikrofon berilmagan. Sahifani Chrome brauzerida alohida oching (Claude ilovasi ichida yoki chat yonidagi oynada emas) va Claude hisobingizga kiring.";
 function micWhy(e,gesture){const c=e&&e.code;
@@ -3722,8 +3743,9 @@ async function callSend(typed){
   CALL.gate=true;CALL.state="think";
   if(!CALL.hf){micSink=null;if(dict){try{await dict.stop()}catch(e){}}}
   else if(dict&&dict.native){try{await dict.stop()}catch(e){}}
-  C.draft=text;CALL.heard="";CALL.state="think";await chatSend(text,{voice:true,confidence:CALL.confidence});
+  C.draft=text;CALL.heard="";CALL.state="think";if(CALL.hf&&SOLO&&sampleFn&&typeof sampleFn.stream==="function")await streamVoiceSend(text,CALL.confidence);else await chatSend(text,{voice:true,confidence:CALL.confidence});
   if(!CALL.on)return;
+  if(CALL.streamSpoken){CALL.streamSpoken=false;CALL.gate=false;callListen(false);return}
   if(C.err){CALL.gate=false;const er=C.err;
     if(CALL.hf&&dict&&dict.native){callListen(false);CALL.note=er+" Tinglashda davom etyapman.";render(true)}
     else callSet(CALL.hf&&dict&&dict.active&&dict.active()?"listen":"idle",er);
@@ -3746,7 +3768,7 @@ async function callSend(typed){
 function callStart(){
   if(!C.msgs.some(m=>m.who==="me"))chatReset(3);
   const v=voices();
-  CALL={on:true,state:"idle",heard:"",note:"",gate:false,t0:Date.now(),confidence:null,hf:!!dict&&("speechSynthesis" in window)&&(!v.length||hasVoice("ko"))};
+  CALL={on:true,state:"idle",heard:"",note:"",gate:false,t0:Date.now(),confidence:null,streamSpoken:false,hf:!!dict&&("speechSynthesis" in window)&&(!v.length||hasVoice("ko"))};
   clearInterval(callTick);callTick=setInterval(()=>{const e=$("#ctime");if(e){const t=Math.floor((Date.now()-CALL.t0)/1000);e.textContent=String(Math.floor(t/60)).padStart(2,"0")+":"+String(t%60).padStart(2,"0")}},1000);
   window.scrollTo(0,0);callListen(true);if(!dict)render(true);
 }
@@ -3770,6 +3792,36 @@ function callView(){
    <div class="row" style="justify-content:center">${dict?`<button class="chip" data-miclang>Men ${S.mic==="uz"?"o'zbekcha":"koreyscha"} gapiraman</button>`:""}<button class="chip" data-say="${esc(m?m.ko:"")}">Qayta eshitish</button></div>
    <form class="send" data-calltext><input class="field" id="call-input" autocomplete="off" placeholder="Yoki yozing…" aria-label="Yozma javob" ${C.busy?"disabled":""}><button class="btn" ${C.busy?"disabled":""}>→</button></form>
   </div></section>`}
+async function streamVoiceSend(text,confidence){
+  const voice={voice:true,confidence};
+  const log=C.msgs.slice(-12).map(m=>m.who==="ai"?"Partner: "+m.ko:"Learner: "+m.text).join("\n");
+  const prompt=`You are a Korean conversation partner for an Uzbek-speaking learner at TOPIK level ${S.lvl}. Reply naturally in polite Korean (해요 style), then ask exactly one easy follow-up question. Put the Korean reply first and keep it short. Return ONLY JSON in this exact order: {"ko":"Korean reply","rom":"romanization","uz":"Uzbek translation","fix":"compatibility note","fixes":[{"category":"grammar|word|naturalness|spelling","text":"Uzbek explanation","correct":"correct Korean"}],"pronunciation":"cautious Uzbek note or empty string"}. Identify every meaningful issue in the learner line, up to 4. For voice input, transcript confidence is only a cautious signal and is not proof of exact phonemes. Input mode: voice transcript; confidence: ${typeof confidence==="number"?Math.round(confidence*100)+"%":"unavailable"}. Conversation so far:
+${log}`;
+  let raw="",ko="",queue=Promise.resolve(),spoken=0;
+  const speakReady=()=>{
+    const m=raw.match(/"ko"\s*:\s*"((?:\\.|[^"\\])*)/);if(!m)return;
+    let current;try{current=JSON.parse('"'+m[1]+'"')}catch(e){return}
+    ko=current;
+    const text=ko.slice(spoken);let cut=0;
+    for(let i=0;i<text.length;i++)if(/[.!?。！？]/.test(text[i]))cut=i+1;
+    if(cut){const sentence=text.slice(0,cut).trim();spoken+=cut;if(sentence){CALL.state="speak";if(route()==="suhbat")render(true);queue=queue.then(()=>sayLocal(sentence,"ko"))}}
+  };
+  C.msgs.push({who:"me",text});C.draft="";C.busy=true;C.err="";CALL.streamSpoken=false;render(true);
+  try{
+    raw=await sampleFn.stream(prompt,t=>{raw+=t;speakReady()},{generationConfig:{temperature:.35,maxOutputTokens:240}});
+    const r=parseAIJson(raw);if(!r||typeof r.ko!=="string"||!r.ko.trim())throw {code:"bad"};
+    const rest=r.ko.slice(spoken).trim();if(rest){CALL.state="speak";queue=queue.then(()=>sayLocal(rest,"ko"))}
+    const fixes=Array.isArray(r.fixes)?r.fixes.filter(x=>x&&typeof x.text==="string").slice(0,4).map(x=>({category:String(x.category||""),text:String(x.text),correct:String(x.correct||"")})):[];
+    C.msgs.push({who:"ai",ko:r.ko,rom:String(r.rom||""),uz:String(r.uz||""),fix:String(r.fix||""),fixes,pronunciation:String(r.pronunciation||"")});gain(5);await queue;CALL.streamSpoken=true;
+  }catch(e){
+    CALL.streamSpoken=false;
+    if(!spoken){
+      const last=C.msgs.pop();C.draft=last?last.text:text;C.busy=false;await chatSend(text,{voice:true,confidence});return;
+    }
+    C.err=aiErr(e);
+  }
+  C.busy=false;if(route()==="suhbat")render(true);
+}
 async function chatSend(typed,voiceMeta){
   const text=(typeof typed==="string"?typed:C.draft).replace(/\s+/g," ").trim();if(!text||C.busy||!sampleFn)return;
   const voice=voiceMeta&&voiceMeta.voice?voiceMeta:null;
