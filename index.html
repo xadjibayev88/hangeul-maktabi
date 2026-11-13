@@ -1,4 +1,4 @@
-<!doctype html><html lang="uz"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="description" content="Koreys tilini noldan TOPIK 5 gacha o'rgatadigan o'zbekcha platforma."><link rel="manifest" href="manifest.webmanifest"><meta name="theme-color" content="#0d1226"><link rel="icon" href="icon-192.png"><link rel="apple-touch-icon" href="icon-192.png"><meta name="mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-capable" content="yes"><script src="firebase-config.js"></script><style>body{margin:0}img{max-width:100%}[hidden]{display:none!important}</style></head><body><title>Go Topic</title>
+<!doctype html><html lang="uz"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="description" content="Koreys tilini noldan TOPIK 5 gacha o'rgatadigan o'zbekcha platforma."><link rel="manifest" href="manifest.webmanifest"><meta name="theme-color" content="#0d1226"><link rel="icon" href="icon-192.png"><link rel="apple-touch-icon" href="icon-192.png"><meta name="mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-capable" content="yes"><script src="firebase-config.js"></script><title>Go Topic — Koreys tili va TOPIK</title><style>body{margin:0}img{max-width:100%}[hidden]{display:none!important}</style></head><body>
 <meta name="claude:viewport-fit-sides" content="cover">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Black+Han+Sans&family=Noto+Sans+KR:wght@400;500;700&family=Onest:wght@400;500;600;700&family=Unbounded:wght@600;800&display=swap">
 <style>
@@ -3497,7 +3497,7 @@ const seenCount=()=>CONS.concat(VOWS).filter(l=>S.seen[l[0]]).length;
 const V={};
 const PEEK=[["AI ustoz","O'zbekcha tushuntiradigan AI bilan ovozli suhbat: kafeda, do'konda, erkin dars. Xatoingizni darhol tuzatadi.","suhbat","AI bilan gaplashish"],["Reja","Maqsad, daraja va kunlik vaqtingizga qarab har kungi mashqlar ro'yxati.","reja","Rejamni tuzish"],["Testlar","So'z testi va 90 ta grammatika savoli, TOPIK 1 dan 5 gacha. AI har safar yangi savol tuzadi.","grammatika","Grammatikani boshlash"],["Tinglash","Suhbat va e'lonlar ikki xil ovozda, tushunish savollari bilan.","tinglash","Tinglab ko'rish"],["O'qish","Darajangizga mos matnlar, tarjima va ovoz bilan.","oqish","Matn o'qish"],["O'yinlar","Tezlikka so'z topish va 60 soniya to'xtamay gapirish.","oyinlar","O'ynash"],["Lug'at",DRAW.length+" so'zli koreyscha–o'zbekcha lug'at, qidiruv va ovoz bilan.","lugat","Lug'atni ochish"]];
 let peek=0;
-const FAQ=[["Ro'yxatdan o'tish kerakmi?","Yo'q. Natijalaringiz shu qurilmada saqlanadi. AI bo'limlari (suhbat, AI lug'at, AI mashqlar) faqat Claude hisobiga kirgan holda ishlaydi."],["Bu rasmiy TOPIK materialimi?","Yo'q. Mashqlar TOPIK uslubida tuzilgan, lekin imtihonning rasmiy savollari emas."],["Darajani qanday tanlayman?","«Mening rejam» bo'limida uchta savolga javob bering yoki istalgan sahifadagi TOPIK darajasi tugmalaridan foydalaning. Daraja o'zgarsa, so'zlar, matnlar va AI mashqlari ham o'zgaradi."],["Lug'at qayerdan olingan?","Koreya Milliy til institutining o'rganuvchilar uchun so'zlar ro'yxatidan (A va B bosqich). O'zbekcha tarjimalar AI yordamida qo'shilgan va rasmiy tarjima emas."],["TOPIK darajasi qanday hisoblanadi?","TOPIK I da 200 balldan 80 ball 1-daraja, 140 ball 2-daraja. TOPIK II da 300 balldan 120, 150, 190 va 230 ball mos ravishda 3, 4, 5 va 6-daraja. Vositalar bo'limida kalkulyator bor."]];
+const FAQ=[["Ro'yxatdan o'tish kerakmi?","Yo'q. Natijalaringiz shu qurilmada saqlanadi. AI bo'limlari (suhbat, AI lug'at, AI mashqlar) Gemini kaliti yoki platforma AI xizmati bilan ishlaydi."],["Bu rasmiy TOPIK materialimi?","Yo'q. Mashqlar TOPIK uslubida tuzilgan, lekin imtihonning rasmiy savollari emas."],["Darajani qanday tanlayman?","«Mening rejam» bo'limida uchta savolga javob bering yoki istalgan sahifadagi TOPIK darajasi tugmalaridan foydalaning. Daraja o'zgarsa, so'zlar, matnlar va AI mashqlari ham o'zgaradi."],["Lug'at qayerdan olingan?","Koreya Milliy til institutining o'rganuvchilar uchun so'zlar ro'yxatidan (A va B bosqich). O'zbekcha tarjimalar AI yordamida qo'shilgan va rasmiy tarjima emas."],["TOPIK darajasi qanday hisoblanadi?","TOPIK I da 200 balldan 80 ball 1-daraja, 140 ball 2-daraja. TOPIK II da 300 balldan 120, 150, 190 va 230 ball mos ravishda 3, 4, 5 va 6-daraja. Vositalar bo'limida kalkulyator bor."]];
 V.bosh=()=>`<section class="view">
  <div class="hero2">
   <div class="score" aria-hidden="true"><i>ㅎ</i><b class="gt">5급</b><i>ㄱ</i></div>
@@ -3605,6 +3605,15 @@ V.suhbat=()=>{
 /* standalone mode (own hosting): browser speech recognition + the viewer's own AI key */
 const SOLO=!(window.claude&&window.claude.use);
 const kget=k=>{try{return localStorage.getItem(k)||""}catch(e){return ""}};
+function parseAIJson(raw){
+  const clean=String(raw).replace(/^\uFEFF/,"").replace(/^```(?:json)?\s*/i,"").replace(/\s*```$/i,"").trim();
+  try{return JSON.parse(clean)}catch(e){}
+  const starts=[clean.indexOf("{"),clean.indexOf("[")].filter(n=>n>=0).sort((a,b)=>a-b);
+  if(!starts.length)throw {code:"bad"};
+  const start=starts[0],end=Math.max(clean.lastIndexOf("}"),clean.lastIndexOf("]"));
+  if(end<=start)throw {code:"bad"};
+  try{return JSON.parse(clean.slice(start,end+1))}catch(e){throw {code:"bad"}}
+}
 function makeAI(){
   const key=kget("hm_key");if(!key)return null;
   const fn=()=>{};
@@ -3616,8 +3625,10 @@ function makeAI(){
     if(r.status===404)throw {code:"bad_model"};
     if(r.status===400||r.status===401||r.status===403)throw {code:"bad_key"};
     if(!r.ok)throw {code:"upstream"};
-    const j=await r.json(),t=(((j.candidates||[])[0]||{}).content||{}).parts;
-    return JSON.parse((t||[]).map(x=>x.text||"").join("").replace(/^```(?:json)?|```$/g,"").trim());
+    const j=await r.json(),candidate=(j.candidates||[])[0]||{},t=(candidate.content||{}).parts;
+    const raw=(t||[]).map(x=>x.text||"").join("").trim();
+    if(!raw)throw {code:"empty_response"};
+    return parseAIJson(raw);
   };
   fn.json=async prompt=>{
     const first=kget("hm_model")||"gemini-flash-latest",models=[first,"gemini-flash-lite-latest","gemini-2.5-flash-lite","gemini-2.0-flash"].filter((m,i,a)=>a.indexOf(m)===i);
