@@ -3521,13 +3521,20 @@ ${log}`;
     const r=parseAIJson(raw);if(!r||typeof r.ko!=="string"||!r.ko.trim())throw {code:"bad"};
     const rest=r.ko.slice(spoken).trim();if(rest){CALL.state="speak";queue=queue.then(()=>sayLocal(rest,"ko"))}
     const fixes=Array.isArray(r.fixes)?r.fixes.filter(x=>x&&typeof x.text==="string").slice(0,1).map(x=>({category:String(x.category||""),text:String(x.text),correct:String(x.correct||"")})):[];
-    C.msgs.push({who:"ai",ko:r.ko,rom:String(r.rom||""),uz:String(r.uz||""),fix:String(r.fix||""),fixes,pronunciation:String(r.pronunciation||"")});gain(5);await queue;CALL.streamSpoken=true;
+    const uz=String(r.uz||"").trim(),warning=uz?"":"translation_unavailable";
+    C.msgs.push({who:"ai",ko:r.ko,rom:String(r.rom||""),uz:uz||"Koreyscha javob tayyor, ammo o‘zbekcha tarjima olinmadi.",fix:String(r.fix||""),fixes,pronunciation:String(r.pronunciation||""),warning});gain(5);await queue;CALL.streamSpoken=true;
   }catch(e){
     CALL.streamSpoken=false;
-    if(!spoken){
+    if(ko.trim()){
+      const answer=ko.trim(),remaining=answer.slice(Math.min(spoken,answer.length)).trim();
+      C.msgs.push({who:"ai",ko:answer,rom:"",uz:"Koreyscha javob saqlandi, ammo o‘zbekcha tarjima olinmadi.",fix:"",fixes:[],pronunciation:"",warning:"translation_unavailable"});
+      if(remaining){CALL.state="speak";queue=queue.then(()=>sayLocal(remaining,"ko"))}
+      await queue.catch(()=>{});CALL.streamSpoken=true;C.err="";
+    }else if(!spoken){
       const last=C.msgs.pop();C.draft=last?last.text:text;C.busy=false;await chatSend(text,{voice:true,confidence});return;
+    }else{
+      C.err=aiErr(e);
     }
-    C.err=aiErr(e);
   }
   C.busy=false;if(route()==="suhbat")render(true);
 }
@@ -3555,7 +3562,8 @@ ${log}`;
     const r=await sampleFn.json(prompt,{generationConfig:{temperature:.35,maxOutputTokens:240}});
     if(!r||typeof r.ko!=="string"||!r.ko.trim())throw {code:"bad"};
     const fixes=Array.isArray(r.fixes)?r.fixes.filter(x=>x&&typeof x.text==="string").slice(0,1).map(x=>({category:String(x.category||""),text:String(x.text),correct:String(x.correct||"")})):[];
-    C.msgs.push({who:"ai",ko:r.ko,rom:String(r.rom||""),uz:String(r.uz||""),fix:String(r.fix||""),fixes,pronunciation:voice?String(r.pronunciation||""):""});gain(5);if(S.auto&&!CALL.on)speakBoth(r.ko,String(r.uz||""));
+    const uz=String(r.uz||"").trim(),warning=uz?"":"translation_unavailable";
+    C.msgs.push({who:"ai",ko:r.ko,rom:String(r.rom||""),uz:uz||"Koreyscha javob tayyor, ammo o‘zbekcha tarjima olinmadi.",fix:String(r.fix||""),fixes,pronunciation:voice?String(r.pronunciation||""):"",warning});gain(5);if(S.auto&&!CALL.on)speakBoth(r.ko,uz);
   }catch(e){
     const last=C.msgs.pop();C.draft=last.text;
     C.err=aiErr(e);

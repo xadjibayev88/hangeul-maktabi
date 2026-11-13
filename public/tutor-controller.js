@@ -16,7 +16,10 @@
   const history = () => C.msgs.slice(-10).map(item => ({ who: item.who, text: String(item.who === "me" ? item.text : item.ko).slice(0, 1000) }));
   function appendReply(value, award = true) {
     if (!value || typeof value.ko !== "string" || !value.ko.trim()) throw new Error("AI javobi noto‘g‘ri.");
-    C.msgs.push({ who: "ai", ko: value.ko, rom: String(value.rom || ""), uz: String(value.uz || ""), fix: String(value.fix || ""), fixes: Array.isArray(value.fixes) ? value.fixes.slice(0, 1) : [], pronunciation: "", warning: String(value.warning || "") });
+    const translation = String(value.uz || "").trim();
+    const warning = String(value.warning || (!translation ? "translation_unavailable" : ""));
+    const visibleTranslation = translation || (warning === "voice_unavailable" ? "Ovozli javob uzildi; o‘zbekcha tarjima to‘liq olinmadi." : "Koreyscha javob tayyor, ammo o‘zbekcha tarjima olinmadi.");
+    C.msgs.push({ who: "ai", ko: value.ko.trim(), rom: String(value.rom || ""), uz: visibleTranslation, fix: String(value.fix || ""), fixes: Array.isArray(value.fixes) ? value.fixes.slice(0, 1) : [], pronunciation: "", warning });
     if (C.msgs.length > 60) C.msgs.splice(0, C.msgs.length - 60);
     if (award) gain(5);
   }
@@ -49,9 +52,17 @@
       if (S.auto) speakBoth(C.msgs[C.msgs.length - 1].ko, C.msgs[C.msgs.length - 1].uz);
     } catch (failure) {
       if (turn !== token) return;
-      if (C.msgs[C.msgs.length - 1]?.who === "me") C.msgs.pop();
-      C.draft = text;
-      if (failure.name !== "AbortError") C.err = message(failure);
+      let recovered;
+      try { recovered = parseAIJson(raw); } catch (_) { recovered = null; }
+      const korean = typeof recovered?.ko === "string" && recovered.ko.trim() ? recovered.ko : partialReply(raw);
+      if (korean.trim()) {
+        appendReply(recovered?.ko ? recovered : { ko: korean, uz: "", fixes: [], warning: "translation_unavailable" }, false);
+        C.draft = ""; C.err = "";
+      } else {
+        if (C.msgs[C.msgs.length - 1]?.who === "me") C.msgs.pop();
+        C.draft = text;
+        if (failure.name !== "AbortError") C.err = message(failure);
+      }
     } finally {
       clearTimeout(timeout);
       if (turn === token) { C.busy = false; textController = null; if (route() === "suhbat") { render(true); scrollChat(); } }
