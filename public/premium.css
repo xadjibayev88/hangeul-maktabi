@@ -124,9 +124,9 @@ h2{font-size:clamp(1.3rem,2vw,1.72rem);font-weight:800}h3{font-weight:750}
 .seg button{color:var(--premium-muted);transition:background .2s,color .2s,transform .2s}
 .seg button:hover{color:var(--premium-ink-strong);background:rgba(255,255,255,.07)}
 .seg button[aria-pressed="true"]{background:var(--premium-gradient);color:#10162e}
-.field,.send input{color:var(--premium-ink);background:rgba(255,255,255,.055);border:1px solid var(--premium-line);border-radius:14px;outline:none;transition:border-color .2s,box-shadow .2s,background .2s}
-.field:focus,.send input:focus{border-color:var(--premium-cyan);box-shadow:0 0 0 4px rgba(101,245,208,.1);background:rgba(255,255,255,.08)}
-:root[data-theme="light"] .field,:root[data-theme="light"] .send input{background:rgba(255,255,255,.75)}
+.field,.send input,.send textarea{color:var(--premium-ink);background:rgba(255,255,255,.055);border:1px solid var(--premium-line);border-radius:14px;outline:none;transition:border-color .2s,box-shadow .2s,background .2s}
+.field:focus,.send input:focus,.send textarea:focus{border-color:var(--premium-cyan);box-shadow:0 0 0 4px rgba(101,245,208,.1);background:rgba(255,255,255,.08)}
+:root[data-theme="light"] .field,:root[data-theme="light"] .send input,:root[data-theme="light"] .send textarea{background:rgba(255,255,255,.75)}
 :focus-visible{outline:3px solid var(--premium-cyan);outline-offset:3px}
 
 /* Home: asymmetric editorial dashboard with the reserved AI hero artwork only here. */
@@ -324,6 +324,18 @@ header.top{background:color-mix(in srgb,var(--premium-bg-2) 88%,transparent);bor
 @media(prefers-reduced-motion:reduce), (prefers-reduced-data:reduce){.aura::before,.aura::after,body::after{box-shadow:none}.ripple-ink{display:none!important}}
 :root[data-lite="true"] .aura{opacity:1}
 .scrim,.home-ai-card::before{filter:none!important}.scrim{backdrop-filter:none!important;-webkit-backdrop-filter:none!important}.home-ai-card::before{animation:none!important}
+
+/* Mobile chat: keep the growing speech transcript and composer clear of the fixed tab bar. */
+@media(max-width:960px){
+  .chat-view{padding-bottom:calc(88px + env(safe-area-inset-bottom,0px))}
+  .chat-view>.chat{max-height:min(42vh,360px);max-height:min(42dvh,360px);overflow-y:auto;overscroll-behavior-y:contain;scroll-padding-block:12px}
+  .chat-view>.chat-composer{bottom:calc(88px + env(safe-area-inset-bottom,0px))}
+}
+@media(max-width:620px){
+  .chat-view{padding-bottom:calc(80px + env(safe-area-inset-bottom,0px))}
+  .chat-view>.chat{max-height:min(38vh,300px);max-height:min(38dvh,300px)}
+  .chat-view>.chat-composer{bottom:calc(80px + env(safe-area-inset-bottom,0px))}
+}
 
 /* A desktop rail remains visible even when the mobile drawer's hidden flag is set. */
 @media(min-width:961px){.drawer[hidden]{display:flex!important}}

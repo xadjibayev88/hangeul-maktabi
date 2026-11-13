@@ -81,7 +81,7 @@ export function createApp() {
   app.get("/api/dictionary", async (req,res) => { try {res.set("Cache-Control","public, max-age=60");res.json(await searchDictionary(req.query));} catch(error) { const busy=(error as {code?:string}).code==="dictionary_busy",invalid=(error as Error).name==="ZodError";res.set("Retry-After","2").status(busy?429:invalid?400:503).json({error:{code:busy?"busy":invalid?"invalid_query":"dictionary_unavailable"}}); } });
   app.get("/api/catalog", async (_req,res) => { try { res.set("Cache-Control","public, max-age=60");res.json(await learningCatalog()); } catch { res.status(503).json({error:{code:"catalog_unavailable"}}); } });
   app.get("/api/session", async (req, res) => {
-    try { const user = await getUser(req); res.json({ user, voiceConfigured: !!process.env.ELEVENLABS_API_KEY, aiConfigured: !!process.env.GEMINI_API_KEY, limits: { dailyAiTurns: number("AI_DAILY_LIMIT", 80, 1000), voiceMonthlyCharacters: number("VOICE_MONTHLY_CHAR_LIMIT", 10000, 100000000) } }); }
+    try { const user = await getUser(req); res.json({ user, voiceConfigured: !!(process.env.GEMINI_API_KEY && process.env.ELEVENLABS_API_KEY), aiConfigured: !!process.env.GEMINI_API_KEY, limits: { dailyAiTurns: number("AI_DAILY_LIMIT", 80, 1000), voiceMonthlyCharacters: number("VOICE_MONTHLY_CHAR_LIMIT", 10000, 100000000) } }); }
     catch { res.status(503).json({ error: { code: "unavailable", message: "Hisob xizmatiga hozir ulanib bo‘lmadi." } }); }
   });
   app.get("/api/progress", async (req, res) => {
@@ -175,7 +175,7 @@ export function createApp() {
       await sendEvent(res, lifecycle.signal, "audio_end", {});
       let reply: unknown;
       try {
-        reply = normalizeTutorReply(parseJson(await voice.responseText), raw.trim());
+        reply = normalizeTutorReply(parseJson(await voice.responseText), raw.trim(), parsed.data.text);
       } catch {
         if (!lifecycle.signal.aborted) providerFailure("gemini");
         if (!raw.trim()) throw new Error("Gemini reply did not include Korean text");
@@ -191,7 +191,7 @@ export function createApp() {
           let reply: unknown = partialTutorReply(raw, "voice_unavailable");
           if (!lifecycle.signal.aborted && voice) {
             try {
-              reply = { ...normalizeTutorReply(parseJson(await voice.responseText), raw.trim()), warning: "voice_unavailable" };
+              reply = { ...normalizeTutorReply(parseJson(await voice.responseText), raw.trim(), parsed.data.text), warning: "voice_unavailable" };
             } catch { /* Keep the Korean text already streamed to the browser. */ }
           }
           res.write(`event: done\ndata: ${JSON.stringify({ value: reply })}\n\n`);
