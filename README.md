@@ -36,6 +36,6 @@ Joriy ElevenLabs Free hisobining 10 000 belgi/oy limiti 500–1000 kishining mun
 
 `PUBLIC_ORIGIN` haqiqiy publish originiga qo‘yiladi; `ALLOWED_ORIGINS` faqat zarur qo‘shimcha frontendlar uchun. Public-origin headerlarni ichki hostdan yasamang. Session cookie HTTPS uchun SameSite=None; Secure.
 
-App yangi originiga publish bo‘lgandan keyin Android DEFAULT_URL va versiya moslanadi, APK qayta yig‘iladi. Hozirgi debug APK eski GitHub Pages URLiga yo‘naltirilgan va production release deb hisoblanmaydi. Yangilanish uchun oldingi production keystore zarur. [Android qo‘llanmasi](docs/android-release.md) va [provider tekshiruvlari](docs/provider-notes.md) tafsilotlarni beradi.
+App yangi originiga publish bo‘lgandan keyin Android DEFAULT_URL va versiya moslanadi, APK qayta yig‘iladi. Yangi 2.0.1 debug APK https://gotopik-a749akip.manus.space/ URLiga yo‘naltirilgan, lekin signed production release deb hisoblanmaydi. Yangilanish uchun oldingi production keystore zarur. [Android qo‘llanmasi](docs/android-release.md) va [provider tekshiruvlari](docs/provider-notes.md) tafsilotlarni beradi.
 
 Barcha asosiy kontent ro‘yxati 31 mavzu, 90 grammatika yozuvi va 2888 dictionary yozuvidan iborat. Catalog MySQLga saqlangan va public cached JSON fallback ham mavjud.

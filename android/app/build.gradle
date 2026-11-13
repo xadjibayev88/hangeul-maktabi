@@ -1,7 +1,7 @@
 plugins { id 'com.android.application' }
 
-def buildVersionCode = (project.findProperty('verCode') ?: '1').toString().toInteger()
-def buildVersionName = (project.findProperty('versionName') ?: '1.0.0').toString()
+def buildVersionCode = (project.findProperty('verCode') ?: '2001').toString().toInteger()
+def buildVersionName = (project.findProperty('versionName') ?: '2.0.1').toString()
 def releaseSigningValues = [
     System.getenv('RELEASE_KEYSTORE_FILE'),
     System.getenv('RELEASE_STORE_PASSWORD'),

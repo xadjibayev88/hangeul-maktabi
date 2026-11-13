@@ -4,8 +4,8 @@ set -euo pipefail
 ROOT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
 ANDROID_DIR="$ROOT_DIR/android"
 OUTPUT_DIR="${OUTPUT_DIR:-$ROOT_DIR/output}"
-VERSION_CODE="${VERSION_CODE:-1}"
-VERSION_NAME="${VERSION_NAME:-1.0.0}"
+VERSION_CODE="${VERSION_CODE:-2001}"
+VERSION_NAME="${VERSION_NAME:-2.0.1}"
 
 if [[ -x "$ANDROID_DIR/gradlew" ]]; then
   GRADLE=("$ANDROID_DIR/gradlew")

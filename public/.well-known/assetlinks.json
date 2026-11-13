@@ -1,0 +1,10 @@
+[
+  {
+    "relation": ["delegate_permission/common.handle_all_urls"],
+    "target": {
+      "namespace": "android_app",
+      "package_name": "uz.hangeulmaktabi.app",
+      "sha256_cert_fingerprints": ["07:17:F6:A2:9C:4A:B3:6E:84:1E:55:C3:AC:CB:6B:9B:88:53:D0:AB:DC:0F:C3:B9:D8:73:3C:EC:57:22:B6:28"]
+    }
+  }
+]

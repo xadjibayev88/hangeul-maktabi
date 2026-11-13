@@ -192,6 +192,7 @@ export function createApp() {
     }
   });
   app.use("/api", (_req, res) => { res.status(404).json({ error: { code: "not_found" } }); });
+  app.get("/.well-known/assetlinks.json", (_req,res) => { res.set("Cache-Control","public, max-age=3600");res.sendFile(resolve(ROOT,".well-known","assetlinks.json")); });
   app.use(express.static(ROOT, { maxAge: 0, etag: true, setHeaders: (res, path) => {
     if (/\.(?:html|js|css|webmanifest|json)$/.test(path)) res.set("Cache-Control", "no-cache");
     else res.set("Cache-Control", "public, max-age=86400");

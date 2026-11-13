@@ -1,44 +1,33 @@
 # Android chiqarish
 
-Go Topic Android ilovasi Chrome orqali GitHub Pages sayti bilan ishlaydigan Trusted Web Activity (TWA). Hozirgi manzil ataylab o'zgartirilmagan:
+Go Topic Android ilovasi Chrome orqali Manus’dagi production saytni ochadigan Trusted Web Activity (TWA).
 
-`https://xadjibayev88.github.io/hangeul-maktabi/`
+Production manzil: `https://gotopik-a749akip.manus.space/`. Yangi DEFAULT_URL shu haqiqiy publish domeniga ulandi. Sayt Public ruxsatida bo‘lishi kerak; Private sayt 500–1000 foydalanuvchi yoki Android’ning domain-verification so‘rovlariga ochilmaydi.
 
-Yangi rasmiy domen haqiqatan chop etilgandan keyingina `android/app/src/main/AndroidManifest.xml` ichidagi `DEFAULT_URL` va kerak bo'lsa sayt konfiguratsiyasi birgalikda yangilanadi. Hash asosidagi mavjud bo'lim havolalari (`#bosh`, `#alifbo`, `#sozlar` va boshqalar) o'zgartirilmaydi.
+## Sinov APK
 
-## Mahalliy yig'ish
+Yangi versiya: 2.0.1, versionCode 2001, applicationId `uz.hangeulmaktabi.app`, compile/target SDK 35, min SDK 23. Bu debug-signed APK, Play Store release emas. Yig‘ilgandan keyin `/home/ubuntu/output/GoTopic-debug.apk` sifatida yetkaziladi.
 
-Android SDK, SDK Platform 35 va Gradle 8.9+ mavjud bo'lsa:
+Saytning `/.well-known/assetlinks.json` faylida aynan shu debug sertifikatining SHA-256 fingerprinti bor. Public sayt va qurilmaning muvaffaqiyatli Digital Asset Links tekshiruvi TWA’da browser chrome’ni yashirishga imkon beradi; qurilma tekshiruvi kechiksa Custom Tabs fallback ochiladi.
 
-```bash
-./scripts/build-android.sh
+Manifestda faqat INTERNET ruxsati bor; mikrofon uchun Chrome o‘zining odatiy Android ruxsatini so‘raydi. Dizayn, ranglar va darslar saytdan keladi.
+
+## Yig‘ish
+
+Android SDK 35 va Gradle 8.9+ o‘rnatilgan muhitda:
+
+```sh
+VERSION_CODE=2001 VERSION_NAME=2.0.1 ./scripts/build-android.sh
 ```
 
-Versiyani sayt versiyasidan mustaqil berish mumkin:
+`OUTPUT_DIR` orqali artefact katalogi beriladi. Release signing to‘liq berilmasa, script debug APK yig‘adi. `RELEASE_KEYSTORE_FILE`, `RELEASE_STORE_PASSWORD`, `RELEASE_KEY_ALIAS`, `RELEASE_KEY_PASSWORD` to‘liq va to‘g‘ri berilsa signed release yig‘iladi.
 
-```bash
-VERSION_CODE=12 VERSION_NAME=1.0.12 ./scripts/build-android.sh
-```
+GitHub Actions faqat manual workflow_dispatch. GitHub secretlari uchun `RELEASE_KEYSTORE_BASE64`, `RELEASE_STORE_PASSWORD`, `RELEASE_KEY_ALIAS`, `RELEASE_KEY_PASSWORD` ishlatiladi. APK build, signing va release output nomi alohida belgilanadi.
 
-To'liq release signing sozlanmagan bo'lsa, skript aniq nomlangan `output/GoTopic-debug.apk` yaratadi. Bu APK debug sertifikati bilan imzolanadi. Bir xil telefonda eski debug sertifikatli APK ustiga boshqa muhitda yaratilgan APK o'rnatilmasa, bu kutiladigan sertifikat mos kelmasligi xatosi; foydalanuvchi ma'lumotlarini saqlaydigan yangilanishlar uchun doim bitta production keystore kerak.
+## Rasmiy yangilanish va ma’lumotlar
 
-## GitHub Actions
+Eski APK ustiga yangilash uchun aynan oldingi production keystore kerak. Boshqa sertifikatli debug APK update bo‘la olmasligi mumkin; foydalanuvchidan ilovani yoki ma’lumotlarni avtomatik o‘chirish talab qilinmaydi. Production fingerprint assetlinks fayliga qo‘shilishi kerak. Keystore/parollar Git yoki APK manba fayllariga qo‘yilmaydi.
 
-`.github/workflows/apk.yml` faqat `workflow_dispatch` orqali ishga tushadi; oddiy push yoki tashqi trigger APK chiqarishni boshlamaydi. Workflow mavjud ochiq release/artifact jarayonini saqlaydi:
+Eski GitHub Pages sahifasi o‘zgartirilmagan va uning Chrome’dagi local progressi o‘sha origin uchun saqlanib qoladi. Yangi Manus originiga localStorage avtomatik ko‘chmaydi. Cloud progress yangi hisob orqali sinxronlanadi; eski origin progressini ko‘chirish alohida migration/export bosqichini talab qiladi. Bu build ma’lumotlarni o‘chirib yoki yashirin ko‘chirmaydi.
 
-- barcha to'rt secret bo'lmasa, `GoTopic-debug.apk` yig'iladi va debug deb belgilanadi;
-- quyidagi to'rt secret to'liq berilsa, `GoTopic-release.apk` yig'iladi:
-  - `RELEASE_KEYSTORE_BASE64`
-  - `RELEASE_STORE_PASSWORD`
-  - `RELEASE_KEY_ALIAS`
-  - `RELEASE_KEY_PASSWORD`
-- keystore vaqtinchalik runner fayliga yoziladi, secretlar buyruq satriga chiqarilmaydi va logga yozilmaydi;
-- APK artifact sifatida yuklanadi va mavjud public release oqimiga biriktiriladi.
-
-Production keystore va parollar repozitoriyga kiritilmaydi. Signing sozlanmagan debug APK Play Store uchun production release hisoblanmaydi. `compileSdk` va `targetSdk` hozircha 35 qilib belgilangan; bu kelajakdagi Play siyosati bilan moslik kafolati emas.
-
-## Ruxsatlar va TWA xulqi
-
-Manifestda faqat TWA uchun zarur `INTERNET` ruxsati bor. Media/mikrofon kabi xavfli ruxsatlar qo'shilmagan: Chrome sayt so'rovini o'zining odatiy Android ruxsat oqimi orqali boshqaradi. TWA sayt dizaynini o'z ichiga olmaydi — ranglar va ekranlar saytdan keladi.
-
-`public/sw.js` faqat bir xil originning cheklangan shell/static resurslarini keshlaydi. API, auth/private yo'llar, Firebase konfiguratsiyasi, cross-origin resurslar va muvaffaqiyatsiz HTTP javoblar keshlanmaydi. Offline fallback faqat HTML navigatsiyasi uchun ishlaydi; voice-call paytida sahifani majburan qayta yuklamaslik uchun service worker faqat yangilanish xabarini yuboradi.
+SDK 35 kelajakdagi Play siyosatiga moslik kafolati emas. Rasmiy Store release uchun production signing va o‘sha paytdagi Store talablarini tekshirish zarur.
