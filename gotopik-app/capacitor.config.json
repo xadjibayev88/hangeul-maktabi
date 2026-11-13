@@ -1,0 +1,13 @@
+{
+  "appId": "uz.gotopik.app",
+  "appName": "Go Topic",
+  "webDir": "www",
+  "server": {
+    "url": "https://gotopik-a749akip.manus.space",
+    "cleartext": false
+  },
+  "android": {
+    "allowMixedContent": false,
+    "backgroundColor": "#0b1024"
+  }
+}

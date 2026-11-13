@@ -1,0 +1,70 @@
+name: Go Topic APK (AdMob)
+
+on:
+  workflow_dispatch:
+    inputs:
+      site_url:
+        description: "Sayt manzili"
+        default: "https://gotopik-a749akip.manus.space"
+        required: true
+      admob_app_id:
+        description: "AdMob App ID (ca-app-pub-...~...). Bo'sh: Google sinov ID"
+        default: ""
+        required: false
+  push:
+    branches: [main]
+    paths:
+      - "gotopik-app/**"
+      - ".github/workflows/gotopik-apk.yml"
+
+permissions:
+  contents: write
+
+jobs:
+  apk:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: gotopik-app
+    env:
+      SITE_URL: ${{ github.event.inputs.site_url || 'https://gotopik-a749akip.manus.space' }}
+      ADMOB_APP_ID: ${{ github.event.inputs.admob_app_id || 'ca-app-pub-3940256099942544~3347511713' }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: "21"
+      - name: Install
+        run: npm install --no-audit --no-fund
+      - name: Configure site URL
+        run: |
+          python3 - <<'PY'
+          import json, os
+          c = json.load(open("capacitor.config.json"))
+          c["server"]["url"] = os.environ["SITE_URL"]
+          json.dump(c, open("capacitor.config.json", "w"), indent=2)
+          PY
+      - name: Add Android platform
+        run: npx cap add android && npx cap sync android
+      - name: Patch Android project
+        run: python3 scripts/patch-android.py "$ADMOB_APP_ID" "${{ github.run_number }}"
+      - name: Build APK
+        working-directory: gotopik-app/android
+        run: ./gradlew --no-daemon assembleDebug
+      - name: Rename
+        run: cp android/app/build/outputs/apk/debug/app-debug.apk ../GoTopic-AdMob.apk
+      - uses: actions/upload-artifact@v4
+        with:
+          name: GoTopic-AdMob-apk
+          path: GoTopic-AdMob.apk
+      - uses: softprops/action-gh-release@v2
+        with:
+          tag_name: gotopik-admob-latest
+          name: Go Topic APK (AdMob)
+          body: "Go Topic Android ilovasi: AdMob banner, telefon mikrofoni va koreyscha ovoz. Sinov (debug) imzosi bilan yig'ilgan."
+          files: GoTopic-AdMob.apk
+          make_latest: false
