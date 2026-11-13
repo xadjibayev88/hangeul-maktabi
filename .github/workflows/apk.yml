@@ -1,0 +1,41 @@
+name: APK yig'ish
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - "android/**"
+      - ".github/workflows/apk.yml"
+
+permissions:
+  contents: write
+
+jobs:
+  apk:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: "17"
+      - uses: gradle/actions/setup-gradle@v4
+        with:
+          gradle-version: "8.9"
+      - name: Build debug APK
+        working-directory: android
+        run: gradle --no-daemon assembleDebug -PverCode=${{ github.run_number }}
+      - name: Rename
+        run: cp android/app/build/outputs/apk/debug/app-debug.apk HangeulMaktabi.apk
+      - uses: actions/upload-artifact@v4
+        with:
+          name: HangeulMaktabi-apk
+          path: HangeulMaktabi.apk
+      - uses: softprops/action-gh-release@v2
+        with:
+          tag_name: apk-latest
+          name: Hangeul Maktabi APK
+          body: "Android uchun o'rnatish fayli. Telefonda yuklab oling va oching. Sinov (debug) imzosi bilan yig'ilgan."
+          files: HangeulMaktabi.apk
+          make_latest: true

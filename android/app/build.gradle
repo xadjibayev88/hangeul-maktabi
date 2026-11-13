@@ -1,0 +1,21 @@
+plugins { id 'com.android.application' }
+
+android {
+    namespace 'uz.hangeulmaktabi.app'
+    compileSdk 34
+    defaultConfig {
+        applicationId 'uz.hangeulmaktabi.app'
+        minSdk 23
+        targetSdk 34
+        versionCode((project.findProperty('verCode') ?: '1') as Integer)
+        versionName "1.0.${project.findProperty('verCode') ?: '1'}"
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_17
+        targetCompatibility JavaVersion.VERSION_17
+    }
+}
+
+dependencies {
+    implementation 'com.google.androidbrowserhelper:androidbrowserhelper:2.5.0'
+}

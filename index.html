@@ -1,4 +1,4 @@
-<!doctype html><html lang="uz"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="description" content="Koreys tilini noldan TOPIK 5 gacha o'rgatadigan o'zbekcha platforma."><link rel="manifest" href="manifest.webmanifest"><meta name="theme-color" content="#0d1226"><link rel="icon" href="icon-192.png"><link rel="apple-touch-icon" href="icon-192.png"><meta name="mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-capable" content="yes"><style>body{margin:0}img{max-width:100%}[hidden]{display:none!important}</style></head><body><title>Hangeul Maktabi</title>
+<!doctype html><html lang="uz"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="description" content="Koreys tilini noldan TOPIK 5 gacha o'rgatadigan o'zbekcha platforma."><link rel="manifest" href="manifest.webmanifest"><meta name="theme-color" content="#0d1226"><link rel="icon" href="icon-192.png"><link rel="apple-touch-icon" href="icon-192.png"><meta name="mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-capable" content="yes"><script src="firebase-config.js"></script><style>body{margin:0}img{max-width:100%}[hidden]{display:none!important}</style></head><body><title>Hangeul Maktabi</title>
 <meta name="claude:viewport-fit-sides" content="cover">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Black+Han+Sans&family=Noto+Sans+KR:wght@400;500;700&family=Onest:wght@400;500;600;700&family=Unbounded:wght@600;800&display=swap">
 <style>
@@ -166,6 +166,20 @@ section.view.enter{animation:in .22s ease-out}
 .chip:active,.seg button:active,.pick button:active,.tcard:active{transform:scale(.93)}
 .tapped .chip[aria-pressed="true"],.tapped .seg button[aria-pressed="true"]{animation:pop .32s ease-out}
 @keyframes pop{0%{transform:scale(.86);box-shadow:0 0 0 0 var(--a2)}60%{transform:scale(1.07);box-shadow:0 0 0 10px transparent}100%{transform:scale(1);box-shadow:0 0 0 0 transparent}}
+.ava{width:52px;height:52px;border-radius:50%;background:var(--grad);color:#fff;display:grid;place-items:center;font-family:var(--f-display);font-weight:800;font-size:1.3rem;flex:none}
+.ava.sm{width:36px;height:36px;font-size:.9rem}
+.lb{list-style:none;margin:0;padding:6px 14px;background:var(--surface);border:1px solid var(--edge);box-shadow:var(--shadow);border-radius:20px}
+.lb li{display:grid;grid-template-columns:1.8rem 36px 1fr auto;gap:10px;align-items:center;padding:10px 2px}
+.lb li+li{border-top:1px solid var(--line)}
+.lb .rk{font-family:var(--f-display);font-weight:800;color:var(--muted);text-align:center}
+.lb li:nth-child(1) .rk{color:var(--c3)}.lb li:nth-child(2) .rk{color:var(--muted)}.lb li:nth-child(3) .rk{color:var(--c4)}
+.lb .nm{min-width:0;font-weight:700;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.lb .nm small{display:block;font-weight:500;color:var(--muted);font-size:.78rem}
+.lb li.me{background:var(--jade-soft);border-radius:12px;padding-inline:8px}
+.lb b{font-variant-numeric:tabular-nums}
+.btn.signin{background:var(--surface);color:var(--ink);border:1px solid var(--line);box-shadow:none}
+.btn.signin.dark{background:var(--ink);color:var(--bg)}
+.lvup #xp{animation:pop .5s ease-out 3}
 .send.dock{position:sticky;bottom:calc(8px + env(safe-area-inset-bottom,0px));z-index:5;background:var(--bar);-webkit-backdrop-filter:blur(16px);backdrop-filter:blur(16px);border:1px solid var(--edge);border-radius:20px;padding:8px;box-shadow:var(--shadow)}
 .top .wrap{gap:10px}
 .brand{min-width:0}
@@ -310,7 +324,7 @@ footer .wrap{padding-block:16px 24px}
 <div class="scrim" id="scrim" hidden></div>
 <aside class="drawer" id="drawer" hidden aria-label="Menyu">
   <div class="dhead"><a class="brand" href="#bosh"><b>한</b><span>Hangeul Maktabi</span></a><button class="burger" id="dclose" aria-label="Yopish"><svg viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18"/></svg></button></div>
-  <nav id="nav" aria-label="Bo'limlar"><a href="#bosh"><i>家</i>Bosh sahifa</a><a href="#reja"><i>計</i>Mening rejam</a><h4>O'rganish</h4><a href="#alifbo"><i>ㄱ</i>Alifbo</a><a href="#sozlar"><i>말</i>So'zlar</a><a href="#lugat"><i>典</i>Lug'at</a><a href="#iboralar"><i>話</i>Iboralar</a><a href="#grammatika"><i>文</i>Grammatika</a><h4>Mashq</h4><a href="#tinglash"><i>♪</i>Tinglash</a><a href="#oqish"><i>読</i>O'qish</a><a href="#suhbat"><i>AI</i>AI suhbat</a><a href="#test"><i>✓</i>Test</a><h4>Qo'shimcha</h4><a href="#oyinlar"><i>▶</i>O'yinlar</a><a href="#vositalar"><i>＋</i>Vositalar</a></nav>
+  <nav id="nav" aria-label="Bo'limlar"><a href="#bosh"><i>家</i>Bosh sahifa</a><a href="#reja"><i>計</i>Mening rejam</a><a href="#reyting"><i>位</i>Daraja va reyting</a><h4>O'rganish</h4><a href="#alifbo"><i>ㄱ</i>Alifbo</a><a href="#sozlar"><i>말</i>So'zlar</a><a href="#lugat"><i>典</i>Lug'at</a><a href="#iboralar"><i>話</i>Iboralar</a><a href="#grammatika"><i>文</i>Grammatika</a><h4>Mashq</h4><a href="#tinglash"><i>♪</i>Tinglash</a><a href="#oqish"><i>読</i>O'qish</a><a href="#suhbat"><i>AI</i>AI suhbat</a><a href="#test"><i>✓</i>Test</a><h4>Qo'shimcha</h4><a href="#oyinlar"><i>▶</i>O'yinlar</a><a href="#vositalar"><i>＋</i>Vositalar</a></nav>
   <div class="dfoot"><a class="btn cta" href="#reja">Boshlash →</a></div>
 </aside>
 
@@ -3360,7 +3374,7 @@ const lvWords=()=>{const w=lvTopics().flatMap(t=>TOPICS[t]||[]).concat(DLV[S.lvl
 let ALL=[];function rebuild(){buildDict();ALL=Object.values(TOPICS).flat().concat(DICT)}
 
 let sampleFn=null,ttsNs=null,dict=null,capsReady=false;
-let S={xp:0,streak:0,last:"",known:{},seen:{},gram:0,quiz:0,lvl:1,decks:{},auto:false,mic:"ko",dp:{},plan:null,bLane:0,bTalk:0};
+let S={xp:0,streak:0,last:"",known:{},seen:{},gram:0,quiz:0,lvl:1,decks:{},auto:false,mic:"ko",dp:{},plan:null,bLane:0,bTalk:0,wk:null,name:""};
 try{const r=JSON.parse(localStorage.getItem("hm1")||"null");if(r)S=Object.assign(S,r)}catch(e){}
 try{for(const k in S.decks)TOPICS[k]=S.decks[k]}catch(e){}
 rebuild();
@@ -3369,12 +3383,50 @@ const day=d=>d.toISOString().slice(0,10);
 function gain(n){
   const t=day(new Date()),y=day(new Date(Date.now()-864e5));
   if(S.last!==t){S.streak=S.last===y?S.streak+1:1;S.last=t}
-  S.xp+=n;save();drawXp();
+  const b4=lvlInfo(S.xp).n;S.xp+=n;wk().xp+=n;save();drawXp();fbPush();
+  const now=lvlInfo(S.xp).n;if(now>b4){toast("Daraja oshdi: "+now+"-daraja! "+lvlTitle(now));document.body.classList.add("lvup");setTimeout(()=>document.body.classList.remove("lvup"),1600);try{navigator.vibrate&&navigator.vibrate([40,60,120])}catch(e){}}
 }
 const $=s=>document.querySelector(s);
 const esc=s=>String(s).replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
 const shuffle=a=>{a=a.slice();for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]]}return a};
-function drawXp(){$("#xp").textContent=S.xp+" XP"}
+const lvlNeed=n=>100+50*(n-1);
+function lvlInfo(xp){let n=1,x=xp;while(x>=lvlNeed(n)){x-=lvlNeed(n);n++}return {n,cur:x,need:lvlNeed(n)}}
+const lvlTitle=n=>n<3?"초보 · Boshlovchi":n<6?"학생 · O'quvchi":n<10?"선배 · Tajribali":n<15?"고수 · Bilimdon":"달인 · Usta";
+function weekId(){const d=new Date(Date.now()+5*36e5);d.setUTCDate(d.getUTCDate()-(d.getUTCDay()+6)%7);return d.toISOString().slice(0,10)}
+function wk(){const id=weekId();if(!S.wk||S.wk.id!==id)S.wk={id,xp:0};return S.wk}
+function drawXp(){const L=lvlInfo(S.xp);$("#xp").textContent=L.n+"-daraja · "+S.xp+" XP"}
+/* accounts & weekly leaderboard (own hosting only; needs a Firebase project in firebase-config.js) */
+const FB={ready:false,user:null,rows:null,err:"",auth:null,db:null};
+const loadScript=src=>new Promise((res,rej)=>{const e=document.createElement("script");e.src=src;e.onload=res;e.onerror=rej;document.head.appendChild(e)});
+async function fbInit(){
+  const cfg=window.HM_FIREBASE;if(!cfg||!cfg.apiKey||(window.claude&&window.claude.use))return;
+  try{const b="https://www.gstatic.com/firebasejs/10.12.2/firebase-";
+    await loadScript(b+"app-compat.js");await loadScript(b+"auth-compat.js");await loadScript(b+"firestore-compat.js");
+    firebase.initializeApp(cfg);FB.auth=firebase.auth();FB.db=firebase.firestore();FB.ready=true;
+    FB.auth.onAuthStateChanged(u=>{FB.user=u;if(u){if(!S.name){S.name=(u.displayName||"").slice(0,24);save()}fbPush(true)}if(route()==="reyting"){fbLoad();render(true)}});
+  }catch(e){FB.err="Reyting xizmatiga ulanib bo'lmadi."}
+  if(route()==="reyting")render(true);
+}
+function fbSign(kind){
+  if(!FB.ready)return;FB.err="";
+  const pr=kind==="apple"?new firebase.auth.OAuthProvider("apple.com"):new firebase.auth.GoogleAuthProvider();
+  FB.auth.signInWithPopup(pr).catch(e=>{const c=(e&&e.code)||"";
+    if(/popup-blocked|operation-not-supported|web-storage/.test(c))return FB.auth.signInWithRedirect(pr);
+    if(/popup-closed|cancelled/.test(c))return;
+    FB.err=c==="auth/operation-not-allowed"?"Bu kirish usuli hali yoqilmagan.":c==="auth/unauthorized-domain"?"Bu sayt manzili Firebase'da ruxsat etilmagan.":"Kirib bo'lmadi. Qayta urinib ko'ring.";render(true)});
+}
+let fbT=0;
+function fbPush(now){
+  if(!FB.ready||!FB.user)return;clearTimeout(fbT);
+  fbT=setTimeout(()=>{const w=wk();FB.db.collection("weeks").doc(w.id).collection("scores").doc(FB.user.uid)
+    .set({name:(S.name||FB.user.displayName||"O'quvchi").slice(0,24),xp:w.xp,lvl:lvlInfo(S.xp).n,t:firebase.firestore.FieldValue.serverTimestamp()}).catch(()=>{})},now?0:4000);
+}
+async function fbLoad(){
+  if(!FB.ready)return;
+  try{const q=await FB.db.collection("weeks").doc(wk().id).collection("scores").orderBy("xp","desc").limit(30).get();FB.rows=q.docs.map(d=>Object.assign({id:d.id},d.data()));FB.err=""}
+  catch(e){FB.err="Reytingni yuklab bo'lmadi."}
+  if(route()==="reyting")render(true);
+}
 let tt;function toast(m){const t=$("#toast");t.textContent=m;t.hidden=false;clearTimeout(tt);tt=setTimeout(()=>t.hidden=true,2600)}
 function speak(text){
   if(ttsNs){ttsNs.speak(text,{language:"ko",rate:.9}).catch(e=>{if(e&&(e.code==="busy"||e.code==="rate_limited"))toast("Biroz kutib, qayta bosing");else if(!e||e.code!=="viewer_stopped")speakLocal(text)});return}
@@ -3454,7 +3506,7 @@ V.bosh=()=>`<section class="view">
   <div class="col"><a class="btn cta wide" href="#reja">${S.plan?"Bugungi reja":"O'rganishni boshlash"} →</a><button class="btn ghost cta wide" data-peekgo>Platforma</button></div>
  </div>
  <div class="stats">
-  <div class="stat"><b class="gt">${S.xp}</b><span>tajriba balli</span></div>
+  <a class="stat" href="#reyting" style="text-decoration:none;color:inherit"><b class="gt">${lvlInfo(S.xp).n}-daraja</b><span>${lvlInfo(S.xp).cur} / ${lvlInfo(S.xp).need} XP</span><div class="bar" style="margin-top:6px"><i style="width:${lvlInfo(S.xp).cur/lvlInfo(S.xp).need*100}%"></i></div></a>
   <div class="stat"><b>${S.streak} kun</b><span>ketma-ket mashg'ulot</span></div>
   <div class="stat"><b>${knownCount()}</b><span>/ ${ALL.length} so'z o'rganildi</span></div>
  </div>
@@ -3838,6 +3890,29 @@ V.oyinlar=()=>{
   <div class="gcard"><h3>To'xtamay gapir</h3><p>Mavzu beriladi, 60 soniya koreyscha gapirasiz. Mikrofon yoqilgan bo'lsa, 6 soniya jim qolish bitta jonni oladi.</p><div class="row"><button class="btn" data-game="talk">▶ O'ynash</button><span style="color:var(--on-night-muted)">Rekord: ${S.bTalk||0} s</span></div></div>
  </section>`};
 
+/* levels & weekly leaderboard */
+V.reyting=()=>{
+ const L=lvlInfo(S.xp),w=wk(),nm=S.name||(FB.user&&FB.user.displayName)||"";
+ const me={id:FB.user?FB.user.uid:"me",name:nm||"Siz",xp:w.xp,lvl:L.n};
+ let rows=FB.rows?FB.rows.slice():[me];
+ if(FB.rows&&FB.user){const i=rows.findIndex(r=>r.id===me.id);if(i>=0)rows[i]=Object.assign({},rows[i],{xp:Math.max(rows[i].xp||0,me.xp)});else rows.push(me);rows.sort((a,b)=>(b.xp||0)-(a.xp||0))}
+ const next=[1,2,3,4,5].map(i=>L.n+i);
+ return `<section class="view"><h2>Daraja va reyting</h2>
+ <div class="panel">
+  <div class="row"><span class="ava">${esc((nm||"S").trim().charAt(0).toUpperCase())}</span><div style="flex:1;min-width:0"><b style="font-family:var(--f-display);font-size:1.3rem">${L.n}-daraja</b><div class="muted">${lvlTitle(L.n)}</div></div><span class="tag">${S.xp} XP</span></div>
+  <div class="bar"><i style="width:${L.cur/L.need*100}%"></i></div>
+  <div class="meta"><span>${L.cur} / ${L.need} XP</span><span>${L.n+1}-darajagacha ${L.need-L.cur} XP</span></div>
+  <label style="font-size:.85rem;font-weight:600">Reytingdagi ismingiz<input class="field" id="pf-name" maxlength="24" autocomplete="off" placeholder="Ismingiz" value="${esc(S.name)}" style="width:100%;margin-top:4px"></label>
+ </div>
+ <div class="panel"><h3>Qanday ball yig'iladi</h3><p class="muted">Yangi harf 2 XP · yangi so'z 5 XP · to'g'ri javob 10 XP · AI suhbatda har javob 5 XP · yozma ish 10 XP. Keyingi darajalar: ${next.map(n=>n+"-daraja — "+lvlNeed(n-1)+" XP").join(", ")}.</p></div>
+ <h3>Haftalik reyting<small style="font-family:var(--f-body);font-weight:600;color:var(--muted);font-size:.8rem;margin-left:6px">${w.id} haftasi · dushanbada yangilanadi</small></h3>
+ ${FB.ready&&!FB.user?`<div class="panel"><p>Reytingda qatnashish va natijani saqlash uchun hisobingiz bilan kiring.</p><div class="row"><button class="btn signin" data-sign="google"><b>G</b> Google orqali kirish</button>${window.HM_FIREBASE&&window.HM_FIREBASE.apple?`<button class="btn signin dark" data-sign="apple"> Apple orqali kirish</button>`:""}</div></div>`:""}
+ ${FB.ready&&FB.user?`<div class="row"><span class="muted">Kirgansiz: ${esc(FB.user.displayName||FB.user.email||"hisob")}</span><button class="chip" data-sign="out">Chiqish</button><button class="chip" data-sign="reload">Yangilash</button></div>`:""}
+ ${FB.err?`<p class="err">${esc(FB.err)}</p>`:""}
+ <ol class="lb">${rows.map((r,i)=>`<li class="${r.id===me.id?"me":""}"><span class="rk">${i+1}</span><span class="ava sm">${esc(String(r.name||"?").trim().charAt(0).toUpperCase())}</span><span class="nm">${esc(r.name||"O'quvchi")}${r.id===me.id?" (siz)":""}<small>${r.lvl||1}-daraja</small></span><b>${r.xp||0} XP</b></li>`).join("")}</ol>
+ ${!FB.ready?`<p class="note">Hozircha faqat o'z natijangiz ko'rinadi. Boshqa o'quvchilar bilan umumiy reyting va Google orqali kirish server (Firebase) ulanganidan keyin ishlaydi.</p>`:FB.rows?"":`<p class="muted">Reyting yuklanmoqda…</p>`}
+ </section>`};
+
 /* dictionary */
 let DQ={q:"",st:-1,n:60};
 const nq=t=>t.toLowerCase().replace(/[‘’`ʻʼ]/g,"'");
@@ -3934,7 +4009,7 @@ function render(keepScroll){
   document.querySelectorAll("#nav a").forEach(a=>{if(a.getAttribute("href")==="#"+r)a.setAttribute("aria-current","page");else a.removeAttribute("aria-current")});
   if(!keepScroll){window.scrollTo(0,0);const v=$("#app").firstElementChild;if(v)v.classList.add("enter");const c=$('#nav a[aria-current]');if(c&&c.scrollIntoView)c.scrollIntoView({block:"nearest",inline:"center"})}
 }
-addEventListener("hashchange",()=>{flip=false;A.err="";if(CALL.on)callEnd();else stopAudio();stopGame();if(G.on&&!G.over)G.on="";drawer(false);render()});
+addEventListener("hashchange",()=>{if(route()==="reyting")fbLoad();flip=false;A.err="";if(CALL.on)callEnd();else stopAudio();stopGame();if(G.on&&!G.over)G.on="";drawer(false);render()});
 if(SOLO)$("#nav").insertAdjacentHTML("beforeend",'<a href="#sozlama"><i>⚙</i>Sozlamalar</a>');
 let installEv=null;
 if(SOLO){
@@ -3979,6 +4054,7 @@ $("#app").addEventListener("click",e=>{
   if(d.game==="talk"){startTalk();return}
   if(d.game==="quit"){gameOver();return}
   if(d.lane!==undefined&&G.on==="lane"&&!G.over){if(d.lane===G.q.ans){G.score++;laneQ();render(true)}else laneMiss();return}
+  if(d.sign){if(d.sign==="out"){FB.auth.signOut();FB.rows=null}else if(d.sign==="reload"){FB.rows=null;fbLoad()}else fbSign(d.sign);render(true);return}
   if(d.dst!==undefined){DQ.st=+d.dst;DQ.n=60;render(true);return}
   if(d.more!==undefined){DQ.n=d.more==="all"?1e6:DQ.n+60;$("#dres").innerHTML=dictRows();return}
   if(d.dp){S.dp[S.lvl]=Math.max(0,(S.dp[S.lvl]||0)+(+d.dp));ci=0;flip=false;save();render(true);return}
@@ -4009,8 +4085,8 @@ $("#app").addEventListener("click",e=>{
   else if(d.restart){newQuiz(d.restart);render(true)}
 });
 $("#app").addEventListener("submit",e=>{if(e.target.matches("[data-chat]")){e.preventDefault();chatSend()}if(e.target.matches("[data-calltext]")){e.preventDefault();const v=$("#call-input").value;if(v.trim())callSend(v)}if(e.target.matches("[data-dict]")){e.preventDefault();aiDict()}});
-$("#app").addEventListener("input",e=>{if(e.target.id==="chat-input")C.draft=e.target.value;if(e.target.id==="ai-q")A.q=e.target.value;if(e.target.id==="wr-text")$("#wr-n").textContent=wrCount()+" belgi";if(/^calc-/.test(e.target.id))$("#calc-out").innerHTML=topikLevel();if(e.target.id==="dict-q"){DQ.n=60;DQ.q=e.target.value;$("#dres").innerHTML=dictRows()}});
+$("#app").addEventListener("input",e=>{if(e.target.id==="chat-input")C.draft=e.target.value;if(e.target.id==="ai-q")A.q=e.target.value;if(e.target.id==="pf-name"){S.name=e.target.value.slice(0,24);save();fbPush()}if(e.target.id==="wr-text")$("#wr-n").textContent=wrCount()+" belgi";if(/^calc-/.test(e.target.id))$("#calc-out").innerHTML=topikLevel();if(e.target.id==="dict-q"){DQ.n=60;DQ.q=e.target.value;$("#dres").innerHTML=dictRows()}});
 try{speechSynthesis.getVoices()}catch(e){}
-drawXp();render();
+wk();drawXp();render();fbInit();
 </script>
 </body></html>
