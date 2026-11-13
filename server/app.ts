@@ -4,6 +4,7 @@ import { randomUUID } from "node:crypto";
 import { once } from "node:events";
 import { fileURLToPath } from "node:url";
 import { dirname, resolve } from "node:path";
+import { searchDictionary, dictionaryStatistics } from "./dictionary.js";
 import { learningCatalog } from "./catalog.js";
 import { authRouter, getUser } from "./auth.js";
 import { db, loadProgress, saveProgress, acquireLease, consumeBudget, refundBudget } from "./database.js";
@@ -64,7 +65,7 @@ export function createApp() {
     next();
   });
   app.use(cookieParser());
-  app.use(express.json({ limit: "96kb", strict: true }));
+  app.use(express.json({ limit: "512kb", strict: true }));
   app.use("/api", (_req, res, next) => { res.set("Cache-Control", "private, no-store"); next(); });
   // A custom header blocks cross-site HTML forms. Unlisted CORS origins cannot set it.
   app.use("/api", (req, res, next) => {
@@ -76,6 +77,8 @@ export function createApp() {
     try { await db().query("SELECT 1"); res.json({ ok: true, version: "2.0.0" }); }
     catch { res.status(503).json({ ok: false, code: "database_unavailable" }); }
   });
+  app.get("/api/dictionary-stats",async(req,res)=>{try{res.set("Cache-Control","public,max-age=60").json(await dictionaryStatistics());}catch{res.status(503).json({error:{code:"dictionary_unavailable"}})}});
+  app.get("/api/dictionary", async (req,res) => { try {res.set("Cache-Control","public, max-age=60");res.json(await searchDictionary(req.query));} catch(error) { const busy=(error as {code?:string}).code==="dictionary_busy",invalid=(error as Error).name==="ZodError";res.set("Retry-After","2").status(busy?429:invalid?400:503).json({error:{code:busy?"busy":invalid?"invalid_query":"dictionary_unavailable"}}); } });
   app.get("/api/catalog", async (_req,res) => { try { res.set("Cache-Control","public, max-age=60");res.json(await learningCatalog()); } catch { res.status(503).json({error:{code:"catalog_unavailable"}}); } });
   app.get("/api/session", async (req, res) => {
     try { const user = await getUser(req); res.json({ user, voiceConfigured: !!process.env.ELEVENLABS_API_KEY, aiConfigured: !!process.env.GEMINI_API_KEY, limits: { dailyAiTurns: number("AI_DAILY_LIMIT", 80, 1000), voiceMonthlyCharacters: number("VOICE_MONTHLY_CHAR_LIMIT", 10000, 100000000) } }); }
@@ -89,7 +92,7 @@ export function createApp() {
     try {
       const user = await getUser(req); if (!user) { res.sendStatus(401); return; }
       const state = req.body?.state;
-      if (!state || typeof state !== "object" || Array.isArray(state) || JSON.stringify(state).length > 80000) { res.sendStatus(400); return; }
+      if (!state || typeof state !== "object" || Array.isArray(state) || Buffer.byteLength(JSON.stringify(state)) > 500 * 1024) { res.sendStatus(400); return; }
       // Progress is learning data, never an entitlement, role, rate-limit or billing source.
       res.json(await saveProgress(user.id, state, Number.isInteger(req.body.version) ? req.body.version : undefined));
     } catch (error) {

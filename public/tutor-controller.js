@@ -132,6 +132,7 @@
     S.decks = combined;
     S.gram = Math.max(Number(S.gram) || 0, Number(cloud.gram) || 0);
     S.quiz = Math.max(Number(S.quiz) || 0, Number(cloud.quiz) || 0);
+    S.missions = {done:{...(cloud.missions?.done||{}),...(S.missions?.done||{})},attempts:Math.max(Number(cloud.missions?.attempts)||0,Number(S.missions?.attempts)||0),correct:Math.max(Number(cloud.missions?.correct)||0,Number(S.missions?.correct)||0)};
     const plans = [...(Array.isArray(S.savedPlans) ? S.savedPlans : []), ...(Array.isArray(cloud.savedPlans) ? cloud.savedPlans : []), S.plan, cloud.plan].filter(value => value && typeof value === "object");
     S.savedPlans = [...new Map(plans.map(plan => [JSON.stringify(plan), plan])).values()];
     if (!S.plan && cloud.plan) S.plan = cloud.plan;
@@ -177,7 +178,7 @@
   Promise.all([api.init(),api.loadCatalog()]).then(async ([_,catalog]) => {
     if(catalog?.data){
       const targets={CONS,VOWS,TOPICS,PHRASES,GRAM,GCATS,LVMAP,READ,LISTEN,DPOS,DRAW};
-      for(const [key,target] of Object.entries(targets)){const incoming=catalog.data[key];if(Array.isArray(target)&&Array.isArray(incoming))target.splice(0,target.length,...incoming);else if(target&&incoming&&typeof target==="object")Object.assign(target,incoming);}
+      for(const [key,target] of Object.entries(targets)){const incoming=catalog.data[key];if(Array.isArray(target)&&Array.isArray(incoming))target.splice(0,target.length,...incoming,...target.slice(incoming.length));else if(target&&incoming&&typeof target==="object")Object.assign(target,incoming);}
       for(const [key,words] of Object.entries(S.decks||{}))if(!["__proto__","constructor","prototype"].includes(key))TOPICS[key]=words;
       buildDict();rebuild();
     }

@@ -1,0 +1,77 @@
+{
+  "levels": [
+    {
+      "level": 1,
+      "count": 36,
+      "topics": [
+        "Salomlashish",
+        "Raqamlar",
+        "Oila",
+        "Ovqat",
+        "Vaqt va joy",
+        "Fe'llar",
+        "Savol so'zlari",
+        "Meva va sabzavot",
+        "Ranglar",
+        "Hayvonlar",
+        "Koreys sonlari"
+      ]
+    },
+    {
+      "level": 2,
+      "count": 36,
+      "topics": [
+        "Tana",
+        "Kiyim",
+        "Shahar",
+        "Hafta va kun",
+        "Sifatlar",
+        "Fe'llar 2",
+        "Uy ichi",
+        "Transport",
+        "Maktab",
+        "Kasblar",
+        "Ob-havo va tabiat"
+      ]
+    },
+    {
+      "level": 3,
+      "count": 36,
+      "topics": [
+        "TOPIK 3 so'zlari",
+        "Ish va o'qish",
+        "His-tuyg'u va hayot"
+      ]
+    },
+    {
+      "level": 4,
+      "count": 36,
+      "topics": [
+        "TOPIK 4 so'zlari",
+        "Fikr bildirish",
+        "Jamiyat va iqtisod"
+      ]
+    },
+    {
+      "level": 5,
+      "count": 36,
+      "topics": [
+        "TOPIK 5 so'zlari",
+        "Ilmiy va rasmiy",
+        "Murakkab fe'l va sifatlar"
+      ]
+    },
+    {
+      "level": 6,
+      "count": 36,
+      "topics": [
+        "TOPIK 6 so'zlari",
+        "Ilmiy tahlil · T6",
+        "Murakkab ifoda · T6"
+      ]
+    }
+  ],
+  "totalAuthored": 216,
+  "dictionaryWords": 30000,
+  "officialExam": false
+}

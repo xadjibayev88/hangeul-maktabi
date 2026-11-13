@@ -6,7 +6,7 @@ export const aiInput = z.object({
   generationConfig: z.object({ temperature: z.number().min(0).max(1).optional(), maxOutputTokens: z.number().int().min(64).max(2048).optional() }).optional(),
 }).strict();
 export const tutorInput = z.object({
-  level: z.number().int().min(1).max(5),
+  level: z.number().int().min(1).max(6),
   scenario: z.number().int().min(0).max(4),
   text: z.string().trim().min(1).max(1000),
   history: z.array(z.object({ who: z.enum(["me", "ai"]), text: z.string().max(1000) }).strict()).max(10),

@@ -1,0 +1,643 @@
+{
+  "level": 2,
+  "label": "TOPIK 2",
+  "tasks": [
+    {
+      "id": "t2-001",
+      "level": 2,
+      "topic": "Tana",
+      "type": "mcq",
+      "titleUz": "Tana a’zolari",
+      "promptUz": "Quyidagi gapni to‘ldiradigan so‘zni tanlang.",
+      "ko": "눈이 아파서 안경을 썼어요.",
+      "translationUz": "Ko‘zim og‘rigani uchun ko‘zoynak taqdim.",
+      "choices": [
+        "눈",
+        "손",
+        "발",
+        "귀"
+      ],
+      "answer": "눈",
+      "explanationUz": "「눈」 — ko‘z degani; ko‘zoynak ko‘zga taqiladi.",
+      "tokens": []
+    },
+    {
+      "id": "t2-002",
+      "level": 2,
+      "topic": "Kiyim",
+      "type": "mcq",
+      "titleUz": "Do‘konda kiyim tanlash",
+      "promptUz": "Xaridor qaysi kiyimni olmoqchi?",
+      "ko": "이 셔츠는 너무 작아요. 더 큰 셔츠를 보여 주세요.",
+      "translationUz": "Bu ko‘ylak juda kichik. Kattaroq ko‘ylakni ko‘rsating, iltimos.",
+      "choices": [
+        "Kattaroq ko‘ylak",
+        "Qora palto",
+        "Yangi poyabzal",
+        "Qizil yubka"
+      ],
+      "answer": "Kattaroq ko‘ylak",
+      "explanationUz": "「더 큰 셔츠」 — kattaroq ko‘ylak degani.",
+      "tokens": []
+    },
+    {
+      "id": "t2-003",
+      "level": 2,
+      "topic": "Shahar",
+      "type": "mcq",
+      "titleUz": "Manzilni topish",
+      "promptUz": "Quyidagi savolga mos javobni toping.",
+      "ko": "은행은 어디에 있어요?",
+      "translationUz": "Bank qayerda joylashgan?",
+      "choices": [
+        "공원 옆에 있어요.",
+        "김치를 먹어요.",
+        "내일 만나요.",
+        "파란색이에요."
+      ],
+      "answer": "공원 옆에 있어요.",
+      "explanationUz": "「어디에 있어요?」 joyni so‘raydi; 「공원 옆에 있어요」 — bog‘ yonida.",
+      "tokens": []
+    },
+    {
+      "id": "t2-004",
+      "level": 2,
+      "topic": "Hafta va kun",
+      "type": "mcq",
+      "titleUz": "Hafta kunlari rejasi",
+      "promptUz": "Jumadan keyin qaysi kun keladi?",
+      "ko": "금요일 다음 날은 무슨 요일이에요?",
+      "translationUz": "Jumadan keyingi kun qaysi hafta kuni?",
+      "choices": [
+        "토요일",
+        "목요일",
+        "일요일",
+        "수요일"
+      ],
+      "answer": "토요일",
+      "explanationUz": "Koreys tilida juma — 금요일, undan keyin shanba — 토요일.",
+      "tokens": []
+    },
+    {
+      "id": "t2-005",
+      "level": 2,
+      "topic": "Sifatlar",
+      "type": "mcq",
+      "titleUz": "Ta’mni tasvirlash",
+      "promptUz": "Taomning ta’mi haqida mos so‘zni tanlang.",
+      "ko": "이 김치는 아주 맛있어요.",
+      "translationUz": "Bu kimchi juda mazali.",
+      "choices": [
+        "맛있어요",
+        "바빠요",
+        "작아요",
+        "추워요"
+      ],
+      "answer": "맛있어요",
+      "explanationUz": "「맛있어요」 — mazali; u taomning ta’mini bildiradi.",
+      "tokens": []
+    },
+    {
+      "id": "t2-006",
+      "level": 2,
+      "topic": "Fe'llar 2",
+      "type": "mcq",
+      "titleUz": "Telefon orqali kelishuv",
+      "promptUz": "Do‘stlar nima qilishga kelishishdi?",
+      "ko": "친구에게 전화해서 저녁에 만나기로 했어요.",
+      "translationUz": "Do‘stimga qo‘ng‘iroq qilib, kechqurun uchrashishga kelishdik.",
+      "choices": [
+        "만나기로 했어요",
+        "잊어버렸어요",
+        "잠을 잤어요",
+        "요리를 했어요"
+      ],
+      "answer": "만나기로 했어요",
+      "explanationUz": "「만나기로 했어요」 — uchrashishga kelishdik degani.",
+      "tokens": []
+    },
+    {
+      "id": "t2-007",
+      "level": 2,
+      "topic": "Uy ichi",
+      "type": "cloze",
+      "titleUz": "Xonadagi buyum",
+      "promptUz": "Bo‘sh joyga mos qo‘shimchani tanlang.",
+      "ko": "방___ 침대가 있어요.",
+      "translationUz": "Xonada karavot bor.",
+      "choices": [
+        "에",
+        "에서",
+        "을",
+        "에게"
+      ],
+      "answer": "에",
+      "explanationUz": "Joyda biror narsa borligini aytganda joy nomidan keyin 「에」 ishlatiladi.",
+      "tokens": []
+    },
+    {
+      "id": "t2-008",
+      "level": 2,
+      "topic": "Transport",
+      "type": "cloze",
+      "titleUz": "Metroga borish",
+      "promptUz": "Bo‘sh joyni to‘ldiring.",
+      "ko": "지하철을 타___ 학교에 가요.",
+      "translationUz": "Metroga minib maktabga boraman.",
+      "choices": [
+        "고",
+        "지만",
+        "면",
+        "서"
+      ],
+      "answer": "고",
+      "explanationUz": "「타고」 ikki harakatni bog‘laydi: metroga minib, maktabga boraman.",
+      "tokens": []
+    },
+    {
+      "id": "t2-009",
+      "level": 2,
+      "topic": "Maktab",
+      "type": "cloze",
+      "titleUz": "Uy vazifasi haqida",
+      "promptUz": "Bo‘sh joyga to‘g‘ri fe’l shaklini qo‘ying.",
+      "ko": "오늘 숙제가 많___ 힘들어요.",
+      "translationUz": "Bugun uy vazifasi ko‘p bo‘lgani uchun qiyin.",
+      "choices": [
+        "아서",
+        "지만",
+        "거나",
+        "러"
+      ],
+      "answer": "아서",
+      "explanationUz": "「많아서」 sababni bildiradi: ko‘p bo‘lgani uchun.",
+      "tokens": []
+    },
+    {
+      "id": "t2-010",
+      "level": 2,
+      "topic": "Kasblar",
+      "type": "cloze",
+      "titleUz": "Kasbni aytish",
+      "promptUz": "Bo‘sh joyni to‘ldiring.",
+      "ko": "누나는 병원에서 간호사___ 일해요.",
+      "translationUz": "Opam shifoxonada hamshira bo‘lib ishlaydi.",
+      "choices": [
+        "로",
+        "를",
+        "에",
+        "와"
+      ],
+      "answer": "로",
+      "explanationUz": "Kasb yoki rolni bildirganda 「(으)로 일하다」 shakli ishlatiladi.",
+      "tokens": []
+    },
+    {
+      "id": "t2-011",
+      "level": 2,
+      "topic": "Ob-havo va tabiat",
+      "type": "cloze",
+      "titleUz": "Yomg‘irli kun",
+      "promptUz": "Bo‘sh joyga mos qo‘shimchani tanlang.",
+      "ko": "비가 오___ 우산을 가져가세요.",
+      "translationUz": "Yomg‘ir yog‘sa, soyabonni olib boring.",
+      "choices": [
+        "면",
+        "고",
+        "지만",
+        "러"
+      ],
+      "answer": "면",
+      "explanationUz": "「-면」 shart ma’nosini beradi: yomg‘ir yog‘sa.",
+      "tokens": []
+    },
+    {
+      "id": "t2-012",
+      "level": 2,
+      "topic": "Fe'llar 2",
+      "type": "cloze",
+      "titleUz": "O‘tgan kun",
+      "promptUz": "Bo‘sh joyga mos zamon shaklini tanlang.",
+      "ko": "어제 친구를 ___ 영화를 봤어요.",
+      "translationUz": "Kecha do‘stim bilan uchrashib, kino ko‘rdim.",
+      "choices": [
+        "만나고",
+        "만났고",
+        "만나면",
+        "만나러"
+      ],
+      "answer": "만나고",
+      "explanationUz": "「만나고」 o‘tgan zamondagi ketma-ket ikki ishni bog‘laydi.",
+      "tokens": []
+    },
+    {
+      "id": "t2-013",
+      "level": 2,
+      "topic": "Transport",
+      "type": "order",
+      "titleUz": "Yo‘l so‘rash",
+      "promptUz": "So‘zlarni to‘g‘ri tartibga keltiring.",
+      "ko": "지하철역이 어디예요?",
+      "translationUz": "Metro stansiyasi qayerda?",
+      "choices": [],
+      "answer": "지하철역이 어디예요?",
+      "explanationUz": "Savol so‘zi 「어디예요?」 gap oxirida keladi.",
+      "tokens": [
+        "어디예요?",
+        "지하철역이"
+      ]
+    },
+    {
+      "id": "t2-014",
+      "level": 2,
+      "topic": "Shahar",
+      "type": "order",
+      "titleUz": "Dorixonani topish",
+      "promptUz": "So‘zlarni to‘g‘ri tartibga keltiring.",
+      "ko": "약국은 은행 옆에 있어요.",
+      "translationUz": "Dorixona bank yonida.",
+      "choices": [],
+      "answer": "약국은 은행 옆에 있어요.",
+      "explanationUz": "Mavzu 「약국은」, joy 「은행 옆에」, kesim 「있어요」 tartibida keladi.",
+      "tokens": [
+        "있어요.",
+        "은행 옆에",
+        "약국은"
+      ]
+    },
+    {
+      "id": "t2-015",
+      "level": 2,
+      "topic": "Hafta va kun",
+      "type": "order",
+      "titleUz": "Dam olish kunidagi reja",
+      "promptUz": "So‘zlarni to‘g‘ri tartibga keltiring.",
+      "ko": "일요일에 집에서 쉬어요.",
+      "translationUz": "Yakshanba kuni uyda dam olaman.",
+      "choices": [],
+      "answer": "일요일에 집에서 쉬어요.",
+      "explanationUz": "Vaqt 「일요일에」, joy 「집에서」, fe’l 「쉬어요」 oldidan keladi.",
+      "tokens": [
+        "쉬어요.",
+        "집에서",
+        "일요일에"
+      ]
+    },
+    {
+      "id": "t2-016",
+      "level": 2,
+      "topic": "Maktab",
+      "type": "order",
+      "titleUz": "Sinfga kirish",
+      "promptUz": "So‘zlarni to‘g‘ri tartibga keltiring.",
+      "ko": "지금 교실에 들어가세요.",
+      "translationUz": "Hozir sinfga kiring.",
+      "choices": [],
+      "answer": "지금 교실에 들어가세요.",
+      "explanationUz": "「지금」 vaqtni, 「교실에」 yo‘nalishni bildiradi; buyruq fe’li oxirida keladi.",
+      "tokens": [
+        "들어가세요.",
+        "교실에",
+        "지금"
+      ]
+    },
+    {
+      "id": "t2-017",
+      "level": 2,
+      "topic": "Kiyim",
+      "type": "order",
+      "titleUz": "Palto kiyish",
+      "promptUz": "So‘zlarni to‘g‘ri tartibga keltiring.",
+      "ko": "추워서 코트를 입었어요.",
+      "translationUz": "Sovuq bo‘lgani uchun palto kiydim.",
+      "choices": [],
+      "answer": "추워서 코트를 입었어요.",
+      "explanationUz": "「-아서/어서」 sababni bog‘laydi, asosiy fe’l 「입었어요」 oxirida turadi.",
+      "tokens": [
+        "입었어요.",
+        "코트를",
+        "추워서"
+      ]
+    },
+    {
+      "id": "t2-018",
+      "level": 2,
+      "topic": "Sifatlar",
+      "type": "order",
+      "titleUz": "Xonani tasvirlash",
+      "promptUz": "So‘zlarni to‘g‘ri tartibga keltiring.",
+      "ko": "이 방은 밝고 커요.",
+      "translationUz": "Bu xona yorug‘ va katta.",
+      "choices": [],
+      "answer": "이 방은 밝고 커요.",
+      "explanationUz": "「밝고」 sifatlarni bog‘laydi; ikkinchi sifat 「커요」 gap oxirida keladi.",
+      "tokens": [
+        "커요.",
+        "밝고",
+        "이 방은"
+      ]
+    },
+    {
+      "id": "t2-019",
+      "level": 2,
+      "topic": "Transport",
+      "type": "reading",
+      "titleUz": "Avtobus bekatida",
+      "promptUz": "Matnga ko‘ra, Jisu qaysi transportda ishga bordi?",
+      "ko": "지수는 오늘 아침에 버스를 타고 회사에 갔습니다. 버스가 조금 늦게 와서 회사에 늦을 뻔했습니다. 그래서 내일은 평소보다 일찍 집에서 나가려고 합니다.",
+      "translationUz": "Jisu bugun ertalab avtobusga minib ishxonaga bordi. Avtobus biroz kech kelib, u ishga kech qolay dedi. Shuning uchun ertaga odatdagidan ertaroq uydan chiqmoqchi.",
+      "choices": [
+        "Avtobusda",
+        "Metroda",
+        "Taksida",
+        "Velosipedda"
+      ],
+      "answer": "Avtobusda",
+      "explanationUz": "Matnning birinchi gapida 「버스를 타고 회사에 갔습니다」 deyiladi.",
+      "tokens": []
+    },
+    {
+      "id": "t2-020",
+      "level": 2,
+      "topic": "Shahar",
+      "type": "reading",
+      "titleUz": "Kutubxonadagi uchrashuv",
+      "promptUz": "Ular qayerda uchrashishadi?",
+      "ko": "민호 씨는 오늘 오후 세 시에 도서관 앞에서 친구를 만날 거예요. 친구와 함께 책을 빌리고 근처 식당에서 저녁을 먹을 예정입니다. 비가 오면 도서관 안에서 기다리기로 했습니다.",
+      "translationUz": "Minho bugun tushdan keyin soat uchda kutubxona oldida do‘sti bilan uchrashadi. Ular kitob olib, yaqin restoranda kechki ovqat yeyishadi. Yomg‘ir yog‘sa, kutubxona ichida kutishga kelishishgan.",
+      "choices": [
+        "Kutubxona oldida",
+        "Bank ichida",
+        "Park yonida",
+        "Stansiyada"
+      ],
+      "answer": "Kutubxona oldida",
+      "explanationUz": "Matnda uchrashuv joyi 「도서관 앞」 deb aniq berilgan.",
+      "tokens": []
+    },
+    {
+      "id": "t2-021",
+      "level": 2,
+      "topic": "Maktab",
+      "type": "reading",
+      "titleUz": "Imtihonga tayyorgarlik",
+      "promptUz": "Nega Hana kutubxonaga bordi?",
+      "ko": "하나는 다음 주에 한국어 시험이 있어서 도서관에 갔습니다. 먼저 단어를 외우고, 그다음에 문법 문제를 풀었습니다. 어려운 문제는 선생님에게 질문할 생각입니다.",
+      "translationUz": "Hana keyingi hafta koreys tili imtihoni bo‘lgani uchun kutubxonaga bordi. Avval so‘zlarni yodladi, keyin grammatika masalalarini yechdi. Qiyin savollarni o‘qituvchisidan so‘ramoqchi.",
+      "choices": [
+        "Koreys tili imtihoni bo‘lgani uchun",
+        "Do‘sti bilan uchrashish uchun",
+        "Kitob sotib olish uchun",
+        "Sport qilish uchun"
+      ],
+      "answer": "Koreys tili imtihoni bo‘lgani uchun",
+      "explanationUz": "Sabab birinchi gapda 「시험이 있어서」 shaklida aytilgan.",
+      "tokens": []
+    },
+    {
+      "id": "t2-022",
+      "level": 2,
+      "topic": "Kiyim",
+      "type": "reading",
+      "titleUz": "Onlayn xarid",
+      "promptUz": "Xaridor nima sababli buyurtmani almashtirmoqchi?",
+      "ko": "수진 씨는 인터넷으로 검은색 바지를 주문했습니다. 그런데 오늘 받아 보니 바지가 너무 길었습니다. 그래서 가게에 전화해서 짧은 바지로 바꿀 수 있는지 물어보려고 합니다.",
+      "translationUz": "Sujin internetdan qora shim buyurtma qildi. Ammo bugun olganda shim juda uzun ekan. Shuning uchun do‘konga qo‘ng‘iroq qilib, kalta shimga almashtirish mumkinmi deb so‘ramoqchi.",
+      "choices": [
+        "Shim juda uzun bo‘lgani uchun",
+        "Rangi yoqmagani uchun",
+        "Narxi qimmat bo‘lgani uchun",
+        "Yetkazib berilmagani uchun"
+      ],
+      "answer": "Shim juda uzun bo‘lgani uchun",
+      "explanationUz": "Matnda 「바지가 너무 길었습니다」 — shim juda uzun edi, deyiladi.",
+      "tokens": []
+    },
+    {
+      "id": "t2-023",
+      "level": 2,
+      "topic": "Ob-havo va tabiat",
+      "type": "reading",
+      "titleUz": "Tog‘ga sayohat",
+      "promptUz": "Ertaga sayohatga chiqishdan oldin nima qilish kerak?",
+      "ko": "이번 주말에 가족과 산에 갈 예정입니다. 일기 예보를 보니 토요일에는 맑지만 일요일에는 비가 온다고 합니다. 그래서 우리는 토요일 아침에 출발하고 우산도 준비하기로 했습니다.",
+      "translationUz": "Bu dam olish kuni oila bilan toqqa borish rejalashtirilgan. Ob-havo ma’lumotiga ko‘ra shanba ochiq, yakshanba yomg‘irli. Shuning uchun ular shanba ertalab jo‘nab, soyabon ham tayyorlashadi.",
+      "choices": [
+        "Shanba ertalab jo‘nash",
+        "Yakshanba kechasi jo‘nash",
+        "Uyda qolish",
+        "Yangi palto sotib olish"
+      ],
+      "answer": "Shanba ertalab jo‘nash",
+      "explanationUz": "Ular yomg‘irdan oldin, 「토요일 아침」da jo‘nashga qaror qilishgan.",
+      "tokens": []
+    },
+    {
+      "id": "t2-024",
+      "level": 2,
+      "topic": "Tana",
+      "type": "listening",
+      "titleUz": "Shifokor ko‘rigida",
+      "promptUz": "Bemorning qaysi joyi og‘riyapti?",
+      "ko": "의사: 어디가 아파요?\n환자: 어제부터 목이 아프고 열도 조금 있어요.\n의사: 물을 많이 마시고 오늘은 집에서 쉬세요.",
+      "translationUz": "Shifokor: Qayeringiz og‘riyapti? Bemor: Kechadan beri tomog‘im og‘riyapti, biroz isitmam ham bor. Shifokor: Ko‘p suv ichib, bugun uyda dam oling.",
+      "choices": [
+        "Tomoq",
+        "Quloq",
+        "Oyoq",
+        "Yelka"
+      ],
+      "answer": "Tomoq",
+      "explanationUz": "Bemor 「목이 아프고」 deb, tomog‘i og‘riyotganini aytadi.",
+      "tokens": []
+    },
+    {
+      "id": "t2-025",
+      "level": 2,
+      "topic": "Hafta va kun",
+      "type": "listening",
+      "titleUz": "Dam olish kungi uchrashuv",
+      "promptUz": "Ular qachon uchrashadi?",
+      "ko": "유나: 이번 주 토요일에 시간이 있어요?\n준호: 네, 오후 두 시부터 괜찮아요.\n유나: 그럼 토요일 세 시에 공원에서 만나요.",
+      "translationUz": "Yuna: Shu hafta shanba kuni vaqtingiz bormi? Junho: Ha, tushdan keyin soat ikkidan bo‘shman. Yuna: Unda shanba soat uchda bog‘da uchrashaylik.",
+      "choices": [
+        "Shanba soat uchda",
+        "Juma soat ikkida",
+        "Yakshanba soat uchda",
+        "Shanba soat beshda"
+      ],
+      "answer": "Shanba soat uchda",
+      "explanationUz": "Yuna 「토요일 세 시에」 deb aniq vaqtni aytadi.",
+      "tokens": []
+    },
+    {
+      "id": "t2-026",
+      "level": 2,
+      "topic": "Kasblar",
+      "type": "listening",
+      "titleUz": "Kasb haqida suhbat",
+      "promptUz": "Ayol qayerda ishlaydi?",
+      "ko": "가: 무슨 일을 하세요?\n나: 저는 요리사예요. 작은 식당에서 일해요.\n가: 요리를 좋아해서 그 일을 시작했어요?\n나: 네, 어릴 때부터 요리를 좋아했어요.",
+      "translationUz": "A: Qanday ish qilasiz? B: Men oshpazman. Kichik restoranda ishlayman. A: Ovqat pishirishni yoqtirganingiz uchun shu ishni boshladingizmi? B: Ha, bolaligimdan ovqat pishirishni yoqtiraman.",
+      "choices": [
+        "Kichik restoranda",
+        "Maktabda",
+        "Bankda",
+        "Kasalxonada"
+      ],
+      "answer": "Kichik restoranda",
+      "explanationUz": "B 「작은 식당에서 일해요」 deb, kichik restoranda ishlashini aytadi.",
+      "tokens": []
+    },
+    {
+      "id": "t2-027",
+      "level": 2,
+      "topic": "Uy ichi",
+      "type": "listening",
+      "titleUz": "Uy jihozini ta’mirlash",
+      "promptUz": "Nima ishlamayapti?",
+      "ko": "가: 냉장고가 왜 안 돼요?\n나: 문이 잘 안 닫혀요. 안에 음식이 너무 많아요.\n가: 그럼 음식을 조금 꺼내 볼게요.",
+      "translationUz": "A: Muzlatgich nega ishlamayapti? B: Eshigi yaxshi yopilmayapti. Ichida ovqat juda ko‘p. A: Unda ovqatning bir qismini chiqarib ko‘raman.",
+      "choices": [
+        "Muzlatgich eshigi",
+        "Televizor ekrani",
+        "Deraza oynasi",
+        "Xona chirog‘i"
+      ],
+      "answer": "Muzlatgich eshigi",
+      "explanationUz": "Muammo 「냉장고」ning 「문」i yaxshi yopilmayotganida.",
+      "tokens": []
+    },
+    {
+      "id": "t2-028",
+      "level": 2,
+      "topic": "Fe'llar 2",
+      "type": "listening",
+      "titleUz": "Kechki reja",
+      "promptUz": "Erkak bugun kechqurun nima qilmoqchi?",
+      "ko": "가: 오늘 저녁에 뭐 할 거예요?\n나: 먼저 집에서 요리하고, 그다음에 동생과 영화를 볼 거예요.\n가: 재미있겠어요.",
+      "translationUz": "A: Bugun kechqurun nima qilasiz? B: Avval uyda ovqat pishiraman, keyin ukam-singlim bilan kino ko‘raman. A: Qiziqarli bo‘lsa kerak.",
+      "choices": [
+        "Ovqat pishirib, kino ko‘radi",
+        "Do‘sti bilan sport qiladi",
+        "Ishxonada qoladi",
+        "Bozorga boradi"
+      ],
+      "answer": "Ovqat pishirib, kino ko‘radi",
+      "explanationUz": "U 「요리하고 ... 영화를 볼 거예요」 deb ikki rejasini aytadi.",
+      "tokens": []
+    },
+    {
+      "id": "t2-029",
+      "level": 2,
+      "topic": "Shahar",
+      "type": "writing",
+      "titleUz": "Shahar bo‘ylab yo‘l-yo‘riq",
+      "promptUz": "Yaqin atrofdagi bir joyga qanday borishni 3–4 ta sodda koreyscha gap bilan yozing.",
+      "ko": "우리 집 근처에는 공원이 있습니다. 집에서 공원까지 걸어서 십 분 걸립니다. 공원 옆에는 작은 카페도 있습니다.",
+      "translationUz": "Uyim yaqinida park bor. Uydan parkgacha piyoda o‘n daqiqa. Park yonida kichik kafe ham bor.",
+      "choices": [],
+      "answer": "우리 집 근처에는 공원이 있습니다. 집에서 공원까지 걸어서 십 분 걸립니다. 공원 옆에는 작은 카페도 있습니다.",
+      "explanationUz": "Joy nomlari, 「에/에서」 qo‘shimchalari va masofani aniq aytish; gaplarni tushunarli bog‘lash.",
+      "tokens": []
+    },
+    {
+      "id": "t2-030",
+      "level": 2,
+      "topic": "Maktab",
+      "type": "writing",
+      "titleUz": "O‘qish rejasini yozish",
+      "promptUz": "Ertangi dars uchun rejangizni 3–4 ta sodda koreyscha gap bilan yozing.",
+      "ko": "내일 도서관에서 한국어를 공부할 거예요. 먼저 단어를 복습하고 문법 문제를 풀 거예요. 오후에는 친구와 같이 숙제를 할 거예요.",
+      "translationUz": "Ertaga kutubxonada koreys tilini o‘rganaman. Avval so‘zlarni takrorlab, grammatika masalalarini yechaman. Tushdan keyin do‘stim bilan uy vazifasini qilaman.",
+      "choices": [],
+      "answer": "내일 도서관에서 한국어를 공부할 거예요. 먼저 단어를 복습하고 문법 문제를 풀 거예요. 오후에는 친구와 같이 숙제를 할 거예요.",
+      "explanationUz": "Kelasi zamon 「-(으)ㄹ 거예요」, vaqt va joy ifodalari, ketma-ket ishlarni to‘g‘ri qo‘llash.",
+      "tokens": []
+    },
+    {
+      "id": "t2-031",
+      "level": 2,
+      "topic": "Kiyim",
+      "type": "writing",
+      "titleUz": "Kiyim tanlash",
+      "promptUz": "Sotib olmoqchi bo‘lgan kiyimingizni va uning rangini 3–4 ta sodda koreyscha gap bilan tasvirlang.",
+      "ko": "저는 파란색 셔츠를 사고 싶어요. 이 셔츠는 편하고 예뻐요. 하지만 너무 비싸면 다른 셔츠를 볼 거예요.",
+      "translationUz": "Men ko‘k ko‘ylak sotib olmoqchiman. Bu ko‘ylak qulay va chiroyli. Ammo juda qimmat bo‘lsa, boshqa ko‘ylakni ko‘raman.",
+      "choices": [],
+      "answer": "저는 파란색 셔츠를 사고 싶어요. 이 셔츠는 편하고 예뻐요. 하지만 너무 비싸면 다른 셔츠를 볼 거예요.",
+      "explanationUz": "Kiyim, rang, sifat va istakni tabiiy ifodalash; 「-고 싶어요」 hamda 「-면」ni to‘g‘ri ishlatish.",
+      "tokens": []
+    },
+    {
+      "id": "t2-032",
+      "level": 2,
+      "topic": "Sifatlar",
+      "type": "writing",
+      "titleUz": "Xonani tasvirlash",
+      "promptUz": "Uy yoki sinf xonasini 3–4 ta sodda koreyscha gap bilan tasvirlang.",
+      "ko": "우리 교실은 크고 밝아요. 의자가 많지만 책상은 조금 작아요. 창문이 커서 교실이 시원해요.",
+      "translationUz": "Bizning sinfimiz katta va yorug‘. Stullar ko‘p, lekin partalar biroz kichik. Deraza katta bo‘lgani uchun sinf salqin.",
+      "choices": [],
+      "answer": "우리 교실은 크고 밝아요. 의자가 많지만 책상은 조금 작아요. 창문이 커서 교실이 시원해요.",
+      "explanationUz": "Kamida uchta sifatni, 「-고/지만/어서」 bog‘lovchilarini va xonadagi buyumlarni to‘g‘ri qo‘llash.",
+      "tokens": []
+    },
+    {
+      "id": "t2-033",
+      "level": 2,
+      "topic": "Transport",
+      "type": "speaking",
+      "titleUz": "Bekatda yordam so‘rash",
+      "promptUz": "Avtobus bekatida kerakli yo‘nalishni so‘rab, 3–4 ta sodda gap ayting.",
+      "ko": "실례합니다. 시청에 가는 버스가 몇 번이에요? 이 버스 정류장에서 타면 돼요? 감사합니다.",
+      "translationUz": "Kechirasiz. Shahar hokimiyatiga boradigan avtobus nechinchi? Bu avtobus bekatidan minsam bo‘ladimi? Rahmat.",
+      "choices": [],
+      "answer": "실례합니다. 시청에 가는 버스가 몇 번이에요? 이 버스 정류장에서 타면 돼요? 감사합니다.",
+      "explanationUz": "Muloyim murojaat, manzil, transport va 「-면 돼요?」 orqali tekshirishni aniq aytish; avtomatik rasmiy ball berilmaydi.",
+      "tokens": []
+    },
+    {
+      "id": "t2-034",
+      "level": 2,
+      "topic": "Ob-havo va tabiat",
+      "type": "speaking",
+      "titleUz": "Bugungi ob-havo",
+      "promptUz": "Bugungi ob-havoni va unga mos rejangizni 3–4 ta sodda gap bilan ayting.",
+      "ko": "오늘은 날씨가 맑고 따뜻해요. 그래서 친구와 공원에 갈 거예요. 바람이 불면 집에 있을 거예요.",
+      "translationUz": "Bugun havo ochiq va iliq. Shuning uchun do‘stim bilan parkka boraman. Shamol essa, uyda bo‘laman.",
+      "choices": [],
+      "answer": "오늘은 날씨가 맑고 따뜻해요. 그래서 친구와 공원에 갈 거예요. 바람이 불면 집에 있을 거예요.",
+      "explanationUz": "Ob-havo sifatlarini, sabab 「그래서」 va shart 「-면」ni tushunarli talaffuz bilan ishlatish; avtomatik talaffuz bali berilmaydi.",
+      "tokens": []
+    },
+    {
+      "id": "t2-035",
+      "level": 2,
+      "topic": "Kasblar",
+      "type": "speaking",
+      "titleUz": "Kasb va ish joyi",
+      "promptUz": "O‘zingiz yoki tanishingizning kasbi va ish joyi haqida 3–4 ta sodda gap ayting.",
+      "ko": "제 친구는 의사예요. 병원에서 일하고 환자를 도와줘요. 일이 바쁘지만 보람이 있다고 해요.",
+      "translationUz": "Do‘stim shifokor. U kasalxonada ishlaydi va bemorlarga yordam beradi. Ishi band, lekin mazmunli ekanini aytadi.",
+      "choices": [],
+      "answer": "제 친구는 의사예요. 병원에서 일하고 환자를 도와줘요. 일이 바쁘지만 보람이 있다고 해요.",
+      "explanationUz": "Kasb, ish joyi, kundalik vazifa va qarama-qarshilikni tabiiy ifodalash; avtomatik rasmiy score emas.",
+      "tokens": []
+    },
+    {
+      "id": "t2-036",
+      "level": 2,
+      "topic": "Uy ichi",
+      "type": "speaking",
+      "titleUz": "Uyda iltimos qilish",
+      "promptUz": "Uyda biror buyumni so‘rab, nima uchun kerakligini 3–4 ta sodda gap bilan ayting.",
+      "ko": "방이 어두워요. 불을 켜 주세요. 그리고 창문을 조금 열어 주세요. 공기가 답답해요.",
+      "translationUz": "Xona qorong‘i. Chiroqni yoqing, iltimos. Derazani ham biroz oching. Havo dim.",
+      "choices": [],
+      "answer": "방이 어두워요. 불을 켜 주세요. 그리고 창문을 조금 열어 주세요. 공기가 답답해요.",
+      "explanationUz": "Uy buyumlari, 「-아/어 주세요」 iltimos shakli va sababni sodda gaplarda qo‘llash; avtomatik rasmiy ball berilmaydi.",
+      "tokens": []
+    }
+  ]
+}

@@ -1,0 +1,165 @@
+{
+  "totalExercises": 9198,
+  "authored": 216,
+  "generated": 8982,
+  "levels": [
+    {
+      "level": 1,
+      "loaded": true,
+      "authoredTasks": 36,
+      "sourceWords": 450,
+      "generatedVariants": 1350,
+      "objectiveQuestions": 1372,
+      "byType": {
+        "mcq": 906,
+        "cloze": 6,
+        "order": 6,
+        "reading": 5,
+        "listening": 455,
+        "writing": 4,
+        "speaking": 4
+      },
+      "topics": [
+        "Fe'llar",
+        "Hayvonlar",
+        "Koreys sonlari",
+        "Lug‘at · chastota bo‘yicha",
+        "Meva va sabzavot",
+        "Oila",
+        "Ovqat",
+        "Ranglar",
+        "Raqamlar",
+        "Salomlashish",
+        "Savol so'zlari",
+        "Vaqt va joy"
+      ],
+      "computeMs": 110
+    },
+    {
+      "level": 2,
+      "loaded": true,
+      "authoredTasks": 36,
+      "sourceWords": 471,
+      "generatedVariants": 1413,
+      "objectiveQuestions": 1435,
+      "byType": {
+        "mcq": 948,
+        "cloze": 6,
+        "order": 6,
+        "reading": 5,
+        "listening": 476,
+        "writing": 4,
+        "speaking": 4
+      },
+      "topics": [
+        "Fe'llar 2",
+        "Hafta va kun",
+        "Kasblar",
+        "Kiyim",
+        "Lug‘at · chastota bo‘yicha",
+        "Maktab",
+        "Ob-havo va tabiat",
+        "Sifatlar",
+        "Tana",
+        "Transport",
+        "Uy ichi",
+        "Shahar"
+      ],
+      "computeMs": 94
+    },
+    {
+      "level": 3,
+      "loaded": true,
+      "authoredTasks": 36,
+      "sourceWords": 1004,
+      "generatedVariants": 3012,
+      "objectiveQuestions": 3034,
+      "byType": {
+        "mcq": 2014,
+        "cloze": 6,
+        "order": 6,
+        "reading": 5,
+        "listening": 1009,
+        "writing": 4,
+        "speaking": 4
+      },
+      "topics": [
+        "His-tuyg'u va hayot",
+        "Ish va o'qish",
+        "Lug‘at · chastota bo‘yicha",
+        "TOPIK 3 so'zlari"
+      ],
+      "computeMs": 227
+    },
+    {
+      "level": 4,
+      "loaded": true,
+      "authoredTasks": 36,
+      "sourceWords": 1004,
+      "generatedVariants": 3012,
+      "objectiveQuestions": 3034,
+      "byType": {
+        "mcq": 2014,
+        "cloze": 6,
+        "order": 6,
+        "reading": 5,
+        "listening": 1009,
+        "writing": 4,
+        "speaking": 4
+      },
+      "topics": [
+        "Fikr bildirish",
+        "Jamiyat va iqtisod",
+        "Lug‘at · chastota bo‘yicha",
+        "TOPIK 4 so'zlari"
+      ],
+      "computeMs": 212
+    },
+    {
+      "level": 5,
+      "loaded": true,
+      "authoredTasks": 36,
+      "sourceWords": 50,
+      "generatedVariants": 150,
+      "objectiveQuestions": 172,
+      "byType": {
+        "mcq": 106,
+        "cloze": 6,
+        "order": 6,
+        "reading": 5,
+        "listening": 55,
+        "writing": 4,
+        "speaking": 4
+      },
+      "topics": [
+        "TOPIK 5 so'zlari",
+        "Ilmiy va rasmiy",
+        "Murakkab fe'l va sifatlar"
+      ],
+      "computeMs": 9
+    },
+    {
+      "level": 6,
+      "loaded": true,
+      "authoredTasks": 36,
+      "sourceWords": 15,
+      "generatedVariants": 45,
+      "objectiveQuestions": 67,
+      "byType": {
+        "mcq": 36,
+        "cloze": 6,
+        "order": 6,
+        "reading": 5,
+        "listening": 20,
+        "writing": 4,
+        "speaking": 4
+      },
+      "topics": [
+        "Ilmiy tahlil · T6",
+        "Murakkab ifoda · T6",
+        "TOPIK 6 so'zlari"
+      ],
+      "computeMs": 3
+    }
+  ]
+}

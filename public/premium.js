@@ -3,7 +3,20 @@
 
   const THEME_KEY = "gotopic-theme";
   const HOME_ART = "/manus-storage/async-images/4vzI5sf6VBdAmnp65tFPyA/image-1.webp";
-  const routeName = () => (location.hash || "#bosh").slice(1) || "bosh";
+  const ROUTE_PALETTE = [
+    ["#7c5cff", "#2e8dff", "#25d5ad"], ["#ef688f", "#865dff", "#ffbd69"],
+    ["#ffb83e", "#ef6f81", "#805dff"], ["#f06b96", "#ff9d61", "#735cff"],
+    ["#2a9dff", "#725cff", "#21cfa5"], ["#23cdb4", "#328fff", "#8b63ff"],
+    ["#f36eaa", "#865cff", "#30a4ff"], ["#775fff", "#2b9fff", "#f2bd52"]
+  ];
+  let lastRoute = null;
+
+  const routeName = () => {
+    try {
+      if (typeof route === "function") return route();
+    } catch (_) {}
+    return (location.hash || "#bosh").slice(1) || "bosh";
+  };
   const reduceMotion = () => window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
   const safeStore = (method, key, value) => {
     try {
@@ -13,6 +26,16 @@
     } catch (_) {}
     return null;
   };
+
+  function setRouteAccent(route) {
+    let hash = 0;
+    for (let i = 0; i < route.length; i += 1) hash = (hash * 31 + route.charCodeAt(i)) >>> 0;
+    const [a, b, c] = ROUTE_PALETTE[hash % ROUTE_PALETTE.length];
+    const root = document.documentElement;
+    root.style.setProperty("--route-a", a);
+    root.style.setProperty("--route-b", b);
+    root.style.setProperty("--route-c", c);
+  }
 
   function applyTheme(theme) {
     const chosen = theme === "light" ? "light" : "dark";
@@ -50,9 +73,9 @@
       ["sozlar", "가", "So'zlar"],
       ["suhbat", "◌", "AI suhbat"],
       ["menu", "☰", "Menyu"]
-    ].map(([route, icon, label]) => route === "menu"
+    ].map(([routeKey, icon, label]) => routeKey === "menu"
       ? `<button type="button" data-ui-open-menu aria-label="Menyuni ochish"><b aria-hidden="true">${icon}</b><span>${label}</span></button>`
-      : `<a href="#${route}" data-mobile-route="${route}"><b aria-hidden="true">${icon}</b><span>${label}</span></a>`).join("");
+      : `<a href="#${routeKey}" data-mobile-route="${routeKey}"><b aria-hidden="true">${icon}</b><span>${label}</span></a>`).join("");
     document.body.appendChild(nav);
   }
 
@@ -62,6 +85,31 @@
       if (active) link.setAttribute("aria-current", "page");
       else link.removeAttribute("aria-current");
     });
+  }
+
+  function drawerProgress() {
+    const drawer = document.getElementById("drawer");
+    if (!drawer || drawer.querySelector("[data-drawer-progress]")) return;
+    const progress = document.createElement("div");
+    progress.className = "drawer-progress";
+    progress.dataset.drawerProgress = "";
+    progress.innerHTML = '<div class="drawer-progress-top"><span>O\'quv darajasi</span><strong data-drawer-level>TOPIK 1</strong></div><div class="drawer-progress-row"><span class="drawer-progress-badge" aria-hidden="true">XP</span><div><b data-drawer-xp>0 XP</b><small>Bugungi o\'sish ritmi</small></div></div>';
+    drawer.querySelector(".dhead")?.insertAdjacentElement("afterend", progress);
+  }
+
+  function updateDrawerProgress() {
+    const drawer = document.getElementById("drawer");
+    if (!drawer) return;
+    const xp = document.getElementById("xp");
+    const xpText = xp ? xp.textContent.trim() : "0 XP";
+    const xpNode = drawer.querySelector("[data-drawer-xp]");
+    if (xpNode) xpNode.textContent = xpText;
+    let level = 1;
+    try {
+      if (typeof S !== "undefined" && Number.isFinite(Number(S.lvl))) level = Number(S.lvl);
+    } catch (_) {}
+    const levelNode = drawer.querySelector("[data-drawer-level]");
+    if (levelNode) levelNode.textContent = `TOPIK ${level}`;
   }
 
   function makeAiCard() {
@@ -74,7 +122,7 @@
       <div class="home-ai-inner">
         <div class="home-ai-top"><span class="home-ai-label">AI ustoz</span><span class="ai-status">Tayyor</span></div>
         <div class="home-ai-content"><h2>Tilni gapirib o'rganing.</h2><p>Har bir javobingizni o'zbekcha izoh, koreyscha talaffuz va muloyim tuzatish bilan mashq qiling.</p><a class="btn" href="#suhbat">Suhbatni boshlash <span aria-hidden="true">↗</span></a></div>
-        <div class="home-ai-footer"><span>TOPIK 1—5 uchun</span><span>Ovoz · Matn · Feedback</span></div>
+        <div class="home-ai-footer"><span>TOPIK 1—6 uchun</span><span>Ovoz · Matn · Feedback</span></div>
       </div>`;
     card.querySelector(".home-ai-art").style.backgroundImage = `linear-gradient(180deg,transparent 20%,rgba(11,18,47,.86) 86%),url('${HOME_ART}')`;
     return card;
@@ -101,32 +149,44 @@
       copy.innerHTML = '<span class="eyebrow">Koreys tili · O\'zbekcha platforma</span>';
       if (heading) copy.appendChild(heading);
       if (lead) copy.appendChild(lead);
-      if (actions) { actions.classList.add("home-actions"); copy.appendChild(actions); }
+      if (actions) {
+        actions.classList.add("home-actions");
+        copy.appendChild(actions);
+      }
       hero.replaceChildren(copy, makeAiCard());
     }
     const stats = view.querySelector(":scope > .stats");
     if (stats) {
       stats.insertAdjacentHTML("beforebegin", '<div class="home-focus"><small>Bugungi ritm</small><strong>Bir kichik qadam — katta natija.</strong><p>Darajangizni saqlang, ketma-ket kunlarni davom ettiring va keyingi mashqni oson boshlang.</p><div class="focus-progress"><span>Progress</span><div class="bar" aria-hidden="true"><i style="width:100%"></i></div><span aria-hidden="true">→</span></div></div>');
-      const current = lvlInfo(S.xp);
-      const bar = view.querySelector(".home-focus .bar i");
-      if (bar) bar.style.width = `${Math.min(100, current.cur / current.need * 100)}%`;
+      try {
+        const current = typeof lvlInfo === "function" && typeof S !== "undefined" ? lvlInfo(S.xp) : null;
+        const bar = view.querySelector(".home-focus .bar i");
+        if (bar && current) bar.style.width = `${Math.min(100, current.cur / current.need * 100)}%`;
+      } catch (_) {}
     }
   }
 
   function decorateView() {
-    const view = document.querySelector("#app > .view");
-    if (!view) return;
     const route = routeName();
-    view.dataset.route = route;
-    if (route === "bosh") decorateHome(view);
-    syncNavigation(route);
+    const view = document.querySelector("#app > .view");
+    setRouteAccent(route);
+    document.documentElement.dataset.route = route;
+    if (view) {
+      view.dataset.route = route;
+      if (route === "bosh") decorateHome(view);
+    }
+    updateDrawerProgress();
+    if (route !== lastRoute) {
+      syncNavigation(route);
+      lastRoute = route;
+    }
     window.GoTopicAccountRefresh?.();
   }
 
   function ripple(event) {
-    if (reduceMotion()) return;
+    if (reduceMotion() || !(event.target instanceof Element)) return;
     const target = event.target.closest("button,a,[role=button],summary");
-    if (!target || target.matches("[disabled],.mobile-nav button")) return;
+    if (!target || target.matches("[disabled]")) return;
     const previous = target.querySelector(":scope > .ripple-ink");
     if (previous) previous.remove();
     const dot = document.createElement("i");
@@ -134,6 +194,9 @@
     const rect = target.getBoundingClientRect();
     dot.style.left = `${event.clientX - rect.left}px`;
     dot.style.top = `${event.clientY - rect.top}px`;
+    const remove = () => dot.remove();
+    dot.addEventListener("animationend", remove, { once: true });
+    window.setTimeout(remove, 700);
     target.appendChild(dot);
   }
 
@@ -146,18 +209,19 @@
 
   function init() {
     const saved = safeStore("get", THEME_KEY);
-    applyTheme(saved || "dark");
+    applyTheme(saved || document.documentElement.dataset.theme || "dark");
     addThemeControl();
     buildMobileNav();
+    drawerProgress();
     document.addEventListener("click", (event) => {
-      const theme = event.target.closest("[data-theme-toggle]");
+      const theme = event.target.closest?.("[data-theme-toggle]");
       if (theme) {
         const next = document.documentElement.dataset.theme === "light" ? "dark" : "light";
         safeStore("set", THEME_KEY, next);
         applyTheme(next);
         return;
       }
-      const menu = event.target.closest("[data-ui-open-menu]");
+      const menu = event.target.closest?.("[data-ui-open-menu]");
       if (menu) {
         const burger = document.getElementById("burger");
         if (burger) burger.click();
@@ -178,22 +242,28 @@
       if (!focusables.length) return;
       const first = focusables[0];
       const last = focusables[focusables.length - 1];
-      if (event.shiftKey && document.activeElement === first) { event.preventDefault(); last.focus(); }
-      else if (!event.shiftKey && document.activeElement === last) { event.preventDefault(); first.focus(); }
+      if (event.shiftKey && document.activeElement === first) {
+        event.preventDefault();
+        last.focus();
+      } else if (!event.shiftKey && document.activeElement === last) {
+        event.preventDefault();
+        first.focus();
+      }
     });
     document.getElementById("burger")?.addEventListener("click", () => requestAnimationFrame(drawerFocusTrap));
 
     const originalRender = window.render;
-    if (typeof originalRender === "function") {
+    if (typeof originalRender === "function" && !window.__gotopicPremiumWrapped) {
+      window.__gotopicPremiumWrapped = true;
       window.render = function premiumRender(...args) {
         const result = originalRender.apply(this, args);
         decorateView();
         return result;
       };
-      window.GoTopicUI = { refresh: decorateView, theme: applyTheme };
     }
+    window.GoTopicUI = { refresh: decorateView, theme: applyTheme };
     decorateView();
-    window.addEventListener("hashchange", () => requestAnimationFrame(decorateView), { passive: true });
+    window.addEventListener("hashchange", decorateView, { passive: true });
   }
 
   if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", init, { once: true });

@@ -1,0 +1,654 @@
+{
+  "level": 4,
+  "label": "TOPIK 4",
+  "tasks": [
+    {
+      "id": "t4-001",
+      "level": 4,
+      "topic": "TOPIK 4 so'zlari",
+      "type": "mcq",
+      "titleUz": "Ta’sir ma’nosini toping",
+      "promptUz": "Matndagi bo‘sh joyga mazmunga mos so‘zni tanlang.",
+      "ko": "새 교통 정책은 시민들의 생활에 큰 ___을 미쳤다.",
+      "translationUz": "Yangi transport siyosati fuqarolar hayotiga katta ta’sir ko‘rsatdi.",
+      "choices": [
+        "영향",
+        "의견",
+        "책임",
+        "상황"
+      ],
+      "answer": "영향",
+      "explanationUz": "“영향을 미치다” — ta’sir ko‘rsatmoq degan turg‘un birikma.",
+      "tokens": []
+    },
+    {
+      "id": "t4-002",
+      "level": 4,
+      "topic": "TOPIK 4 so'zlari",
+      "type": "mcq",
+      "titleUz": "Sababni bildiruvchi so‘zni tanlang",
+      "promptUz": "Quyidagi gapda “omil, sabab” ma’nosidagi so‘zni toping.",
+      "ko": "이 현상이 나타난 ___을 정확히 분석할 필요가 있다.",
+      "translationUz": "Bu hodisa yuzaga kelishining sababini aniq tahlil qilish zarur.",
+      "choices": [
+        "원인",
+        "관계",
+        "발전",
+        "기술"
+      ],
+      "answer": "원인",
+      "explanationUz": "“원인” hodisa yoki natijaga olib kelgan sabab va omilni bildiradi.",
+      "tokens": []
+    },
+    {
+      "id": "t4-003",
+      "level": 4,
+      "topic": "TOPIK 4 so'zlari",
+      "type": "mcq",
+      "titleUz": "Fe’l ma’nosini aniqlang",
+      "promptUz": "“참여하다” fe’lining gapdagi ma’nosini toping.",
+      "ko": "많은 주민들이 지역 행사에 적극적으로 참여했다.",
+      "translationUz": "Ko‘plab aholi vakillari mahalliy tadbirda faol ishtirok etdi.",
+      "choices": [
+        "ishtirok etdi",
+        "rad etdi",
+        "taqqosladi",
+        "saqlab qoldi"
+      ],
+      "answer": "ishtirok etdi",
+      "explanationUz": "“참여하다” — tadbir, faoliyat yoki jarayonda qatnashmoq.",
+      "tokens": []
+    },
+    {
+      "id": "t4-004",
+      "level": 4,
+      "topic": "Fikr bildirish",
+      "type": "mcq",
+      "titleUz": "Fikr bildiruvchi so‘zni toping",
+      "promptUz": "Bo‘sh joyga “fikr” ma’nosidagi otni tanlang.",
+      "ko": "회의에서 각자의 ___을 자유롭게 말해 주십시오.",
+      "translationUz": "Yig‘ilishda har kim o‘z fikrini erkin aytsin.",
+      "choices": [
+        "의견",
+        "원인",
+        "효율",
+        "인구"
+      ],
+      "answer": "의견",
+      "explanationUz": "“의견” shaxs yoki guruhning fikri va qarashini anglatadi.",
+      "tokens": []
+    },
+    {
+      "id": "t4-005",
+      "level": 4,
+      "topic": "TOPIK 4 so'zlari",
+      "type": "mcq",
+      "titleUz": "Muammoni hal qilish fe’li",
+      "promptUz": "“Muammoni hal qilmoq” ma’nosidagi koreyscha fe’lni tanlang.",
+      "ko": "정부는 주거 문제를 해결하기 위한 대책을 마련했다.",
+      "translationUz": "Hukumat uy-joy muammosini hal qilish uchun chora-tadbir tayyorladi.",
+      "choices": [
+        "해결하다",
+        "유지하다",
+        "예상하다",
+        "증가하다"
+      ],
+      "answer": "해결하다",
+      "explanationUz": "“해결하다” muammo yoki masalani yechmoq, hal qilmoq degani.",
+      "tokens": []
+    },
+    {
+      "id": "t4-006",
+      "level": 4,
+      "topic": "Fikr bildirish",
+      "type": "mcq",
+      "titleUz": "Barqaror saqlash ma’nosi",
+      "promptUz": "“Saqlab turmoq” ma’nosidagi fe’lni toping.",
+      "ko": "지역의 전통을 오래 유지하려면 젊은 세대의 참여가 필요하다.",
+      "translationUz": "Hudud an’analarini uzoq saqlash uchun yosh avlodning ishtiroki zarur.",
+      "choices": [
+        "유지하다",
+        "감소하다",
+        "참여하다",
+        "강조하다"
+      ],
+      "answer": "유지하다",
+      "explanationUz": "“유지하다” mavjud holat, tartib yoki an’anani saqlab turishni bildiradi.",
+      "tokens": []
+    },
+    {
+      "id": "t4-007",
+      "level": 4,
+      "topic": "TOPIK 4 so'zlari",
+      "type": "cloze",
+      "titleUz": "Kutilmagan salbiy sabab",
+      "promptUz": "Bo‘sh joyga kutilmagan va salbiy natijaga sabab bo‘lgan grammatik shaklni qo‘ying.",
+      "ko": "회의 준비를 제대로 하지 않는 ___ 발표를 망쳤다.",
+      "translationUz": "Tayyorlanmaganim sababli taqdimotni buzib qo‘ydim.",
+      "choices": [
+        "바람에",
+        "덕분에",
+        "김에",
+        "반면에"
+      ],
+      "answer": "바람에",
+      "explanationUz": "“-는 바람에” odatda kutilmagan, ko‘pincha salbiy natijaga olib kelgan sababni bildiradi.",
+      "tokens": []
+    },
+    {
+      "id": "t4-008",
+      "level": 4,
+      "topic": "TOPIK 4 so'zlari",
+      "type": "cloze",
+      "titleUz": "Qaramay ma’nosi",
+      "promptUz": "Qarama-qarshi natijani ifodalovchi shaklni tanlang.",
+      "ko": "비용이 많이 드는 ___ 시민들의 만족도는 높았다.",
+      "translationUz": "Xarajat ko‘p bo‘lishiga qaramay, fuqarolarning qoniqish darajasi yuqori bo‘ldi.",
+      "choices": [
+        "데도",
+        "덕분에",
+        "김에",
+        "때문에"
+      ],
+      "answer": "데도",
+      "explanationUz": "“-는데도” kutilgan natijaga zid holatni, “...ga qaramay” ma’nosini beradi.",
+      "tokens": []
+    },
+    {
+      "id": "t4-009",
+      "level": 4,
+      "topic": "TOPIK 4 so'zlari",
+      "type": "cloze",
+      "titleUz": "Ijobiy sabab",
+      "promptUz": "Yaxshi natijaga sabab bo‘lgan shaklni qo‘ying.",
+      "ko": "동료들의 도움 ___ 어려운 업무를 끝낼 수 있었다.",
+      "translationUz": "Hamkasblarimning yordami tufayli qiyin ishni tugata oldim.",
+      "choices": [
+        "덕분에",
+        "탓에",
+        "바람에",
+        "대신에"
+      ],
+      "answer": "덕분에",
+      "explanationUz": "“덕분에” ijobiy natijaga olib kelgan sababni minnatdorlik ohangi bilan bildiradi.",
+      "tokens": []
+    },
+    {
+      "id": "t4-010",
+      "level": 4,
+      "topic": "Fikr bildirish",
+      "type": "cloze",
+      "titleUz": "Bilvosita nutq",
+      "promptUz": "“...deb aytdi” ma’nosini hosil qiladigan qo‘shimchani tanlang.",
+      "ko": "담당자는 정책이 다음 달부터 시행된다___ 설명했다.",
+      "translationUz": "Mas’ul xodim siyosat keyingi oydan joriy etilishini tushuntirdi.",
+      "choices": [
+        "고",
+        "는",
+        "을",
+        "에서"
+      ],
+      "answer": "고",
+      "explanationUz": "Fe’l yoki gap mazmunini bilvosita yetkazishda “-다고 하다” va “-라고 설명하다” shakllari ishlatiladi.",
+      "tokens": []
+    },
+    {
+      "id": "t4-011",
+      "level": 4,
+      "topic": "Fikr bildirish",
+      "type": "cloze",
+      "titleUz": "Arziydi ma’nosi",
+      "promptUz": "“Ko‘rishga arziydi” ma’nosini beradigan shaklni qo‘ying.",
+      "ko": "이 전시는 사회 문제를 생각해 볼 ___ 만하다.",
+      "translationUz": "Bu ko‘rgazma ijtimoiy muammolar haqida o‘ylab ko‘rishga arziydi.",
+      "choices": [
+        "만",
+        "줄",
+        "수",
+        "뿐"
+      ],
+      "answer": "만",
+      "explanationUz": "“-(으)ㄹ 만하다” biror ishni qilishga arzigulik ekanini bildiradi.",
+      "tokens": []
+    },
+    {
+      "id": "t4-012",
+      "level": 4,
+      "topic": "Jamiyat va iqtisod",
+      "type": "cloze",
+      "titleUz": "Yo‘l-yo‘lakay",
+      "promptUz": "Bir ishni qilayotgan paytda qo‘shimcha ishni ham bajarish ma’nosidagi shaklni tanlang.",
+      "ko": "은행에 가는 ___ 공과금도 납부했다.",
+      "translationUz": "Bankka borayotganimda yo‘l-yo‘lakay kommunal to‘lovni ham to‘ladim.",
+      "choices": [
+        "김에",
+        "바람에",
+        "덕분에",
+        "탓에"
+      ],
+      "answer": "김에",
+      "explanationUz": "“-는 김에” bir ishni qilgani borish yoki qilayotgan paytda boshqa ishni ham bajarishni bildiradi.",
+      "tokens": []
+    },
+    {
+      "id": "t4-013",
+      "level": 4,
+      "topic": "TOPIK 4 so'zlari",
+      "type": "order",
+      "titleUz": "Shahar transporti haqida gap tuzing",
+      "promptUz": "Berilgan bo‘laklarni tabiiy koreyscha gapga aylantiring.",
+      "ko": "Shahar markazida avtoturargoh kamaygani sababli jamoat transportidan foydalanish ko‘paydi.",
+      "translationUz": "도심의 주차 공간이 줄어들면서 대중교통 이용이 증가했다.",
+      "choices": [],
+      "answer": "도심의 주차 공간이 줄어들면서 대중교통 이용이 증가했다.",
+      "explanationUz": "Koreyscha gapda ega va to‘ldiruvchi odatda fe’ldan oldin keladi; bog‘lovchi qo‘shimcha esa o‘zi bog‘lagan qismdan keyin turadi.",
+      "tokens": [
+        "증가했다.",
+        "도심의",
+        "대중교통 이용이",
+        "주차 공간이",
+        "줄어들면서"
+      ]
+    },
+    {
+      "id": "t4-014",
+      "level": 4,
+      "topic": "Jamiyat va iqtisod",
+      "type": "order",
+      "titleUz": "Rasmiy sabab gapini tuzing",
+      "promptUz": "Bo‘laklarni mantiqiy tartibda joylashtiring.",
+      "ko": "Aholi qarib borayotgani sababli ijtimoiy xizmatlarga bo‘lgan talab ortmoqda.",
+      "translationUz": "인구가 고령화됨에 따라 사회 복지 서비스에 대한 수요가 증가하고 있다.",
+      "choices": [],
+      "answer": "인구가 고령화됨에 따라 사회 복지 서비스에 대한 수요가 증가하고 있다.",
+      "explanationUz": "Koreyscha gapda ega va to‘ldiruvchi odatda fe’ldan oldin keladi; bog‘lovchi qo‘shimcha esa o‘zi bog‘lagan qismdan keyin turadi.",
+      "tokens": [
+        "사회 복지 서비스에 대한 수요가",
+        "인구가",
+        "증가하고 있다.",
+        "고령화됨에 따라"
+      ]
+    },
+    {
+      "id": "t4-015",
+      "level": 4,
+      "topic": "Fikr bildirish",
+      "type": "order",
+      "titleUz": "Muvozanatli qarash",
+      "promptUz": "Bo‘laklardan tabiiy rasmiy gap tuzing.",
+      "ko": "Bu siyosatning afzalliklari bor, ammo uning cheklovlarini ham hisobga olish kerak.",
+      "translationUz": "이 정책은 장점이 있지만 한계도 함께 고려해야 한다.",
+      "choices": [],
+      "answer": "이 정책은 장점이 있지만 한계도 함께 고려해야 한다.",
+      "explanationUz": "Koreyscha gapda ega va to‘ldiruvchi odatda fe’ldan oldin keladi; bog‘lovchi qo‘shimcha esa o‘zi bog‘lagan qismdan keyin turadi.",
+      "tokens": [
+        "함께",
+        "이 정책은",
+        "고려해야 한다.",
+        "장점이 있지만",
+        "한계도"
+      ]
+    },
+    {
+      "id": "t4-016",
+      "level": 4,
+      "topic": "Jamiyat va iqtisod",
+      "type": "order",
+      "titleUz": "Natijani ta’kidlash",
+      "promptUz": "Bo‘laklarni to‘g‘ri tartiblang.",
+      "ko": "Onlayn xizmatlar kengaygani uchun fuqarolarning vaqtini tejash mumkin bo‘ldi.",
+      "translationUz": "온라인 서비스가 확대된 덕분에 시민들의 시간을 절약할 수 있었다.",
+      "choices": [],
+      "answer": "온라인 서비스가 확대된 덕분에 시민들의 시간을 절약할 수 있었다.",
+      "explanationUz": "Koreyscha gapda ega va to‘ldiruvchi odatda fe’ldan oldin keladi; bog‘lovchi qo‘shimcha esa o‘zi bog‘lagan qismdan keyin turadi.",
+      "tokens": [
+        "시민들의 시간을",
+        "온라인 서비스가",
+        "절약할 수 있었다.",
+        "확대된 덕분에"
+      ]
+    },
+    {
+      "id": "t4-017",
+      "level": 4,
+      "topic": "Fikr bildirish",
+      "type": "order",
+      "titleUz": "Fikrni ehtiyotkor ifodalash",
+      "promptUz": "Bo‘laklardan tabiiy gap tuzing.",
+      "ko": "Menimcha, bu masalani bir tomonlama baholashdan qochish kerak.",
+      "translationUz": "이 문제를 한쪽 측면에서만 평가하는 것은 피해야 한다고 생각한다.",
+      "choices": [],
+      "answer": "이 문제를 한쪽 측면에서만 평가하는 것은 피해야 한다고 생각한다.",
+      "explanationUz": "Koreyscha gapda ega va to‘ldiruvchi odatda fe’ldan oldin keladi; bog‘lovchi qo‘shimcha esa o‘zi bog‘lagan qismdan keyin turadi.",
+      "tokens": [
+        "피해야 한다고",
+        "이 문제를",
+        "생각한다.",
+        "한쪽 측면에서만",
+        "평가하는 것은"
+      ]
+    },
+    {
+      "id": "t4-018",
+      "level": 4,
+      "topic": "TOPIK 4 so'zlari",
+      "type": "order",
+      "titleUz": "Prognoz gapini tuzing",
+      "promptUz": "Bo‘laklarni tabiiy koreyscha tartibga keltiring.",
+      "ko": "Mutaxassislar bu tendensiya yaqin yillarda ham davom etishini taxmin qilmoqda.",
+      "translationUz": "전문가들은 이러한 추세가 앞으로도 이어질 것으로 예상하고 있다.",
+      "choices": [],
+      "answer": "전문가들은 이러한 추세가 앞으로도 이어질 것으로 예상하고 있다.",
+      "explanationUz": "Koreyscha gapda ega va to‘ldiruvchi odatda fe’ldan oldin keladi; bog‘lovchi qo‘shimcha esa o‘zi bog‘lagan qismdan keyin turadi.",
+      "tokens": [
+        "이어질 것으로",
+        "전문가들은",
+        "예상하고 있다.",
+        "이러한 추세가",
+        "앞으로도"
+      ]
+    },
+    {
+      "id": "t4-019",
+      "level": 4,
+      "topic": "Jamiyat va iqtisod",
+      "type": "reading",
+      "titleUz": "Mahalliy bozorning o‘zgarishi",
+      "promptUz": "Matnni o‘qing va asosiy o‘zgarishni toping.",
+      "ko": "최근 우리 동네 시장에서는 포장 쓰레기를 줄이기 위한 움직임이 활발하다. 상인들은 일회용 용기 대신 재사용할 수 있는 용기를 사용하기 시작했다. 처음에는 비용이 조금 늘었지만, 주민들의 호응이 좋아 참여하는 가게가 계속 증가하고 있다. 이 변화는 환경 보호뿐 아니라 시장의 이미지 개선에도 기여할 것으로 보인다.",
+      "translationUz": "So‘nggi paytda mahallamiz bozorida qadoq chiqindisini kamaytirish harakati faollashdi. Savdogarlar bir martalik idishlar o‘rniga qayta ishlatiladigan idishlardan foydalana boshladi. Avvaliga xarajat biroz oshdi, ammo aholining qo‘llab-quvvatlashi yaxshi bo‘lgani uchun qatnashayotgan do‘konlar ko‘paymoqda. Bu o‘zgarish atrof-muhitni asrashdan tashqari bozor imijini yaxshilashga ham hissa qo‘shadi.",
+      "choices": [
+        "Bozorda qayta ishlatiladigan idishlar joriy qilinmoqda.",
+        "Bozor butunlay yopilmoqda.",
+        "Mahsulotlar narxi keskin tushmoqda.",
+        "Faqat yirik marketlar qo‘llab-quvvatlanmoqda."
+      ],
+      "answer": "Bozorda qayta ishlatiladigan idishlar joriy qilinmoqda.",
+      "explanationUz": "Matnda savdogarlar bir martalik idishlar o‘rniga qayta ishlatiladigan idishlarni tanlayotgani aytilgan.",
+      "tokens": []
+    },
+    {
+      "id": "t4-020",
+      "level": 4,
+      "topic": "TOPIK 4 so'zlari",
+      "type": "reading",
+      "titleUz": "Ish joyidagi moslashuv",
+      "promptUz": "Matnga ko‘ra, yangi tizimning asosiy foydasi nima?",
+      "ko": "한 회사가 직원들의 업무 효율을 높이기 위해 회의 방식을 바꾸었다. 긴 회의 대신 사전에 자료를 공유하고, 회의에서는 결정이 필요한 내용만 논의하기로 한 것이다. 처음에는 직원들이 익숙하지 않아 시간이 걸렸지만, 몇 달 뒤에는 회의 시간이 줄고 결정 과정도 빨라졌다. 회사는 앞으로 이 방식을 다른 부서에도 확대할 예정이다.",
+      "translationUz": "Bir kompaniya xodimlar ish samaradorligini oshirish uchun yig‘ilish usulini o‘zgartirdi. Uzoq yig‘ilish o‘rniga materiallarni oldindan ulashib, yig‘ilishda faqat qaror talab qiladigan masalalarni muhokama qilishga kelishildi. Avval xodimlar ko‘nikmagani uchun vaqt ketdi, biroq bir necha oydan keyin yig‘ilish vaqti qisqarib, qaror jarayoni ham tezlashdi. Kompaniya bu usulni boshqa bo‘limlarga ham kengaytirmoqchi.",
+      "choices": [
+        "Yig‘ilishlar qisqarib, qarorlar tezlashdi.",
+        "Xodimlar soni kamaydi.",
+        "Barcha yig‘ilishlar bekor qilindi.",
+        "Ish vaqti uzaytirildi."
+      ],
+      "answer": "Yig‘ilishlar qisqarib, qarorlar tezlashdi.",
+      "explanationUz": "Matn yangi usuldan keyin yig‘ilish va qaror qabul qilish jarayoni tezlashganini aniq aytadi.",
+      "tokens": []
+    },
+    {
+      "id": "t4-021",
+      "level": 4,
+      "topic": "Fikr bildirish",
+      "type": "reading",
+      "titleUz": "Shahar yashil hududi",
+      "promptUz": "Muallif qanday yechimni ma’qullayotganga o‘xshaydi?",
+      "ko": "도시의 빈터를 주차장으로 개발하자는 의견이 제기되었지만, 주민들의 반대도 만만치 않다. 주민들은 주차 공간보다 아이들이 안전하게 놀 수 있는 공원이 더 필요하다고 주장한다. 전문가들은 두 요구를 모두 고려하려면 지하에 주차장을 만들고 지상에는 작은 공원을 조성하는 방안을 검토할 수 있다고 설명한다. 최종 결정에는 비용과 이용자의 편의가 함께 반영되어야 한다.",
+      "translationUz": "Shahardagi bo‘sh yerlarni avtoturargohga aylantirish fikri bildirildi, ammo aholi qarshiligi ham kuchli. Aholi avtoturargohdan ko‘ra bolalar xavfsiz o‘ynaydigan bog‘ ko‘proq kerak deb ta’kidlamoqda. Mutaxassislar ikki talabni ham hisobga olish uchun yer ostida avtoturargoh, yer ustida esa kichik bog‘ qurish variantini ko‘rib chiqish mumkinligini aytmoqda. Yakuniy qarorda xarajat va foydalanuvchi qulayligi birga aks etishi kerak.",
+      "choices": [
+        "Yer osti avtoturargohi va yer usti bog‘i variantini ko‘rib chiqish.",
+        "Barcha bo‘sh yerlarni sotish.",
+        "Aholining fikrini inkor etish.",
+        "Faqat yangi uylar qurish."
+      ],
+      "answer": "Yer osti avtoturargohi va yer usti bog‘i variantini ko‘rib chiqish.",
+      "explanationUz": "Mutaxassislar ikki ehtiyojni birga qondiradigan yechimni taklif qilmoqda.",
+      "tokens": []
+    },
+    {
+      "id": "t4-022",
+      "level": 4,
+      "topic": "Jamiyat va iqtisod",
+      "type": "reading",
+      "titleUz": "Masofaviy ta’lim natijasi",
+      "promptUz": "Matnning asosiy xulosasini tanlang.",
+      "ko": "한 대학은 통학이 어려운 학생들을 위해 일부 강의를 온라인으로 전환했다. 온라인 강의는 시간과 장소의 제약을 줄였지만, 학생들 사이의 교류가 약해질 수 있다는 문제도 나타났다. 이에 대학은 온라인 수업을 유지하되 정기적인 토론과 대면 활동을 함께 운영하기로 했다. 대학은 편의성과 교육의 질을 모두 확보하는 것이 목표라고 밝혔다.",
+      "translationUz": "Bir universitet qatnashi qiyin bo‘lgan talabalar uchun ayrim darslarni onlayn shaklga o‘tkazdi. Onlayn darslar vaqt va joy cheklovini kamaytirdi, biroq talabalar o‘rtasidagi muloqot susayishi mumkinligi ham ko‘rindi. Shuning uchun universitet onlayn darslarni saqlagan holda muntazam munozara va yuzma-yuz faoliyatni ham o‘tkazishga qaror qildi. Universitet maqsad qulaylik va ta’lim sifatini birga ta’minlash ekanini bildirdi.",
+      "choices": [
+        "Qulaylikni saqlab, muloqotni kuchaytiruvchi faoliyatni qo‘shish.",
+        "Onlayn darslarni butunlay bekor qilish.",
+        "Faqat yuzma-yuz dars o‘tish.",
+        "Talabalar o‘rtasidagi aloqani cheklash."
+      ],
+      "answer": "Qulaylikni saqlab, muloqotni kuchaytiruvchi faoliyatni qo‘shish.",
+      "explanationUz": "Universitet onlayn ta’lim qulayligini qoldirib, munozara va uchrashuvlar bilan kamchiligini to‘ldirmoqda.",
+      "tokens": []
+    },
+    {
+      "id": "t4-023",
+      "level": 4,
+      "topic": "Fikr bildirish",
+      "type": "reading",
+      "titleUz": "Raqamli xizmatga kirish",
+      "promptUz": "Matnga ko‘ra, nima uchun qo‘shimcha chora kerak?",
+      "ko": "공공기관의 민원 서비스가 온라인 중심으로 바뀌면서 처리 속도는 빨라졌다. 그러나 인터넷 사용이 익숙하지 않은 고령층은 필요한 정보를 찾는 데 어려움을 겪고 있다. 기관은 디지털 전환의 편리함만 강조해서는 안 되며, 상담 창구와 교육 프로그램도 마련해야 한다. 그래야 다양한 세대가 변화의 혜택을 함께 누릴 수 있다.",
+      "translationUz": "Davlat idoralaridagi murojaat xizmatlari onlayn markazga o‘tgach, ko‘rib chiqish tezligi oshdi. Biroq internetdan foydalanishga ko‘nikmagan keksalar kerakli ma’lumotni topishda qiynalmoqda. Idora raqamli o‘zgarishning qulayligini ta’kidlash bilangina cheklanmay, maslahat oynasi va o‘quv dasturlarini ham tayyorlashi kerak. Shundagina turli avlodlar o‘zgarish foydasidan birga foydalanadi.",
+      "choices": [
+        "Keksalar ham xizmatlardan foydalana olishi uchun.",
+        "Internet tezligini pasaytirish uchun.",
+        "Onlayn xizmatlarni qimmatlashtirish uchun.",
+        "Faqat yoshlarni o‘qitish uchun."
+      ],
+      "answer": "Keksalar ham xizmatlardan foydalana olishi uchun.",
+      "explanationUz": "Matnda internetga ko‘nikmagan keksalar uchun maslahat va ta’lim zarurligi sabab sifatida ko‘rsatilgan.",
+      "tokens": []
+    },
+    {
+      "id": "t4-024",
+      "level": 4,
+      "topic": "Jamiyat va iqtisod",
+      "type": "listening",
+      "titleUz": "Mahalla chiqindilarini saralash",
+      "promptUz": "Dialogni tinglang va yig‘ilish maqsadini aniqlang.",
+      "ko": "A: 다음 달부터 아파트에서 음식물 쓰레기 감량 제도를 시범 운영한대요.\nB: 어떤 방식으로 운영하는데요?\nA: 배출량에 따라 관리비를 조금 다르게 부과하고, 줄인 가구에는 혜택을 준다고 합니다.\nB: 주민들이 불편해하지 않도록 안내를 충분히 해야겠네요.",
+      "translationUz": "A: Keyingi oydan turar joy majmuasida oziq-ovqat chiqindisini kamaytirish tizimi sinov tariqasida ishlarkan.\nB: Qanday ishlarkan?\nA: Tashlangan miqdorga qarab boshqaruv to‘lovi biroz farqlanadi, kamaytirgan xonadonlarga imtiyoz beriladi.\nB: Aholi noqulaylik sezmasligi uchun yetarlicha tushuntirish kerak ekan.",
+      "choices": [
+        "Chiqindini kamaytirish tizimini sinab ko‘rish.",
+        "Liftni ta’mirlash jadvalini tuzish.",
+        "Yangi uylar qurish.",
+        "Kommunal to‘lovlarni bekor qilish."
+      ],
+      "answer": "Chiqindini kamaytirish tizimini sinab ko‘rish.",
+      "explanationUz": "Suhbatda oziq-ovqat chiqindisini kamaytirishga qaratilgan yangi tizimning sinovi muhokama qilinadi.",
+      "tokens": []
+    },
+    {
+      "id": "t4-025",
+      "level": 4,
+      "topic": "TOPIK 4 so'zlari",
+      "type": "listening",
+      "titleUz": "Ishdagi yangi dastur",
+      "promptUz": "Suhbatga ko‘ra, xodimlar nimaga ko‘proq vaqt ajrata oladi?",
+      "ko": "A: 새 업무 프로그램을 써 보니 어떠세요?\nB: 처음에는 복잡했지만 익숙해지니까 자료를 정리하는 시간이 많이 줄었어요.\nA: 그럼 남은 시간에는 분석 업무에 집중할 수 있겠네요.\nB: 네, 다만 모든 직원이 사용할 수 있도록 교육이 더 필요합니다.",
+      "translationUz": "A: Yangi ish dasturidan foydalanib ko‘rdingiz, qanday ekan?\nB: Avval murakkab edi, ammo ko‘nikkanimdan keyin ma’lumotlarni tartiblash vaqti ancha qisqardi.\nA: Unda qolgan vaqtda tahlil ishiga e’tibor qarata olarkansiz.\nB: Ha, lekin barcha xodim foydalanishi uchun yana ta’lim kerak.",
+      "choices": [
+        "Tahlil ishiga",
+        "Majlisga",
+        "Yo‘lga",
+        "Reklamaga"
+      ],
+      "answer": "Tahlil ishiga",
+      "explanationUz": "Xodim ma’lumotlarni tartiblash vaqti qisqargani sabab tahlilga ko‘proq vaqt qolishini aytadi.",
+      "tokens": []
+    },
+    {
+      "id": "t4-026",
+      "level": 4,
+      "topic": "Fikr bildirish",
+      "type": "listening",
+      "titleUz": "Talabalar kengashi munozarasi",
+      "promptUz": "Talabalar kengashi qanday qarorga kelmoqchi?",
+      "ko": "A: 학생 식당의 일회용품 사용을 줄이자는 의견에 대해 어떻게 생각해요?\nB: 환경을 위해 필요하지만, 대체 용기의 비용도 고려해야 해요.\nA: 그래서 다음 회의에서 비용과 효과를 비교한 자료를 제시하려고 합니다.\nB: 그 자료를 본 뒤에 시범 운영 여부를 결정하면 좋겠습니다.",
+      "translationUz": "A: Talabalar oshxonasida bir martalik buyumlarni kamaytirish fikriga qanday qaraysiz?\nB: Atrof-muhit uchun zarur, ammo o‘rinbosar idishlar xarajatini ham hisobga olish kerak.\nA: Shuning uchun keyingi yig‘ilishda xarajat va samarani solishtirgan ma’lumotni taqdim etmoqchiman.\nB: Shu ma’lumotni ko‘rgach, sinov tariqasida joriy etish-etmaslikni hal qilgan ma’qul.",
+      "choices": [
+        "Ma’lumotni ko‘rib, sinov joriy etilishini hal qilish.",
+        "Darhol taqiq joriy etish.",
+        "Oshxonani yopish.",
+        "Faqat xarajatni muhokama qilish."
+      ],
+      "answer": "Ma’lumotni ko‘rib, sinov joriy etilishini hal qilish.",
+      "explanationUz": "Ular avval xarajat va samaraga oid ma’lumotni ko‘rib, keyin sinov haqida qaror qilishga kelishmoqda.",
+      "tokens": []
+    },
+    {
+      "id": "t4-027",
+      "level": 4,
+      "topic": "Jamiyat va iqtisod",
+      "type": "listening",
+      "titleUz": "Ishga joylashish seminari",
+      "promptUz": "Tinglovchiga qanday maslahat berildi?",
+      "ko": "A: 취업 지원 프로그램에 신청하려고 하는데 자기소개서가 잘 안 써져요.\nB: 자신의 경험을 직무와 연결해서 구체적으로 설명해 보세요.\nA: 경험이 많지 않아도 괜찮을까요?\nB: 네, 작은 경험이라도 무엇을 배웠고 어떻게 기여할 수 있는지 보여 주면 됩니다.",
+      "translationUz": "A: Ishga joylashish dasturiga ariza bermoqchiman, ammo o‘zimni tanishtirish xatini yaxshi yoza olmayapman.\nB: Tajribangizni lavozim bilan bog‘lab, aniq tushuntirib ko‘ring.\nA: Tajribam ko‘p bo‘lmasa ham maylimi?\nB: Ha, kichik tajriba bo‘lsa ham undan nimani o‘rganganingiz va qanday hissa qo‘sha olishingizni ko‘rsatsangiz bo‘ladi.",
+      "choices": [
+        "Tajribani lavozim bilan bog‘lab aniq yozish.",
+        "Faqat uzun matn yozish.",
+        "Tajriba yo‘qligini yashirish.",
+        "Barcha ishlarni sanab chiqish."
+      ],
+      "answer": "Tajribani lavozim bilan bog‘lab aniq yozish.",
+      "explanationUz": "Maslahatchi tajribani lavozim bilan bog‘lash va undan o‘rganilgan narsani aniq ko‘rsatishni tavsiya qiladi.",
+      "tokens": []
+    },
+    {
+      "id": "t4-028",
+      "level": 4,
+      "topic": "Fikr bildirish",
+      "type": "listening",
+      "titleUz": "Shahar transporti bo‘yicha eshittirish",
+      "promptUz": "Eshittirishda qanday o‘zgarish e’lon qilindi?",
+      "ko": "A: 다음 주부터 출퇴근 시간대에 버스 전용 차로가 확대됩니다.\nB: 그러면 버스 운행이 더 빨라지겠네요.\nA: 네, 하지만 자동차 이용자는 일부 구간에서 우회해야 할 수 있습니다.\nB: 시민들이 혼란을 겪지 않도록 안내 표지판을 잘 설치해야겠습니다.",
+      "translationUz": "A: Keyingi haftadan ishga borish-qaytish vaqtlarida avtobuslar uchun maxsus yo‘lak kengaytiriladi.\nB: Unda avtobus qatnovi tezlashadi.\nA: Ha, ammo avtomobil foydalanuvchilari ayrim qismlarda aylanma yo‘ldan yurishiga to‘g‘ri kelishi mumkin.\nB: Fuqarolar chalkashmasligi uchun yo‘l ko‘rsatkichlarini yaxshi o‘rnatish kerak.",
+      "choices": [
+        "Avtobuslar uchun maxsus yo‘lak kengaytiriladi.",
+        "Barcha avtobuslar bekor qilinadi.",
+        "Avtomobillar uchun yangi yo‘l ochiladi.",
+        "Metro jadvali qisqartiriladi."
+      ],
+      "answer": "Avtobuslar uchun maxsus yo‘lak kengaytiriladi.",
+      "explanationUz": "Birinchi gapda keyingi haftadan avtobusga ajratilgan yo‘lak kengaytirilishi e’lon qilingan.",
+      "tokens": []
+    },
+    {
+      "id": "t4-029",
+      "level": 4,
+      "topic": "Jamiyat va iqtisod",
+      "type": "writing",
+      "titleUz": "Ijtimoiy siyosat haqida yozing",
+      "promptUz": "Quyidagi mavzu bo‘yicha 3–4 ta koreyscha gap yozing: “Yoshlar ish bilan ta’minlanishini yaxshilash uchun qanday chora kerak?”",
+      "ko": "청년 취업을 높이기 위해서는 기업과 교육 기관이 협력해야 한다. 실무 중심의 교육을 확대하고, 인턴십과 직업 상담의 기회를 충분히 제공할 필요가 있다. 또한 청년들이 새로운 기술을 배울 수 있도록 지속적인 지원을 마련해야 한다.",
+      "translationUz": "Yoshlar bandligini oshirish uchun kompaniyalar va ta’lim muassasalari hamkorlik qilishi kerak. Amaliyotga yo‘naltirilgan ta’limni kengaytirib, stajirovka va kasbiy maslahat imkoniyatlarini yetarli taqdim etish zarur. Shuningdek, yoshlar yangi texnologiyalarni o‘rganishi uchun uzluksiz ko‘mak yaratish kerak.",
+      "choices": [],
+      "answer": "청년 취업을 높이기 위해서는 기업과 교육 기관이 협력해야 한다. 실무 중심의 교육을 확대하고, 인턴십과 직업 상담의 기회를 충분히 제공할 필요가 있다. 또한 청년들이 새로운 기술을 배울 수 있도록 지속적인 지원을 마련해야 한다.",
+      "explanationUz": "Mazmunning aniq dalil bilan ochilishi, sabab-natija bog‘lovchilari va rasmiy uslub ishlatilishini tekshiring. Bu model javob, avtomatik rasmiy ball emas.",
+      "tokens": []
+    },
+    {
+      "id": "t4-030",
+      "level": 4,
+      "topic": "TOPIK 4 so'zlari",
+      "type": "writing",
+      "titleUz": "Texnologiya ta’sirini bayon qiling",
+      "promptUz": "“Texnologiya rivojining kundalik hayotdagi ijobiy va salbiy ta’siri” haqida 4 ta koreyscha gap yozing.",
+      "ko": "기술의 발전은 생활을 편리하게 만들고 필요한 정보를 빠르게 찾게 해 준다. 반면 스마트폰에 지나치게 의존하면 사람들과 직접 소통하는 시간이 줄어들 수 있다. 따라서 기술의 장점을 활용하되 사용 시간을 조절하는 태도가 필요하다.",
+      "translationUz": "Texnologiya rivoji hayotni qulaylashtirib, kerakli ma’lumotni tez topishga yordam beradi. Boshqa tomondan, smartfonga haddan tashqari bog‘lanish odamlar bilan bevosita muloqot vaqtini kamaytirishi mumkin. Shuning uchun texnologiya afzalliklaridan foydalanish bilan birga, foydalanish vaqtini nazorat qilish munosabati zarur.",
+      "choices": [],
+      "answer": "기술의 발전은 생활을 편리하게 만들고 필요한 정보를 빠르게 찾게 해 준다. 반면 스마트폰에 지나치게 의존하면 사람들과 직접 소통하는 시간이 줄어들 수 있다. 따라서 기술의 장점을 활용하되 사용 시간을 조절하는 태도가 필요하다.",
+      "explanationUz": "Ijobiy va salbiy jihatlarning ikkalasi ham berilganini, “반면” va “따라서” kabi bog‘lovchilar mazmunni aniq bog‘laganini tekshiring. Avtomatik rasmiy ball berilmaydi.",
+      "tokens": []
+    },
+    {
+      "id": "t4-031",
+      "level": 4,
+      "topic": "Fikr bildirish",
+      "type": "writing",
+      "titleUz": "Ikki qarashni solishtiring",
+      "promptUz": "“Onlayn va yuzma-yuz ta’lim”ni solishtirib, o‘z fikringizni 4 ta koreyscha gapda yozing.",
+      "ko": "온라인 수업은 시간과 장소의 제약이 적다는 장점이 있다. 그러나 질문을 즉시 해결하거나 다른 학습자와 교류하기에는 대면 수업이 더 효과적일 수 있다. 나는 두 방식을 상황에 따라 결합하는 것이 가장 바람직하다고 생각한다.",
+      "translationUz": "Onlayn darsning vaqt va joy cheklovi kamligi afzallikdir. Biroq savolni darhol hal qilish yoki boshqa o‘quvchilar bilan muloqot qilishda yuzma-yuz dars samaraliroq bo‘lishi mumkin. Menimcha, ikki usulni vaziyatga qarab birlashtirish eng maqbul.",
+      "choices": [],
+      "answer": "온라인 수업은 시간과 장소의 제약이 적다는 장점이 있다. 그러나 질문을 즉시 해결하거나 다른 학습자와 교류하기에는 대면 수업이 더 효과적일 수 있다. 나는 두 방식을 상황에 따라 결합하는 것이 가장 바람직하다고 생각한다.",
+      "explanationUz": "Har ikki tomonning bir jihati, shaxsiy xulosa va “그러나” orqali qarama-qarshilik ifodalanganini o‘zingiz tekshiring. Bu faqat mezonli model javobdir.",
+      "tokens": []
+    },
+    {
+      "id": "t4-032",
+      "level": 4,
+      "topic": "Jamiyat va iqtisod",
+      "type": "writing",
+      "titleUz": "Muammoni hal qilish taklifi",
+      "promptUz": "Shahardagi tirbandlikni kamaytirish bo‘yicha 3–4 ta rasmiy koreyscha gap yozing.",
+      "ko": "교통 체증을 줄이기 위해서는 대중교통의 편의성과 정시성을 높여야 한다. 또한 자전거 도로를 확대하고 출퇴근 시간의 차량 이용을 분산할 수 있는 정책을 마련해야 한다. 시민들이 정책에 참여할 수 있도록 충분한 정보를 제공하는 것도 중요하다.",
+      "translationUz": "Tirbandlikni kamaytirish uchun jamoat transportining qulayligi va o‘z vaqtida qatnovini oshirish kerak. Shuningdek, velosiped yo‘llarini kengaytirib, ishga borish-qaytish vaqtida avtomobil foydalanishini taqsimlaydigan siyosat ishlab chiqish zarur. Fuqarolar siyosatda ishtirok eta olishi uchun yetarli ma’lumot berish ham muhim.",
+      "choices": [],
+      "answer": "교통 체증을 줄이기 위해서는 대중교통의 편의성과 정시성을 높여야 한다. 또한 자전거 도로를 확대하고 출퇴근 시간의 차량 이용을 분산할 수 있는 정책을 마련해야 한다. 시민들이 정책에 참여할 수 있도록 충분한 정보를 제공하는 것도 중요하다.",
+      "explanationUz": "Kamida ikki amaliy chora, maqsad shakli “-기 위해서” va rasmiy “-해야 한다” ishlatilganini tekshiring; rasmiy baho avtomatik berilmaydi.",
+      "tokens": []
+    },
+    {
+      "id": "t4-033",
+      "level": 4,
+      "topic": "Fikr bildirish",
+      "type": "speaking",
+      "titleUz": "Fikrni og‘zaki asoslang",
+      "promptUz": "1 daqiqacha gapiring: “Mahalliy tadbirlarda qatnashish nima uchun muhim?” Kamida ikki sabab va bitta misol keltiring.",
+      "ko": "지역 행사에 참여하는 것은 이웃과의 관계를 강화하고 지역 문제를 직접 이해하는 데 도움이 된다. 예를 들어 주민 회의에 참석하면 생활에 필요한 의견을 제시하고 해결 과정에도 기여할 수 있다.",
+      "translationUz": "Mahalliy tadbirlarda qatnashish qo‘shnilar bilan munosabatni mustahkamlash va mahalliy muammolarni bevosita tushunishga yordam beradi. Masalan, aholi yig‘ilishida qatnashsangiz, hayot uchun zarur fikrni bildirish va yechim jarayoniga hissa qo‘shish mumkin.",
+      "choices": [],
+      "answer": "지역 행사에 참여하는 것은 이웃과의 관계를 강화하고 지역 문제를 직접 이해하는 데 도움이 된다. 예를 들어 주민 회의에 참석하면 생활에 필요한 의견을 제시하고 해결 과정에도 기여할 수 있다.",
+      "explanationUz": "Fikr aniq tezis, kamida ikki sabab, bitta misol va hurmatli rasmiy gaplar bilan ifodalanganini o‘zingiz tekshiring. Bu model, avtomatik rasmiy ball emas.",
+      "tokens": []
+    },
+    {
+      "id": "t4-034",
+      "level": 4,
+      "topic": "TOPIK 4 so'zlari",
+      "type": "speaking",
+      "titleUz": "Rasmiy vaziyatni tushuntiring",
+      "promptUz": "1 daqiqacha gapiring: “Yangi texnologiyani ish joyida joriy etishda nimalarga e’tibor berish kerak?”",
+      "ko": "새 기술을 도입할 때에는 비용뿐만 아니라 직원들의 적응 가능성도 고려해야 한다. 충분한 교육 없이 시스템을 바꾸면 업무 효율이 오히려 떨어질 수 있기 때문이다. 따라서 단계적으로 도입하고 사용자의 의견을 지속적으로 확인하는 것이 바람직하다.",
+      "translationUz": "Yangi texnologiyani joriy etishda nafaqat xarajat, balki xodimlarning moslasha olish qobiliyatini ham hisobga olish kerak. Yetarli ta’limsiz tizimni almashtirish ish samaradorligini aksincha tushirishi mumkin. Shuning uchun bosqichma-bosqich joriy etib, foydalanuvchilar fikrini muntazam tekshirish ma’qul.",
+      "choices": [],
+      "answer": "새 기술을 도입할 때에는 비용뿐만 아니라 직원들의 적응 가능성도 고려해야 한다. 충분한 교육 없이 시스템을 바꾸면 업무 효율이 오히려 떨어질 수 있기 때문이다. 따라서 단계적으로 도입하고 사용자의 의견을 지속적으로 확인하는 것이 바람직하다.",
+      "explanationUz": "Xarajat va inson omili tilga olinganini, sabab va taklif mantiqan bog‘langanini, rasmiy ohang saqlanganini tekshiring. Avtomatik talaffuz balli yo‘q.",
+      "tokens": []
+    },
+    {
+      "id": "t4-035",
+      "level": 4,
+      "topic": "Jamiyat va iqtisod",
+      "type": "speaking",
+      "titleUz": "Muammoga yechim taklif qiling",
+      "promptUz": "1 daqiqacha gapiring: “Aholining qarishi bilan bog‘liq muammoni yumshatish uchun jamiyat nima qilishi mumkin?”",
+      "ko": "고령화 문제에 대응하려면 노인들이 사회 활동에 계속 참여할 수 있는 환경을 만들어야 한다. 의료와 복지 서비스를 확대하는 동시에 세대 간 교류 프로그램도 운영할 필요가 있다. 이러한 노력이 함께 이루어질 때 고령자와 젊은 세대가 모두 안정적인 생활을 할 수 있다.",
+      "translationUz": "Aholining qarishi muammosiga javoban keksalar ijtimoiy faoliyatda qatnasha oladigan muhit yaratish kerak. Tibbiy va ijtimoiy xizmatlarni kengaytirish bilan birga, avlodlararo muloqot dasturlarini ham yuritish zarur. Bu harakatlar birga amalga oshirilgandagina keksalar va yosh avlod barqaror hayot kechira oladi.",
+      "choices": [],
+      "answer": "고령화 문제에 대응하려면 노인들이 사회 활동에 계속 참여할 수 있는 환경을 만들어야 한다. 의료와 복지 서비스를 확대하는 동시에 세대 간 교류 프로그램도 운영할 필요가 있다. 이러한 노력이 함께 이루어질 때 고령자와 젊은 세대가 모두 안정적인 생활을 할 수 있다.",
+      "explanationUz": "Kamida ikki ijtimoiy chora, “동시에” va shart ma’noli tuzilma bilan izchil tushuntirish berilganini tekshiring. Bu model javob; avtomatik rasmiy baho yoki talaffuz skori berilmaydi.",
+      "tokens": []
+    },
+    {
+      "id": "t4-036",
+      "level": 4,
+      "topic": "Fikr bildirish",
+      "type": "speaking",
+      "titleUz": "Qaror bo‘yicha munozara qiling",
+      "promptUz": "1 daqiqacha gapiring: “Shahar markazida avtomobil harakatini cheklashga rozimisiz?” Qarshi va tarafdor jihatlarni aytib, xulosa qiling.",
+      "ko": "도심 차량을 제한하면 대기 오염과 교통 체증을 줄일 수 있다는 장점이 있다. 반면 이동이 불편해지고 상권이 위축될 수 있다는 우려도 있다. 나는 대중교통을 먼저 개선한 뒤 시간과 구역을 정해 단계적으로 시행하는 데 찬성한다.",
+      "translationUz": "Shahar markazida avtomobillarni cheklash havo ifloslanishi va tirbandlikni kamaytirishi mumkin. Boshqa tomondan, yurish noqulaylashib, savdo sohasi susayishi mumkin degan xavotir ham bor. Men avval jamoat transportini yaxshilab, keyin vaqt va hududni belgilagan holda bosqichma-bosqich joriy etishni qo‘llab-quvvatlayman.",
+      "choices": [],
+      "answer": "도심 차량을 제한하면 대기 오염과 교통 체증을 줄일 수 있다는 장점이 있다. 반면 이동이 불편해지고 상권이 위축될 수 있다는 우려도 있다. 나는 대중교통을 먼저 개선한 뒤 시간과 구역을 정해 단계적으로 시행하는 데 찬성한다.",
+      "explanationUz": "Ikki qarash, ehtiyotkor sabab va aniq shaxsiy xulosa mavjudligini tekshiring. Gaplar rasmiy va izchil bo‘lsin; bu mashq avtomatik talaffuz yoki rasmiy ball bermaydi.",
+      "tokens": []
+    }
+  ]
+}

@@ -1,6 +1,6 @@
 /* Go Topic service worker: bounded, same-origin-only caching for a GitHub Pages PWA. */
 const CACHE_PREFIX = "gotopik-";
-const CACHE_VERSION = "v5";
+const CACHE_VERSION = "v6";
 const SHELL_CACHE = `${CACHE_PREFIX}shell-${CACHE_VERSION}`;
 const ASSET_CACHE = `${CACHE_PREFIX}assets-${CACHE_VERSION}`;
 const MAX_ASSET_ENTRIES = 48;
@@ -14,7 +14,7 @@ const SHELL_URLS = [
   new URL("icon-192.png", BASE_URL).href,
   new URL("icon-512.png", BASE_URL).href,
   new URL("icon-maskable.png", BASE_URL).href,
-  ...["base.css", "premium.css", "premium.js", "runtime-config.js", "runtime-client.js", "tutor-controller.js", "pcm-worklet.js"].map(path => new URL(path, BASE_URL).href),
+  ...["base.css", "premium.css", "premium.js", "runtime-config.js", "runtime-client.js", "tutor-controller.js", "pcm-worklet.js", "learning.js", "learning.css", "tasks/index.json", ...[1,2,3,4,5,6].map(level=>`tasks/level-${level}.json`)].map(path => new URL(path, BASE_URL).href),
 ];
 
 const STATIC_EXTENSIONS = /\.(?:css|js|mjs|png|jpe?g|gif|svg|webp|ico|woff2?|ttf|otf)$/i;
@@ -35,6 +35,7 @@ function isNeverCache(url) {
 }
 
 function isStaticAsset(request, url) {
+  if (/\/tasks\/(?:index|level-[1-6])\.json$/.test(url.pathname)) return true;
   return (
     request.destination === "style" ||
     request.destination === "script" ||

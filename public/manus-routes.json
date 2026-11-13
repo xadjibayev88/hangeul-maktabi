@@ -1,1 +1,76 @@
-{"routes":[{"path":"/#bosh","title":"Bosh sahifa"},{"path":"/#alifbo","title":"Alifbo"},{"path":"/#sozlar","title":"So‘zlar"},{"path":"/#iboralar","title":"Iboralar"},{"path":"/#grammatika","title":"Grammatika"},{"path":"/#test","title":"So‘z testi"},{"path":"/#tinglash","title":"Tinglash"},{"path":"/#oqish","title":"O‘qish"},{"path":"/#suhbat","title":"AI suhbat"},{"path":"/#reja","title":"Reja"},{"path":"/#vositalar","title":"Vositalar"},{"path":"/#oyinlar","title":"O‘yinlar"},{"path":"/#lugat","title":"Lug‘at"},{"path":"/#reyting","title":"Reyting"},{"path":"/#sozlama","title":"Sozlamalar"}]}
+{
+  "routes": [
+    {
+      "path": "/#bosh",
+      "title": "Bosh sahifa"
+    },
+    {
+      "path": "/#alifbo",
+      "title": "Alifbo"
+    },
+    {
+      "path": "/#sozlar",
+      "title": "So‘zlar"
+    },
+    {
+      "path": "/#iboralar",
+      "title": "Iboralar"
+    },
+    {
+      "path": "/#grammatika",
+      "title": "Grammatika"
+    },
+    {
+      "path": "/#test",
+      "title": "So‘z testi"
+    },
+    {
+      "path": "/#tinglash",
+      "title": "Tinglash"
+    },
+    {
+      "path": "/#oqish",
+      "title": "O‘qish"
+    },
+    {
+      "path": "/#suhbat",
+      "title": "AI suhbat"
+    },
+    {
+      "path": "/#reja",
+      "title": "Reja"
+    },
+    {
+      "path": "/#vositalar",
+      "title": "Vositalar"
+    },
+    {
+      "path": "/#oyinlar",
+      "title": "O‘yinlar"
+    },
+    {
+      "path": "/#lugat",
+      "title": "Lug‘at"
+    },
+    {
+      "path": "/#reyting",
+      "title": "Reyting"
+    },
+    {
+      "path": "/#sozlama",
+      "title": "Sozlamalar"
+    },
+    {
+      "path": "/#vazifalar",
+      "title": "Vazifalar olami"
+    },
+    {
+      "path": "/#keng_lugat",
+      "title": "30 ming koreyscha lug‘at"
+    },
+    {
+      "path": "/#manbalar",
+      "title": "Manbalar va litsenziya"
+    }
+  ]
+}

@@ -1,0 +1,56 @@
+{
+  "dataset": "Korean dictionary source for Go TOPIK",
+  "source": "Kaikki.org postprocessed Korean dictionary extracted from the English Wiktionary edition",
+  "sourcePageUrl": "https://kaikki.org/dictionary/Korean/index.html",
+  "rawDataPageUrl": "https://kaikki.org/dictionary/rawdata.html",
+  "actualDownloadUrl": "https://kaikki.org/dictionary/Korean/kaikki.org-dictionary-Korean.jsonl",
+  "sourceWiktionaryUrl": "https://en.wiktionary.org/wiki/Category:Korean_language",
+  "licenseVerificationUrl": "https://en.wiktionary.org/wiki/Wiktionary:Copyrights",
+  "license": [
+    "CC BY-SA 4.0",
+    "GNU Free Documentation License"
+  ],
+  "ccBySaUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+  "attribution": "Derived from Wiktionary Korean-language entries via Kaikki.org/Wiktextract. Attribute Wiktionary contributors, link the source entry URLs and CC BY-SA 4.0, and indicate that this data was filtered, deduplicated, aggregated, and truncated to 30,000 headwords.",
+  "fetchedAt": "2026-11-13T07:52:44.353286+00:00",
+  "sourceExtractionNote": "Kaikki page states this slice was extracted 2026-10-30 from the enwiktionary dump dated 2026-10-01 using Wiktextract.",
+  "rawDownloadBytes": 207649961,
+  "rawDownloadSha256": "c160b1dadd49b14109c2c1a29a616cc44064a738f91d2b98c1cdf457b90fde7f",
+  "outputPath": "/home/ubuntu/gotopik/data/korean-dictionary-source.jsonl",
+  "outputCount": 30000,
+  "uniqueCandidateCount": 30383,
+  "selectedCatalogOverlapCount": 2719,
+  "candidateUniqueWordsWithAnyGloss": 31914,
+  "excludedCount": {
+    "notSelectedAfterDeterministic30kSelection": 383,
+    "nonprimaryOnlyFormOrAlternativeWords": 1156,
+    "headwordsWithAnyNamePosExcluded": 2769,
+    "rawRecordsExcludedByLanguage": 0,
+    "rawRecordsExcludedByScriptOrPos": 27296,
+    "rawRecordsWithoutGloss": 560,
+    "malformedRawRecords": 0
+  },
+  "filtering": {
+    "language": "lang_code == ko",
+    "headwordScript": "Hangul syllables only, with optional Hangul-separated spaces, hyphens, or middle dots",
+    "excludedPos": [
+      "character",
+      "syllable",
+      "symbol",
+      "punct",
+      "romanization",
+      "name"
+    ],
+    "primaryGlossRequirement": "At least one gloss-bearing sense without form-of, alt-of, or alternative tags",
+    "deduplication": "One output record per unique Korean headword; source glosses across its qualifying records are joined in source order and capped at 1200 characters",
+    "selection": "All catalog-overlap candidates first, then lexical POS and source-gloss richness, with a stable SHA-256 headword tie-breaker; final output sorted by word",
+    "target": 30000
+  },
+  "glossLanguage": "English (Kaikki English-edition Korean entries)",
+  "limitations": [
+    "Wiktionary coverage and editorial quality vary; this is not an official national dictionary.",
+    "Some inflected, dialectal, archaic, technical, or low-frequency entries remain because they are legitimate sourced entries and the usable pool is only modestly above 30,000.",
+    "Proper-name POS entries, Hanja/character entries, pure romanizations, syllables, symbols, punctuation, and glossless/form-only headwords were excluded.",
+    "Romanization is included only when present in the source forms; otherwise it is empty."
+  ]
+}

@@ -1,0 +1,786 @@
+{
+  "level": 6,
+  "label": "TOPIK 6",
+  "tasks": [
+    {
+      "id": "t6-001",
+      "level": 6,
+      "topic": "TOPIK 6 so'zlari",
+      "type": "mcq",
+      "titleUz": "Dalilning maqomi",
+      "promptUz": "Matndagi fikrni eng aniq davom ettiradigan variantni tanlang.",
+      "ko": "정책의 실효성을 평가하려면 단순한 시행 건수보다 정책이 실제로 누구에게 어떤 변화를 가져왔는지를 살펴봐야 한다.",
+      "translationUz": "Siyosat samaradorligini baholashda shunchaki joriy etish soniga emas, kimga qanday o‘zgarish olib kelganiga qarash kerak.",
+      "choices": [
+        "정책의 시행 횟수만 집계해야 한다.",
+        "정책의 수혜자와 실제 변화를 함께 분석해야 한다.",
+        "정책은 평가할 필요가 없다.",
+        "정책은 모든 사람에게 같은 영향을 준다."
+      ],
+      "answer": "정책의 수혜자와 실제 변화를 함께 분석해야 한다.",
+      "explanationUz": "“누구에게 어떤 변화를” degan mezon foydalanuvchi va real natijani birga tahlil qilishni talab qiladi.",
+      "tokens": []
+    },
+    {
+      "id": "t6-002",
+      "level": 6,
+      "topic": "Ilmiy tahlil · T6",
+      "type": "mcq",
+      "titleUz": "Tadqiqot xulosasi",
+      "promptUz": "Quyidagi ilmiy xulosaga mos keladigan fikrni tanlang.",
+      "ko": "본 연구는 표본의 규모가 제한적이라는 한계를 지니지만, 기존 이론이 설명하지 못했던 변인을 제시했다는 점에서 학문적 의의가 있다.",
+      "translationUz": "Namuna hajmi cheklangan bo‘lsa-da, mavjud nazariya tushuntira olmagan o‘zgaruvchi taklif qilingani tadqiqotning ilmiy ahamiyatidir.",
+      "choices": [
+        "Namuna kichik bo‘lgani uchun tadqiqotning hech qanday qiymati yo‘q.",
+        "Tadqiqot barcha nazariyalarni qat’iyan rad etadi.",
+        "Chekloviga qaramay, tadqiqot yangi tushuntiruvchi omil bergan.",
+        "Tadqiqot faqat amaliy maqsadda o‘tkazilgan."
+      ],
+      "answer": "Chekloviga qaramay, tadqiqot yangi tushuntiruvchi omil bergan.",
+      "explanationUz": "한계를 지니지만 cheklovni, 학문적 의의 esa yangi ilmiy hissa borligini bildiradi.",
+      "tokens": []
+    },
+    {
+      "id": "t6-003",
+      "level": 6,
+      "topic": "Murakkab ifoda · T6",
+      "type": "mcq",
+      "titleUz": "Muqarrar tanlov",
+      "promptUz": "Rasmiy bahs mantig‘iga eng mos xulosani tanlang.",
+      "ko": "탄소 배출을 단기간에 획기적으로 감축하기는 어렵더라도, 전환 비용을 이유로 제도 개편을 미루는 것은 더 큰 사회적 비용을 초래할 수 있다.",
+      "translationUz": "Uglerod chiqindisini tez kamaytirish qiyin bo‘lsa ham, o‘tish xarajatini sabab qilib islohotni kechiktirish kattaroq ijtimoiy xarajat keltirishi mumkin.",
+      "choices": [
+        "Qiyin bo‘lgani uchun islohotni butunlay bekor qilish kerak.",
+        "O‘tish xarajati har qanday foydadan ustun turadi.",
+        "Qiyinchiliklar bo‘lsa ham, islohotni kechiktirish yanada qimmatga tushishi mumkin.",
+        "Uglerod chiqindisi ijtimoiy xarajatlarga ta’sir qilmaydi."
+      ],
+      "answer": "Qiyinchiliklar bo‘lsa ham, islohotni kechiktirish yanada qimmatga tushishi mumkin.",
+      "explanationUz": "-더라도 to‘siqni tan oladi, 더 큰 사회적 비용 esa kechiktirishning xavfini ko‘rsatadi.",
+      "tokens": []
+    },
+    {
+      "id": "t6-004",
+      "level": 6,
+      "topic": "TOPIK 6 so'zlari",
+      "type": "mcq",
+      "titleUz": "Ko‘p qirrali tahlil",
+      "promptUz": "Muallifning asosiy da’vosini aniqlang.",
+      "ko": "디지털 전환은 행정 효율을 높였다는 측면에서 긍정적이지만, 접근성이 낮은 집단을 배제할 가능성까지 고려하지 않는다면 불평등을 심화할 수 있다.",
+      "translationUz": "Raqamli o‘tish samaradorlikni oshiradi, ammo kirish imkoniyati past guruhlarni hisobga olmasa, tengsizlikni kuchaytirishi mumkin.",
+      "choices": [
+        "Raqamli o‘tish faqat salbiy hodisadir.",
+        "Samaradorlikni oshirish tengsizlik xavfini avtomatik yo‘q qiladi.",
+        "Raqamli siyosat foyda bilan birga chetlatish xavfini ham hisobga olishi kerak.",
+        "Kirish imkoniyati barcha guruhlarda bir xil."
+      ],
+      "answer": "Raqamli siyosat foyda bilan birga chetlatish xavfini ham hisobga olishi kerak.",
+      "explanationUz": "긍정적이지만 va 고려하지 않는다면 ijobiy jihat bilan xavfni birga ko‘rsatadi.",
+      "tokens": []
+    },
+    {
+      "id": "t6-005",
+      "level": 6,
+      "topic": "Ilmiy tahlil · T6",
+      "type": "mcq",
+      "titleUz": "Kontekst va xulosa",
+      "promptUz": "Berilgan jumladan chiqariladigan eng asosli xulosani tanlang.",
+      "ko": "동일한 통계 수치라도 조사 시점과 표본 구성에 따라 상이한 의미를 지닐 수 있으므로, 수치를 맥락과 분리해 해석해서는 안 된다.",
+      "translationUz": "Bir xil statistik raqam ham vaqt va namuna tarkibiga qarab turlicha ma’no anglatadi; uni kontekstdan ajratib talqin qilib bo‘lmaydi.",
+      "choices": [
+        "Statistik raqamlar har doim bitta ma’noni bildiradi.",
+        "Namuna tarkibi statistik talqinga ta’sir qilmaydi.",
+        "Raqamni tadqiqot sharoiti va konteksti bilan birga talqin qilish kerak.",
+        "Faqat eng katta raqam ilmiy jihatdan to‘g‘ri bo‘ladi."
+      ],
+      "answer": "Raqamni tadqiqot sharoiti va konteksti bilan birga talqin qilish kerak.",
+      "explanationUz": "조사 시점 va 표본 구성 ma’lumotning talqinini o‘zgartirishi mumkin, shuning uchun kontekst zarur.",
+      "tokens": []
+    },
+    {
+      "id": "t6-006",
+      "level": 6,
+      "topic": "Murakkab ifoda · T6",
+      "type": "mcq",
+      "titleUz": "Nozik qarama-qarshilik",
+      "promptUz": "Eng aniq mazmuniy xulosani tanlang.",
+      "ko": "공공 데이터를 개방하는 일은 투명성을 강화하는 데 기여할 수 있으나, 개인정보 보호 장치가 미비한 상태에서 서두를 경우 오히려 신뢰를 훼손할 우려가 있다.",
+      "translationUz": "Ochiq ma’lumotlar shaffoflikni kuchaytirishi mumkin, biroq shaxsiy ma’lumot himoyasi sust bo‘lsa, shoshilish ishonchni yemirishi ehtimol.",
+      "choices": [
+        "Ma’lumotlarni himoyasiz ochish har doim ishonchni oshiradi.",
+        "Shaffoflik va maxfiylikni birga ko‘zlamaslik salbiy oqibat berishi mumkin.",
+        "Shaxsiy ma’lumot himoyasi davlat ma’lumotlariga aloqasiz.",
+        "Ochiq ma’lumotlar hech qachon foyda bermaydi."
+      ],
+      "answer": "Shaffoflik va maxfiylikni birga ko‘zlamaslik salbiy oqibat berishi mumkin.",
+      "explanationUz": "-을 수 있으나 imkoniyatni, 우려가 있다 esa ehtimoliy xavfni ifodalaydi.",
+      "tokens": []
+    },
+    {
+      "id": "t6-007",
+      "level": 6,
+      "topic": "TOPIK 6 so'zlari",
+      "type": "cloze",
+      "titleUz": "Trendni ehtiyotkor aytish",
+      "promptUz": "Bo‘sh joyga mos grammatik shaklni tanlang.",
+      "ko": "단기적인 여론에 흔들리지 않고 장기적 관점에서 정책을 ___ 사회적 합의를 이끌어 내야 한다.",
+      "translationUz": "Qisqa muddatli fikrga berilmay, siyosatni uzoq muddatli nuqtayi nazardan ko‘rib, ijtimoiy kelishuvga erishish kerak.",
+      "choices": [
+        "검토하더라도",
+        "검토할수록",
+        "검토하는 한",
+        "검토하고자"
+      ],
+      "answer": "검토하더라도",
+      "explanationUz": "-더라도 “... bo‘lsa ham” qarama-qarshi shartini beradi; gapda siyosatni ko‘rib chiqish qiyin bo‘lsa ham, kelishuv zarurligi aytilgan.",
+      "tokens": []
+    },
+    {
+      "id": "t6-008",
+      "level": 6,
+      "topic": "Ilmiy tahlil · T6",
+      "type": "cloze",
+      "titleUz": "Maqsadni rasmiy ifodalash",
+      "promptUz": "Bo‘sh joyga mos grammatik shaklni tanlang.",
+      "ko": "본 연구는 지역 간 교육 격차의 구조적 원인을 규명___ 다양한 자료를 비교·분석하였다.",
+      "translationUz": "Mazkur tadqiqot hududlararo ta’lim tafovutining tizimli sabablarini aniqlash maqsadida turli ma’lumotlarni qiyosladi.",
+      "choices": [
+        "하고자",
+        "하더라도",
+        "하는 한",
+        "할수록"
+      ],
+      "answer": "하고자",
+      "explanationUz": "-고자 rasmiy yozuvda maqsadni, ya’ni “... maqsadida”ni bildiradi.",
+      "tokens": []
+    },
+    {
+      "id": "t6-009",
+      "level": 6,
+      "topic": "Murakkab ifoda · T6",
+      "type": "cloze",
+      "titleUz": "Qaramlikni cheklash",
+      "promptUz": "Bo‘sh joyga mos shaklni tanlang.",
+      "ko": "정책의 성패는 예산 규모에만 달려 있는 ___ 집행 과정의 투명성에도 달려 있다.",
+      "translationUz": "Siyosatning muvaffaqiyati faqat budjet hajmiga emas, ijro jarayonining shaffofligiga ham bog‘liq.",
+      "choices": [
+        "것이 아니라",
+        "채",
+        "척",
+        "탓에"
+      ],
+      "answer": "것이 아니라",
+      "explanationUz": "것이 아니라 “... emas, balki ...” tuzilmasi bir omil bilan cheklanmaslikni bildiradi.",
+      "tokens": []
+    },
+    {
+      "id": "t6-010",
+      "level": 6,
+      "topic": "TOPIK 6 so'zlari",
+      "type": "cloze",
+      "titleUz": "Oqibatni ehtiyotkor ko‘rsatish",
+      "promptUz": "Bo‘sh joyga mos grammatik shaklni tanlang.",
+      "ko": "검증되지 않은 정보가 반복적으로 유통될 ___ 공공기관에 대한 불신이 커질 수 있다.",
+      "translationUz": "Tekshirilmagan axborot qayta-qayta tarqalsa, davlat muassasalariga ishonchsizlik kuchayishi mumkin.",
+      "choices": [
+        "수록",
+        "경우",
+        "채",
+        "척"
+      ],
+      "answer": "경우",
+      "explanationUz": "-을 경우 “... holatida” shartini bildiradi va oqibatni ehtiyotkor bayon qilishga mos.",
+      "tokens": []
+    },
+    {
+      "id": "t6-011",
+      "level": 6,
+      "topic": "Ilmiy tahlil · T6",
+      "type": "cloze",
+      "titleUz": "Dalilga tayangan xulosa",
+      "promptUz": "Bo‘sh joyga mos grammatik shaklni tanlang.",
+      "ko": "선행 연구를 종합해 ___ 이 가설은 특정 조건에서만 성립한다.",
+      "translationUz": "Oldingi tadqiqotlarni umumlashtirishga ko‘ra, bu faraz faqat muayyan sharoitda amal qiladi.",
+      "choices": [
+        "보면",
+        "더라도",
+        "채",
+        "고자"
+      ],
+      "answer": "보면",
+      "explanationUz": "-에 따르면 emas, bu gapdagi “종합해 ___”dan keyin xulosa chiqaruvchi “보면” shakli “qaralsa/ko‘rilsa” ma’nosini beradi.",
+      "tokens": []
+    },
+    {
+      "id": "t6-012",
+      "level": 6,
+      "topic": "Murakkab ifoda · T6",
+      "type": "cloze",
+      "titleUz": "Muqobilni ko‘rsatish",
+      "promptUz": "Bo‘sh joyga mos grammatik shaklni tanlang.",
+      "ko": "규제를 전면적으로 강화하기보다는 위험이 큰 영역에 우선 적용하는 방안을 ___ 한다.",
+      "translationUz": "Tartibga solishni to‘liq kuchaytirishdan ko‘ra, xavfi katta sohalarga avval tatbiq etish rejasini ma’qul deb hisoblayman.",
+      "choices": [
+        "바람직하다고",
+        "불가피하다고",
+        "뚜렷하다고",
+        "지나치다고"
+      ],
+      "answer": "바람직하다고",
+      "explanationUz": "바람직하다 “maqbul” degani; -다고 한다 shakli rasmiy taklifni baholash uchun mos.",
+      "tokens": []
+    },
+    {
+      "id": "t6-013",
+      "level": 6,
+      "topic": "TOPIK 6 so'zlari",
+      "type": "order",
+      "titleUz": "Shaffof qaror jarayoni",
+      "promptUz": "Segmentlarni mazmunli va grammatik jihatdan to‘g‘ri gapga tartiblang.",
+      "ko": "사회적 신뢰를 회복하려면 정책 결정 과정의 투명성을 제도적으로 보장해야 한다.",
+      "translationUz": "Ijtimoiy ishonchni tiklash uchun siyosat qarori jarayonining shaffofligini tizimli ravishda kafolatlash kerak.",
+      "choices": [],
+      "answer": "사회적 신뢰를 회복하려면 정책 결정 과정의 투명성을 제도적으로 보장해야 한다.",
+      "explanationUz": "Tartibda mavzu, shart yoki sabab, asosiy mazmun va yakuniy predikatning koreyscha bog‘lanishi saqlanadi.",
+      "tokens": [
+        "한다.",
+        "보장해야",
+        "제도적으로",
+        "투명성을",
+        "정책 결정 과정의",
+        "회복하려면",
+        "사회적 신뢰를"
+      ]
+    },
+    {
+      "id": "t6-014",
+      "level": 6,
+      "topic": "Ilmiy tahlil · T6",
+      "type": "order",
+      "titleUz": "Cheklangan natijani izohlash",
+      "promptUz": "Segmentlarni mazmunli va grammatik jihatdan to‘g‘ri gapga tartiblang.",
+      "ko": "이 연구의 결과를 일반화하기에는 표본이 특정 지역에 편중되어 있다는 한계가 있다.",
+      "translationUz": "Bu tadqiqot natijasini umumlashtirishga namuna muayyan hududga haddan tashqari jamlangani to‘sqinlik qiladi.",
+      "choices": [],
+      "answer": "이 연구의 결과를 일반화하기에는 표본이 특정 지역에 편중되어 있다는 한계가 있다.",
+      "explanationUz": "Tartibda mavzu, shart yoki sabab, asosiy mazmun va yakuniy predikatning koreyscha bog‘lanishi saqlanadi.",
+      "tokens": [
+        "있다.",
+        "한계가",
+        "특정 지역에 편중되어 있다는",
+        "표본이",
+        "일반화하기에는",
+        "이 연구의 결과를"
+      ]
+    },
+    {
+      "id": "t6-015",
+      "level": 6,
+      "topic": "Murakkab ifoda · T6",
+      "type": "order",
+      "titleUz": "Kechiktirish xavfi",
+      "promptUz": "Segmentlarni mazmunli va grammatik jihatdan to‘g‘ri gapga tartiblang.",
+      "ko": "단기적 성과에만 매몰될 경우 장기적 부작용을 간과하기 쉽다.",
+      "translationUz": "Faqat qisqa muddatli natijaga berilib ketilsa, uzoq muddatli salbiy oqibatlarni ko‘zdan qochirish oson.",
+      "choices": [],
+      "answer": "단기적 성과에만 매몰될 경우 장기적 부작용을 간과하기 쉽다.",
+      "explanationUz": "Tartibda mavzu, shart yoki sabab, asosiy mazmun va yakuniy predikatning koreyscha bog‘lanishi saqlanadi.",
+      "tokens": [
+        "쉽다.",
+        "간과하기",
+        "장기적 부작용을",
+        "매몰될 경우",
+        "단기적 성과에만"
+      ]
+    },
+    {
+      "id": "t6-016",
+      "level": 6,
+      "topic": "TOPIK 6 so'zlari",
+      "type": "order",
+      "titleUz": "Tengsizlikning yashirin qirrasi",
+      "promptUz": "Segmentlarni mazmunli va grammatik jihatdan to‘g‘ri gapga tartiblang.",
+      "ko": "표면적인 격차가 줄어들었다고 해서 구조적 불평등이 해소된 것은 아니다.",
+      "translationUz": "Ko‘rinadigan tafovut kamaygani tizimli tengsizlik bartaraf etildi degani emas.",
+      "choices": [],
+      "answer": "표면적인 격차가 줄어들었다고 해서 구조적 불평등이 해소된 것은 아니다.",
+      "explanationUz": "Tartibda mavzu, shart yoki sabab, asosiy mazmun va yakuniy predikatning koreyscha bog‘lanishi saqlanadi.",
+      "tokens": [
+        "아니다.",
+        "해소된 것은",
+        "구조적 불평등이",
+        "줄어들었다고 해서",
+        "표면적인 격차가"
+      ]
+    },
+    {
+      "id": "t6-017",
+      "level": 6,
+      "topic": "Ilmiy tahlil · T6",
+      "type": "order",
+      "titleUz": "Nazariyani qayta ko‘rish",
+      "promptUz": "Segmentlarni mazmunli va grammatik jihatdan to‘g‘ri gapga tartiblang.",
+      "ko": "새로운 자료가 축적됨에 따라 기존 가설은 수정될 필요가 있다.",
+      "translationUz": "Yangi ma’lumotlar to‘planishi bilan mavjud farazni tuzatish zarur.",
+      "choices": [],
+      "answer": "새로운 자료가 축적됨에 따라 기존 가설은 수정될 필요가 있다.",
+      "explanationUz": "Tartibda mavzu, shart yoki sabab, asosiy mazmun va yakuniy predikatning koreyscha bog‘lanishi saqlanadi.",
+      "tokens": [
+        "필요가 있다.",
+        "수정될",
+        "기존 가설은",
+        "축적됨에 따라",
+        "새로운 자료가"
+      ]
+    },
+    {
+      "id": "t6-018",
+      "level": 6,
+      "topic": "Murakkab ifoda · T6",
+      "type": "order",
+      "titleUz": "Muvozanatli javobgarlik",
+      "promptUz": "Segmentlarni mazmunli va grammatik jihatdan to‘g‘ri gapga tartiblang.",
+      "ko": "혁신을 장려하되 그로 인한 위험을 관리할 책임도 함께 강화해야 한다.",
+      "translationUz": "Innovatsiyani rag‘batlantirish bilan birga, undan keladigan xavfni boshqarish mas’uliyatini ham kuchaytirish kerak.",
+      "choices": [],
+      "answer": "혁신을 장려하되 그로 인한 위험을 관리할 책임도 함께 강화해야 한다.",
+      "explanationUz": "Tartibda mavzu, shart yoki sabab, asosiy mazmun va yakuniy predikatning koreyscha bog‘lanishi saqlanadi.",
+      "tokens": [
+        "강화해야 한다.",
+        "함께",
+        "관리할 책임도",
+        "그로 인한 위험을",
+        "혁신을 장려하되"
+      ]
+    },
+    {
+      "id": "t6-019",
+      "level": 6,
+      "topic": "TOPIK 6 so'zlari",
+      "type": "reading",
+      "titleUz": "Raqamli xizmatlar va adolat",
+      "promptUz": "Matn asosida to‘g‘ri javobni tanlang.",
+      "ko": "공공 서비스의 디지털화는 처리 속도와 행정 효율을 높였지만, 모든 시민이 동일한 수준의 접근성을 확보한 것은 아니다. 고령층이나 장애인처럼 디지털 기기 활용에 제약이 있는 사람들은 오히려 서비스 이용에서 배제될 수 있다. 따라서 효율성만을 성과로 내세우기보다 대면 지원과 보조 수단을 병행하는 포용적 전환이 요구된다.",
+      "translationUz": "Davlat xizmatlarini raqamlashtirish tezlik va samaradorlikni oshirdi, biroq barcha fuqarolar bir xil kirish imkoniga ega emas. Keksalar yoki nogironligi bo‘lganlar xizmatdan chetda qolishi mumkin. Shu sabab samaradorlik bilan cheklanmay, yuzma-yuz yordam va qo‘shimcha vositalarni birga qo‘llash zarur.",
+      "choices": [
+        "Faqat raqamli xizmatlarni tezlashtirishni",
+        "Raqamli o‘tishni yuzma-yuz yordam bilan inklyuziv qilishni",
+        "Keksalar uchun barcha xizmatlarni yopishni",
+        "Samaradorlikni baholashdan voz kechishni"
+      ],
+      "answer": "Raqamli o‘tishni yuzma-yuz yordam bilan inklyuziv qilishni",
+      "explanationUz": "Oxirgi jumla 대면 지원과 보조 수단을 병행하는 포용적 전환ni aniq taklif qiladi.",
+      "tokens": []
+    },
+    {
+      "id": "t6-020",
+      "level": 6,
+      "topic": "Ilmiy tahlil · T6",
+      "type": "reading",
+      "titleUz": "Shahar rejalashtirish dalili",
+      "promptUz": "Matnga ko‘ra, yashil hudud siyosatining muhim sharti nima?",
+      "ko": "도시의 녹지 공간은 미관을 개선하는 데 그치지 않고 주민의 건강과 지역 공동체의 결속에도 영향을 미친다. 다만 녹지 조성이 임대료 상승으로 이어질 경우 기존 주민이 밀려나는 이른바 녹색 젠트리피케이션이 발생할 수 있다. 그러므로 환경적 편익을 확대하는 정책은 주거 안정 대책과 결합될 때 비로소 사회적 정의에 기여한다.",
+      "translationUz": "Shahar yashil hududlari faqat ko‘rkni emas, aholi salomatligi va jamoa birdamligini ham yaxshilaydi. Ammo ijara oshib, avvalgi aholi siqib chiqarilsa, “yashil gentrifikatsiya” yuz beradi. Shuning uchun yashil siyosat uy-joy barqarorligi chorasi bilan birlashgandagina adolatli bo‘ladi.",
+      "choices": [
+        "Faqat ko‘kalamzor maydonni ko‘paytirish",
+        "Ijara narxini bozorning o‘ziga topshirish",
+        "Ekologik foydani uy-joy barqarorligi bilan bog‘lash",
+        "Mavjud aholini boshqa joyga ko‘chirish"
+      ],
+      "answer": "Ekologik foydani uy-joy barqarorligi bilan bog‘lash",
+      "explanationUz": "Oxirgi jumla ekologik siyosat uy-joy chorasi bilan birga bo‘lgandagina adolatli bo‘lishini aytadi.",
+      "tokens": []
+    },
+    {
+      "id": "t6-021",
+      "level": 6,
+      "topic": "TOPIK 6 so'zlari",
+      "type": "reading",
+      "titleUz": "Mehnat bozori va malaka",
+      "promptUz": "Muallif qayta tayyorlash siyosatida nimani kengaytirishni taklif qiladi?",
+      "ko": "자동화가 일자리의 일부를 대체할 것이라는 전망은 새로운 현상이 아니다. 그러나 기술 변화의 영향은 직종별로 상이하며, 일자리가 일률적으로 사라진다기보다 업무의 구성과 요구되는 역량이 재편될 가능성이 크다. 이에 따라 재교육 정책은 단순한 기술 습득을 넘어 노동자가 변화에 적응할 시간과 소득을 보장하는 방향으로 설계되어야 한다.",
+      "translationUz": "Avtomatlashtirish ayrim ishlarni almashtirishi haqidagi bashorat yangi emas. Texnologiya ta’siri kasblarga ko‘ra turlicha; ishlar birdan yo‘qolishidan ko‘ra, vazifalar va talab qilinadigan ko‘nikmalar qayta tuzilishi ehtimoli katta. Qayta tayyorlash siyosati moslashish vaqti hamda daromadni ham kafolatlashi kerak.",
+      "choices": [
+        "Faqat yangi texnik atamalarni yodlashni",
+        "Moslashish va daromad xavfsizligini ham ta’minlashni",
+        "Barcha kasblarni bir xil darajada avtomatlashtirishni",
+        "Texnologik o‘zgarishni inkor etishni"
+      ],
+      "answer": "Moslashish va daromad xavfsizligini ham ta’minlashni",
+      "explanationUz": "Matn 재교육ni faqat texnika emas, moslashish va daromad kafolati bilan loyihalash kerakligini aytadi.",
+      "tokens": []
+    },
+    {
+      "id": "t6-022",
+      "level": 6,
+      "topic": "Ilmiy tahlil · T6",
+      "type": "reading",
+      "titleUz": "Ilmiy muloqotdagi aniqlik",
+      "promptUz": "Muallif ilmiy ishonchni qanday saqlashni ma’qullaydi?",
+      "ko": "학술적 주장은 표현이 단정적일수록 설득력을 얻는 것이 아니라, 근거가 허용하는 범위를 정확히 제시할 때 신뢰를 확보한다. 특히 상관관계를 인과관계로 확대 해석하면 독자가 자료가 말하지 않은 결론을 사실로 받아들일 위험이 있다. 연구자는 불확실성을 숨기기보다 조건과 한계를 명시해야 한다.",
+      "translationUz": "Ilmiy da’vo qat’iyroq aytilgani uchun emas, dalil imkon bergan doirani aniq ko‘rsatgani uchun ishonch qozonadi. Korrelyatsiyani sababiyat deb talqin qilish xavfli. Tadqiqotchi noaniqlikni yashirmay, shartlar va cheklovlarni ko‘rsatishi kerak.",
+      "choices": [
+        "Noaniqlikni yashirib, qat’iy xulosa berishni",
+        "Korrelyatsiyani doim sababiyat deb olishni",
+        "Dalil doirasi va cheklovlarini ochiq ko‘rsatishni",
+        "Faqat ko‘p raqam keltirishni"
+      ],
+      "answer": "Dalil doirasi va cheklovlarini ochiq ko‘rsatishni",
+      "explanationUz": "첫 문장 va oxirgi gap dalil ruxsat bergan chegarani va cheklovni oshkor qilishni talab qiladi.",
+      "tokens": []
+    },
+    {
+      "id": "t6-023",
+      "level": 6,
+      "topic": "Murakkab ifoda · T6",
+      "type": "reading",
+      "titleUz": "Inqiroz kommunikatsiyasi",
+      "promptUz": "Dastlabki javobda qanday usul tavsiya etiladi?",
+      "ko": "위기 상황에서 기관이 신뢰를 잃는 까닭은 문제가 발생했다는 사실 자체보다 정보를 축소하거나 책임을 전가하는 태도에 있다. 초기 대응에서 모든 사실을 알리기 어렵더라도 확인된 내용과 아직 밝혀지지 않은 부분을 구분해 공개해야 한다. 이러한 절차가 마련되어야 후속 조치에 대한 사회적 동의도 얻을 수 있다.",
+      "translationUz": "Inqirozda muassasa muammoning o‘zidan ko‘ra axborotni kamaytirishi yoki aybni boshqaga yuklashi sabab ishonch yo‘qotadi. Hamma faktni darhol aytish qiyin bo‘lsa ham, tasdiqlangan va hali aniqlanmagan qismlarni ajratib e’lon qilish kerak. Shundagina keyingi choralar ijtimoiy rozilik oladi.",
+      "choices": [
+        "Barcha ma’lumotni yashirish",
+        "Tasdiqlangan va noaniq ma’lumotni ajratib e’lon qilish",
+        "Mas’uliyatni boshqa tashkilotga yuklash",
+        "Keyingi choralarni kechiktirish"
+      ],
+      "answer": "Tasdiqlangan va noaniq ma’lumotni ajratib e’lon qilish",
+      "explanationUz": "Matn 초기 대응da ma’lumotlarni 확인된 va 아직 밝혀지지 않은 qismlarga ajratishni tavsiya qiladi.",
+      "tokens": []
+    },
+    {
+      "id": "t6-024",
+      "level": 6,
+      "topic": "TOPIK 6 so'zlari",
+      "type": "listening",
+      "titleUz": "Tadqiqot natijasini sharhlash",
+      "promptUz": "Keyingi siyosat nimani ham qamrashi kerak?",
+      "ko": "A: 이번 조사에서 시민들이 가장 중요하게 꼽은 기준은 무엇이었습니까? B: 비용 절감보다 서비스의 공정성과 접근성이었습니다. 다만 저소득층은 접근성이 개선되어도 정보 부족 때문에 혜택을 받지 못하는 경우가 많았습니다. A: 그렇다면 후속 정책은 정보 제공까지 포함해야겠군요.",
+      "translationUz": "A: Bu tadqiqotda fuqarolar eng muhim deb qaysi mezonni ko‘rsatdi? B: Xarajatni kamaytirishdan ko‘ra xizmatning adolatliligi va kirish imkoniyati. Ammo kam daromadli qatlam axborot yetishmagani uchun foyda ololmaydi. A: Demak, keyingi siyosat axborot berishni ham qamrashi kerak.",
+      "choices": [
+        "Faqat xarajatni kamaytirishni",
+        "Axborot ta’minotini",
+        "So‘rovnomani bekor qilishni",
+        "Xizmatni qisqartirishni"
+      ],
+      "answer": "Axborot ta’minotini",
+      "explanationUz": "Oxirgi gap 후속 정책은 정보 제공까지 포함해야겠군요 degan xulosani beradi.",
+      "tokens": []
+    },
+    {
+      "id": "t6-025",
+      "level": 6,
+      "topic": "Ilmiy tahlil · T6",
+      "type": "listening",
+      "titleUz": "Majlisdagi metodologik e’tiroz",
+      "promptUz": "Nima o‘zgartirilishi kerak?",
+      "ko": "A: 발표하신 결과에서 두 변수 사이의 인과관계를 확인했다고 하셨는데, 통제 집단도 설정하셨습니까? B: 아니요. 관찰 자료에 기반했기 때문에 인과관계라기보다 상관관계가 나타났다고 보는 편이 타당합니다. A: 그렇다면 결론의 표현을 조금 완화할 필요가 있겠네요.",
+      "translationUz": "A: Natijada ikki o‘zgaruvchi orasidagi sababiyatni aniqlaganingizni aytdingiz, nazorat guruhi ham bo‘ldimi? B: Yo‘q, kuzatuv ma’lumotiga asoslangani uchun sababiyatdan ko‘ra korrelyatsiya deyish to‘g‘ri. A: Unda xulosa ifodasini yumshatish kerak.",
+      "choices": [
+        "Nazorat guruhini yashirish",
+        "Xulosa ifodasini ehtiyotkorroq qilish",
+        "Barcha ma’lumotni o‘chirish",
+        "Ikki o‘zgaruvchini birlashtirish"
+      ],
+      "answer": "Xulosa ifodasini ehtiyotkorroq qilish",
+      "explanationUz": "Suhbat so‘ngida 결론의 표현을 완화할 필요가 있다고 aytiladi.",
+      "tokens": []
+    },
+    {
+      "id": "t6-026",
+      "level": 6,
+      "topic": "Murakkab ifoda · T6",
+      "type": "listening",
+      "titleUz": "Infratuzilma ustuvorligi",
+      "promptUz": "Suhbatdoshlar qanday yo‘lni ma’qullayapti?",
+      "ko": "A: 신도시 개발 계획에서 문화 시설보다 도로 확충을 우선한다는 방침이 발표됐습니다. B: 교통 문제도 심각하지만, 문화 시설을 뒤로 미루면 정주 여건의 불균형이 심화될 수 있습니다. A: 예산이 한정된 만큼 단계적으로 추진하되, 두 영역의 연계를 고려해야겠군요.",
+      "translationUz": "A: Yangi shaharda madaniy inshootlardan ko‘ra yo‘llarni kengaytirish ustuvor qilindi. B: Transport muammosi jiddiy, lekin madaniy inshootni kechiktirish yashash sharoitidagi nomutanosiblikni kuchaytirishi mumkin. A: Budjet cheklangan, shuning uchun bosqichma-bosqich, ikki sohani bog‘lab yurish kerak.",
+      "choices": [
+        "Faqat yo‘l qurishni",
+        "Madaniy inshootni butunlay bekor qilishni",
+        "Ikki sohani bog‘lab, bosqichma-bosqich amalga oshirishni",
+        "Budjetni cheksiz oshirishni"
+      ],
+      "answer": "Ikki sohani bog‘lab, bosqichma-bosqich amalga oshirishni",
+      "explanationUz": "Oxirgi jumla 단계적으로 추진하되 두 영역의 연계를 고려해야 한다 deya muvozanatli yo‘lni bildiradi.",
+      "tokens": []
+    },
+    {
+      "id": "t6-027",
+      "level": 6,
+      "topic": "TOPIK 6 so'zlari",
+      "type": "listening",
+      "titleUz": "Ijtimoiy siyosat bahosi",
+      "promptUz": "Naqd yordamning asosiy cheklovi nimada?",
+      "ko": "A: 현금 지원 제도가 빈곤 완화에 실질적으로 기여했다고 보십니까? B: 단기적으로는 소비 여력을 높였지만, 장기적 자립을 보장했다고 보기는 어렵습니다. 직업 훈련과 돌봄 서비스가 병행되지 않는다면 지원이 일시적 처방에 그칠 우려가 있습니다. A: 효과를 판단할 때 기간과 지표를 구분해야겠군요.",
+      "translationUz": "A: Naqd yordam dasturi kambag‘allikni kamaytirdimi? B: Qisqa muddatda xarid qobiliyatini oshirdi, lekin uzoq muddatli mustaqillikni kafolatlagan deyish qiyin. Kasb ta’limi va parvarish xizmati birga bo‘lmasa, yordam vaqtinchalik chora bo‘lib qolishi mumkin. A: Ta’sirni baholashda muddat va mezonlarni ajratish kerak.",
+      "choices": [
+        "Qisqa muddatli iste’molni oshirmaganida",
+        "Uzoq muddatli mustaqillikni yolg‘iz kafolatlay olmasligida",
+        "Kasb ta’limi juda ko‘p bo‘lganida",
+        "Barcha mezonlar bir xil bo‘lganida"
+      ],
+      "answer": "Uzoq muddatli mustaqillikni yolg‘iz kafolatlay olmasligida",
+      "explanationUz": "B suhbatda 장기적 자립을 보장했다고 보기 어렵습니다 deb cheklovni ko‘rsatadi.",
+      "tokens": []
+    },
+    {
+      "id": "t6-028",
+      "level": 6,
+      "topic": "Ilmiy tahlil · T6",
+      "type": "listening",
+      "titleUz": "Konferensiyadagi yakun",
+      "promptUz": "Munozaraning yakuniy kelishuvi nima?",
+      "ko": "A: 오늘 토론에서는 인공지능의 편익보다 규범적 기준을 먼저 세워야 한다는 의견이 우세했습니다. B: 네, 기술이 중립적이라는 전제만으로는 책임 소재를 설명하기 어렵다는 지적도 있었습니다. A: 결국 개발 속도와 별개로 투명한 검증 절차를 제도화해야 한다는 데 의견이 모였군요.",
+      "translationUz": "A: Bugungi munozarada sun’iy intellekt foydasidan oldin me’yoriy mezonlarni belgilash fikri ustun bo‘ldi. B: Ha, texnologiya neytral degan faraz mas’uliyatni tushuntirishga yetmasligi aytildi. A: Demak, rivojlanish tezligidan qat’i nazar, shaffof tekshiruv tartibini tizimlashtirishga kelishildi.",
+      "choices": [
+        "Foydani me’yorlardan ustun qo‘yish",
+        "Rivojlanishni to‘xtatish",
+        "Shaffof tekshiruv jarayonini tizimlashtirish",
+        "Texnologiyani neytral deb qabul qilish"
+      ],
+      "answer": "Shaffof tekshiruv jarayonini tizimlashtirish",
+      "explanationUz": "Oxirgi replikada 투명한 검증 절차를 제도화해야 한다 degan yakuniy kelishuv aytiladi.",
+      "tokens": []
+    },
+    {
+      "id": "t6-029",
+      "level": 6,
+      "topic": "TOPIK 6 so'zlari",
+      "type": "writing",
+      "titleUz": "Dalil va qarshi dalil",
+      "promptUz": "160–220 so‘zlik koreyscha rasmiy paragraf yozing: shahar transportida avtomobilga qaramlikni kamaytirish siyosatining foydasi va ehtimoliy cheklovlarini muvozanatli tahlil qiling.",
+      "ko": "자동차 의존도를 낮추기 위한 정책은 대기 오염과 교통 혼잡을 완화하고 도시 공간을 시민에게 돌려준다는 점에서 필요하다. 그러나 대중교통망이 충분하지 않은 지역에서는 이동권을 제한할 수 있으므로, 일률적인 규제보다 지역별 여건을 고려한 단계적 접근이 바람직하다.",
+      "translationUz": "Avtomobilga qaramlikni kamaytirish siyosati havo ifloslanishi va tirbandlikni yumshatib, shahar makonini fuqarolarga qaytaradi. Biroq jamoat transporti yetarli bo‘lmagan joylarda harakatlanish huquqini cheklashi mumkin; shuning uchun hudud sharoitini hisobga olgan bosqichli yondashuv ma’qul.",
+      "choices": [],
+      "answer": "자동차 의존도를 낮추기 위한 정책은 대기 오염과 교통 혼잡을 완화하고 도시 공간을 시민에게 돌려준다는 점에서 필요하다. 그러나 대중교통망이 충분하지 않은 지역에서는 이동권을 제한할 수 있으므로, 일률적인 규제보다 지역별 여건을 고려한 단계적 접근이 바람직하다.",
+      "explanationUz": "Dalil–qarshi dalil–shartli xulosa tuzilishini, -는 점에서, 그러나, -므로 kabi bog‘lovchilarni tekshiring; bu ochiq topshiriq avtomatik rasmiy ballni anglatmaydi.",
+      "tokens": []
+    },
+    {
+      "id": "t6-030",
+      "level": 6,
+      "topic": "Ilmiy tahlil · T6",
+      "type": "writing",
+      "titleUz": "Tadqiqot xulosasini yozish",
+      "promptUz": "160–220 so‘zlik koreyscha xulosa yozing: berilgan natija cheklangan namuna asosida olinganini ko‘rsatib, keyingi tadqiqot uchun ikki yo‘nalish taklif qiling.",
+      "ko": "본 연구는 제한된 표본을 대상으로 했다는 한계에도 불구하고, 교육 환경과 학습 지속성 사이의 관련성을 확인했다. 후속 연구에서는 표본의 지역적 범위를 확대하고 장기간의 변화를 추적함으로써 이러한 관계가 다양한 조건에서도 유지되는지 검토할 필요가 있다.",
+      "translationUz": "Bu tadqiqot cheklangan namuna bilan ishlagan bo‘lsa-da, ta’lim muhiti va o‘qishni davom ettirish o‘rtasidagi bog‘liqlikni ko‘rsatdi. Keyingi tadqiqotlar namuna hududini kengaytirib, uzoq muddatli o‘zgarishni kuzatishi kerak.",
+      "choices": [],
+      "answer": "본 연구는 제한된 표본을 대상으로 했다는 한계에도 불구하고, 교육 환경과 학습 지속성 사이의 관련성을 확인했다. 후속 연구에서는 표본의 지역적 범위를 확대하고 장기간의 변화를 추적함으로써 이러한 관계가 다양한 조건에서도 유지되는지 검토할 필요가 있다.",
+      "explanationUz": "Cheklovni tan olish, natijani ehtiyotkor ifodalash va ikki aniq keyingi yo‘nalish berishni tekshiring; avtomatik rasmiy ball qo‘yilmaydi.",
+      "tokens": []
+    },
+    {
+      "id": "t6-031",
+      "level": 6,
+      "topic": "Murakkab ifoda · T6",
+      "type": "writing",
+      "titleUz": "Inqirozga javob memorandumi",
+      "promptUz": "Rahbariyatga 160–220 so‘zlik koreyscha memo yozing: ma’lumot sizib chiqishi holatida darhol va o‘rta muddatli uchta chorani asoslang.",
+      "ko": "정보 유출이 확인된 즉시 피해 범위를 파악하고 관계 기관에 신고하는 한편, 이용자에게 확인된 사실과 대응 절차를 투명하게 알려야 한다. 중장기적으로는 접근 권한을 재검토하고 독립적인 감사를 도입함으로써 재발 가능성을 낮출 필요가 있다.",
+      "translationUz": "Axborot sizishi tasdiqlansa, zarar doirasini aniqlash, tegishli idoraga xabar berish va foydalanuvchiga tasdiqlangan fakt hamda choralarni shaffof yetkazish kerak. O‘rta muddatda kirish huquqlarini qayta ko‘rib, mustaqil audit joriy etish zarur.",
+      "choices": [],
+      "answer": "정보 유출이 확인된 즉시 피해 범위를 파악하고 관계 기관에 신고하는 한편, 이용자에게 확인된 사실과 대응 절차를 투명하게 알려야 한다. 중장기적으로는 접근 권한을 재검토하고 독립적인 감사를 도입함으로써 재발 가능성을 낮출 필요가 있다.",
+      "explanationUz": "Darhol va o‘rta muddatli choralarni ajratish, sabab-natija va rasmiy registrni saqlashni tekshiring; avtomatik rasmiy ball emas.",
+      "tokens": []
+    },
+    {
+      "id": "t6-032",
+      "level": 6,
+      "topic": "TOPIK 6 so'zlari",
+      "type": "writing",
+      "titleUz": "Normativ tanlovni izohlash",
+      "promptUz": "160–220 so‘zlik koreyscha fikr yozing: sun’iy intellekt qarorlarida shaffoflik va innovatsiya tezligi o‘rtasidagi muvozanatni baholang.",
+      "ko": "인공지능의 혁신 속도를 이유로 검증 절차를 생략해서는 안 된다. 투명한 기준을 공개하고 독립적인 평가를 병행할 때에만 기술 발전이 사회적 신뢰를 확보하면서 지속될 수 있다. 다만 모든 위험을 사전에 제거하기는 어려우므로, 결과를 지속적으로 점검하며 규범을 수정하는 유연성도 요구된다.",
+      "translationUz": "Sun’iy intellekt innovatsiyasi tezligini sabab qilib tekshiruvni tashlab bo‘lmaydi. Shaffof mezon va mustaqil baholash birga bo‘lsagina rivojlanish ijtimoiy ishonch bilan barqaror davom etadi. Barcha xavfni oldindan yo‘qotish qiyin, shuning uchun me’yorlarni qayta ko‘rib turish moslashuvchanligi ham zarur.",
+      "choices": [],
+      "answer": "인공지능의 혁신 속도를 이유로 검증 절차를 생략해서는 안 된다. 투명한 기준을 공개하고 독립적인 평가를 병행할 때에만 기술 발전이 사회적 신뢰를 확보하면서 지속될 수 있다. 다만 모든 위험을 사전에 제거하기는 어려우므로, 결과를 지속적으로 점검하며 규범을 수정하는 유연성도 요구된다.",
+      "explanationUz": "Me’yoriy pozitsiya, istisno/cheklov va davomiy nazoratni izchil asoslashni tekshiring; bu model javob bo‘lib, avtomatik rasmiy ball emas.",
+      "tokens": []
+    },
+    {
+      "id": "t6-033",
+      "level": 6,
+      "topic": "Ilmiy tahlil · T6",
+      "type": "speaking",
+      "titleUz": "Tadqiqot natijasini og‘zaki himoya qilish",
+      "promptUz": "2–3 daqiqalik koreyscha mini-taqdimot tayyorlang: raqamli ta’limning bir foydasi, bir xavfi va o‘lchash mezonini ayting.",
+      "ko": "디지털 교육은 학습 자료에 대한 접근성을 높이고 개인별 속도에 맞춘 학습을 가능하게 한다. 반면 기기와 네트워크의 격차는 교육 불평등을 심화할 수 있다. 따라서 참여율만 볼 것이 아니라 학습 성취도와 취약 계층의 접근성을 함께 평가해야 한다.",
+      "translationUz": "Raqamli ta’lim materialga kirishni va shaxsiy tezlikda o‘rganishni yaxshilaydi. Biroq qurilma va tarmoq tafovuti ta’lim tengsizligini kuchaytirishi mumkin. Shuning uchun faqat qatnashuvni emas, o‘zlashtirish va zaif qatlam kirishini ham baholash kerak.",
+      "choices": [],
+      "answer": "디지털 교육은 학습 자료에 대한 접근성을 높이고 개인별 속도에 맞춘 학습을 가능하게 한다. 반면 기기와 네트워크의 격차는 교육 불평등을 심화할 수 있다. 따라서 참여율만 볼 것이 아니라 학습 성취도와 취약 계층의 접근성을 함께 평가해야 한다.",
+      "explanationUz": "Foyda–xavf–o‘lchov mezoni uchligini aniq bog‘lang, rasmiy ohang va sababiy bog‘lovchilardan foydalaning; avtomatik rasmiy ball qo‘yilmaydi.",
+      "tokens": []
+    },
+    {
+      "id": "t6-034",
+      "level": 6,
+      "topic": "TOPIK 6 so'zlari",
+      "type": "speaking",
+      "titleUz": "Ijtimoiy kelishuv haqida fikr",
+      "promptUz": "2–3 daqiqada koreyscha javob bering: siyosatga ishonchni tiklashda shaffoflikning o‘zi yetarlimi? Qarshi nuqtani ham tilga oling.",
+      "ko": "투명성은 정책에 대한 신뢰를 회복하는 데 필수적이지만 그것만으로 충분하지는 않다. 공개된 정보가 이해하기 쉬워야 하고, 정책의 결과에 대한 책임 있는 설명과 수정 조치가 뒤따라야 한다. 즉 투명성은 참여와 책임성이 결합될 때 실질적인 신뢰로 이어진다.",
+      "translationUz": "Shaffoflik ishonchni tiklash uchun zarur, ammo o‘zi yetarli emas. Axborot tushunarli bo‘lishi, natija uchun mas’ul izoh va tuzatish chorasi ergashishi kerak. Demak, shaffoflik ishtirok va javobgarlik bilan birlashganda haqiqiy ishonchga aylanadi.",
+      "choices": [],
+      "answer": "투명성은 정책에 대한 신뢰를 회복하는 데 필수적이지만 그것만으로 충분하지는 않다. 공개된 정보가 이해하기 쉬워야 하고, 정책의 결과에 대한 책임 있는 설명과 수정 조치가 뒤따라야 한다. 즉 투명성은 참여와 책임성이 결합될 때 실질적인 신뢰로 이어진다.",
+      "explanationUz": "Asosiy da’vo, cheklov va qo‘shimcha shartni izchil ayting; qarshi nuqtani inkor qilmasdan munosabat bildiring; avtomatik rasmiy ball emas.",
+      "tokens": []
+    },
+    {
+      "id": "t6-035",
+      "level": 6,
+      "topic": "Murakkab ifoda · T6",
+      "type": "speaking",
+      "titleUz": "Texnologik o‘zgarish va mas’uliyat",
+      "promptUz": "2–3 daqiqalik koreyscha nutqda avtomatlashtirish ish joylariga ta’sirini baholang va davlat, ish beruvchi hamda xodim mas’uliyatini farqlang.",
+      "ko": "자동화로 일부 업무가 축소되는 것은 불가피할 수 있지만, 그 부담을 노동자 개인에게만 전가해서는 안 된다. 정부는 재교육 기반을 마련하고 기업은 전환 과정의 정보를 공개하며, 노동자도 새로운 역량을 습득하려는 노력을 기울여야 한다. 책임의 분담이 이루어질 때 기술 변화의 충격을 완화할 수 있다.",
+      "translationUz": "Avtomatlashtirish ayrim vazifalarni qisqartirishi muqarrar bo‘lishi mumkin, lekin yukni faqat ishchiga yuklab bo‘lmaydi. Davlat qayta ta’lim asosini yaratadi, korxona ma’lumotni oshkor qiladi, ishchi yangi ko‘nikma olishga intiladi. Mas’uliyat bo‘linganda zarba yumshaydi.",
+      "choices": [],
+      "answer": "자동화로 일부 업무가 축소되는 것은 불가피할 수 있지만, 그 부담을 노동자 개인에게만 전가해서는 안 된다. 정부는 재교육 기반을 마련하고 기업은 전환 과정의 정보를 공개하며, 노동자도 새로운 역량을 습득하려는 노력을 기울여야 한다. 책임의 분담이 이루어질 때 기술 변화의 충격을 완화할 수 있다.",
+      "explanationUz": "Uch tomon mas’uliyatini farqlash, -아/어서는 안 된다 va -을 때 kabi shakllarni to‘g‘ri ishlatishni tekshiring; avtomatik rasmiy ball emas.",
+      "tokens": []
+    },
+    {
+      "id": "t6-036",
+      "level": 6,
+      "topic": "Ilmiy tahlil · T6",
+      "type": "speaking",
+      "titleUz": "Ilmiy dalilni ommaga tushuntirish",
+      "promptUz": "2–3 daqiqada koreyscha tushuntiring: nima uchun korrelyatsiya sababiyatni anglatmasligi mumkin va ommaviy axborotda buni qanday ehtiyotkor ifodalash kerak.",
+      "ko": "두 현상이 함께 나타난다고 해서 한 현상이 다른 현상의 원인이라고 단정할 수는 없다. 제3의 변인이 두 현상에 동시에 영향을 미쳤을 가능성도 있기 때문이다. 따라서 대중에게 결과를 설명할 때에는 관련성이 관찰되었다고 표현하고, 추가 연구가 필요하다는 점을 분명히 해야 한다.",
+      "translationUz": "Ikki hodisa birga kuzatilgani biri ikkinchisining sababi degani emas. Uchinchi omil ikkalasiga bir vaqtda ta’sir qilgan bo‘lishi mumkin. Shuning uchun ommaga “bog‘liqlik kuzatildi” deb ehtiyotkor aytish va qo‘shimcha tadqiqot zarurligini ko‘rsatish kerak.",
+      "choices": [],
+      "answer": "두 현상이 함께 나타난다고 해서 한 현상이 다른 현상의 원인이라고 단정할 수는 없다. 제3의 변인이 두 현상에 동시에 영향을 미쳤을 가능성도 있기 때문이다. 따라서 대중에게 결과를 설명할 때에는 관련성이 관찰되었다고 표현하고, 추가 연구가 필요하다는 점을 분명히 해야 한다.",
+      "explanationUz": "Korrelyatsiya, uchinchi omil va ehtiyotkor kommunikatsiyani aniq tushuntiring; nutq namunasi mezon sifatida xizmat qiladi, avtomatik rasmiy ball emas.",
+      "tokens": []
+    }
+  ],
+  "foundationReading": {
+    "title": "Raqamli xizmatlar va adolat",
+    "lines": [
+      [
+        0,
+        "공공 서비스의 디지털화는 처리 속도와 행정 효율을 높였지만, 모든 시민이 동일한 수준의 접근성을 확보한 것은 아니다. 고령층이나 장애인처럼 디지털 기기 활용에 제약이 있는 사람들은 오히려 서비스 이용에서 배제될 수 있다. 따라서 효율성만을 성과로 내세우기보다 대면 지원과 보조 수단을 병행하는 포용적 전환이 요구된다."
+      ]
+    ],
+    "uz": "Davlat xizmatlarini raqamlashtirish tezlik va samaradorlikni oshirdi, biroq barcha fuqarolar bir xil kirish imkoniga ega emas. Keksalar yoki nogironligi bo‘lganlar xizmatdan chetda qolishi mumkin. Shu sabab samaradorlik bilan cheklanmay, yuzma-yuz yordam va qo‘shimcha vositalarni birga qo‘llash zarur.",
+    "qs": [
+      [
+        "Muallif qanday yondashuvni talab qiladi?",
+        [
+          "Faqat raqamli xizmatlarni tezlashtirishni",
+          "Raqamli o‘tishni yuzma-yuz yordam bilan inklyuziv qilishni",
+          "Keksalar uchun barcha xizmatlarni yopishni",
+          "Samaradorlikni baholashdan voz kechishni"
+        ]
+      ]
+    ]
+  },
+  "foundationListening": {
+    "title": "Majlisdagi metodologik e’tiroz",
+    "lines": [
+      [
+        0,
+        "발표하신 결과에서 두 변수 사이의 인과관계를 확인했다고 하셨는데, 통제 집단도 설정하셨습니까?"
+      ],
+      [
+        1,
+        "아니요. 관찰 자료에 기반했기 때문에 인과관계라기보다 상관관계가 나타났다고 보는 편이 타당합니다."
+      ],
+      [
+        0,
+        "그렇다면 결론의 표현을 조금 완화할 필요가 있겠네요."
+      ]
+    ],
+    "uz": "A: Natijada ikki o‘zgaruvchi orasidagi sababiyatni aniqlaganingizni aytdingiz, nazorat guruhi ham bo‘ldimi? B: Yo‘q, kuzatuv ma’lumotiga asoslangani uchun sababiyatdan ko‘ra korrelyatsiya deyish to‘g‘ri. A: Unda xulosa ifodasini yumshatish kerak.",
+    "qs": [
+      [
+        "Nima o‘zgartirilishi kerak?",
+        [
+          "Nazorat guruhini yashirish",
+          "Xulosa ifodasini ehtiyotkorroq qilish",
+          "Barcha ma’lumotni o‘chirish",
+          "Ikki o‘zgaruvchini birlashtirish"
+        ]
+      ]
+    ]
+  },
+  "foundationVocabulary": [
+    [
+      "현상",
+      "hyeonsang",
+      "hodisa"
+    ],
+    [
+      "가치",
+      "gachi",
+      "qadriyat"
+    ],
+    [
+      "갈등",
+      "galdeung",
+      "ziddiyat"
+    ],
+    [
+      "정책",
+      "jeongchaek",
+      "davlat siyosati, chora-tadbir"
+    ],
+    [
+      "제도",
+      "jedo",
+      "tizim, tartib"
+    ],
+    [
+      "인식",
+      "insik",
+      "anglash, tushuncha"
+    ],
+    [
+      "경향",
+      "gyeonghyang",
+      "tendensiya"
+    ],
+    [
+      "측면",
+      "cheungmyeon",
+      "jihat"
+    ],
+    [
+      "근거",
+      "geungeo",
+      "asos, dalil"
+    ],
+    [
+      "대책",
+      "daechaek",
+      "qarshi chora"
+    ],
+    [
+      "효율",
+      "hyoyul",
+      "samaradorlik"
+    ],
+    [
+      "불평등",
+      "bulpyeongdeung",
+      "tengsizlik"
+    ],
+    [
+      "지속적",
+      "jisokjeok",
+      "uzluksiz, barqaror"
+    ],
+    [
+      "분석하다",
+      "bunseokhada",
+      "tahlil qilmoq"
+    ],
+    [
+      "주장하다",
+      "jujanghada",
+      "da’vo qilmoq, ta’kidlamoq"
+    ]
+  ]
+}

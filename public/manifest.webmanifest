@@ -7,12 +7,17 @@
   "start_url": "./",
   "scope": "./",
   "display": "standalone",
-  "display_override": ["standalone"],
+  "display_override": [
+    "standalone"
+  ],
   "orientation": "portrait",
   "background_color": "#0b1020",
   "theme_color": "#0b1020",
-  "description": "Koreys tilini noldan TOPIK 5 gacha o'rganish",
-  "categories": ["education", "language"],
+  "description": "Koreys tilini noldan TOPIK 6 gacha o'rganish",
+  "categories": [
+    "education",
+    "language"
+  ],
   "icons": [
     {
       "src": "icon-192.png",

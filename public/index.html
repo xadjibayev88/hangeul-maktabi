@@ -1,4 +1,5 @@
-<!doctype html><html lang="uz"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="description" content="Koreys tilini noldan TOPIK 5 gacha o'rgatadigan o'zbekcha platforma."><link rel="manifest" href="manifest.webmanifest"><meta name="theme-color" content="#0b1020"><link rel="icon" href="icon-192.png"><link rel="apple-touch-icon" href="icon-192.png"><meta name="mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-capable" content="yes"><script src="firebase-config.js"></script><title>Go Topic — Koreys tili va TOPIK</title><style>body{margin:0}img{max-width:100%}[hidden]{display:none!important}</style><link rel="stylesheet" href="base.css"><link rel="stylesheet" href="premium.css"><script src="runtime-config.js"></script><script src="runtime-client.js"></script></head><body>
+<!doctype html><html lang="uz"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="description" content="Koreys tilini noldan TOPIK 6 gacha o'rgatadigan o'zbekcha platforma."><link rel="manifest" href="manifest.webmanifest"><meta name="theme-color" content="#0b1020"><link rel="icon" href="icon-192.png"><link rel="apple-touch-icon" href="icon-192.png"><meta name="mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-capable" content="yes"><script src="firebase-config.js"></script><title>Go Topic — Koreys tili va TOPIK</title><style>body{margin:0}img{max-width:100%}[hidden]{display:none!important}</style><link rel="stylesheet" href="base.css"><link rel="stylesheet" href="premium.css">
+<link rel="stylesheet" href="learning.css"><script src="runtime-config.js"></script><script src="runtime-client.js"></script></head><body>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Black+Han+Sans&family=Noto+Sans+KR:wght@400;500;700&family=Onest:wght@400;500;600;700&family=Unbounded:wght@600;800&display=swap">
 
 
@@ -21,7 +22,7 @@
   <section class="view premium-static" aria-labelledby="static-title">
     <span class="eyebrow">Go Topic · Koreys tili</span>
     <h1 id="static-title">Koreys tilini o'zbekcha, bosqichma-bosqich o'rganing</h1>
-    <p class="lead">TOPIK 5 gacha so'zlar, grammatika, tinglash, o'qish, testlar va AI suhbatlar bir joyda.</p>
+    <p class="lead">TOPIK 6 gacha so'zlar, grammatika, tinglash, o'qish, testlar va AI suhbatlar bir joyda.</p>
     <nav aria-label="Asosiy bo'limlar"><a href="#reja">O'rganishni boshlash</a><a href="#sozlar">So'z kartochkalari</a><a href="#suhbat">AI bilan suhbat</a><a href="#test">Testlar</a></nav>
   </section>
 </div></main>
@@ -31,7 +32,7 @@
   <div><h4>Mashq</h4><a href="#tinglash">Tinglash</a><a href="#oqish">O'qish</a><a href="#suhbat">AI suhbat</a><a href="#test">Test</a></div>
   <div><h4>Bepul vositalar</h4><a href="#vositalar">TOPIK ball kalkulyatori</a><a href="#vositalar">Gapirish mavzulari</a><a href="#vositalar">Yozish mashqi</a><a href="#oyinlar">O'yinlar</a></div>
  </div>
- Natijalaringiz faqat shu qurilmada saqlanadi. Bu rasmiy TOPIK sayti emas.
+ Natijalar qurilmada, hisobga kirilganda cloud bazada ham saqlanadi. Bu rasmiy TOPIK sayti emas.
 </div></footer>
 <div id="toast" hidden role="status"></div>
 
@@ -3055,18 +3056,29 @@ const DRAW=[["것","narsa",0,0],
 ["종로","Jongno",11,1],
 ["충청도","Chungcheongdo",11,1],
 ["한라산","Hallasan tog'i",11,1]];
+/* TOPIK 6 foundation */
+TOPICS["TOPIK 6 so'zlari"]=[["현상","hyeonsang","hodisa"],["가치","gachi","qadriyat"],["갈등","galdeung","ziddiyat"],["정책","jeongchaek","davlat siyosati, chora-tadbir"],["제도","jedo","tizim, tartib"]];
+LVMAP["TOPIK 6 so'zlari"]=6;
+TOPICS["Ilmiy tahlil · T6"]=[["인식","insik","anglash, tushuncha"],["경향","gyeonghyang","tendensiya"],["측면","cheungmyeon","jihat"],["근거","geungeo","asos, dalil"],["대책","daechaek","qarshi chora"]];
+LVMAP["Ilmiy tahlil · T6"]=6;
+TOPICS["Murakkab ifoda · T6"]=[["효율","hyoyul","samaradorlik"],["불평등","bulpyeongdeung","tengsizlik"],["지속적","jisokjeok","uzluksiz, barqaror"],["분석하다","bunseokhada","tahlil qilmoq"],["주장하다","jujanghada","da’vo qilmoq, ta’kidlamoq"]];
+LVMAP["Murakkab ifoda · T6"]=6;
+READ.push({"title":"Raqamli xizmatlar va adolat","lines":[[0,"공공 서비스의 디지털화는 처리 속도와 행정 효율을 높였지만, 모든 시민이 동일한 수준의 접근성을 확보한 것은 아니다. 고령층이나 장애인처럼 디지털 기기 활용에 제약이 있는 사람들은 오히려 서비스 이용에서 배제될 수 있다. 따라서 효율성만을 성과로 내세우기보다 대면 지원과 보조 수단을 병행하는 포용적 전환이 요구된다."]],"uz":"Davlat xizmatlarini raqamlashtirish tezlik va samaradorlikni oshirdi, biroq barcha fuqarolar bir xil kirish imkoniga ega emas. Keksalar yoki nogironligi bo‘lganlar xizmatdan chetda qolishi mumkin. Shu sabab samaradorlik bilan cheklanmay, yuzma-yuz yordam va qo‘shimcha vositalarni birga qo‘llash zarur.","qs":[["Muallif qanday yondashuvni talab qiladi?",["Faqat raqamli xizmatlarni tezlashtirishni","Raqamli o‘tishni yuzma-yuz yordam bilan inklyuziv qilishni","Keksalar uchun barcha xizmatlarni yopishni","Samaradorlikni baholashdan voz kechishni"]]]});
+LISTEN.push({"title":"Majlisdagi metodologik e’tiroz","lines":[[0,"발표하신 결과에서 두 변수 사이의 인과관계를 확인했다고 하셨는데, 통제 집단도 설정하셨습니까?"],[1,"아니요. 관찰 자료에 기반했기 때문에 인과관계라기보다 상관관계가 나타났다고 보는 편이 타당합니다."],[0,"그렇다면 결론의 표현을 조금 완화할 필요가 있겠네요."]],"uz":"A: Natijada ikki o‘zgaruvchi orasidagi sababiyatni aniqlaganingizni aytdingiz, nazorat guruhi ham bo‘ldimi? B: Yo‘q, kuzatuv ma’lumotiga asoslangani uchun sababiyatdan ko‘ra korrelyatsiya deyish to‘g‘ri. A: Unda xulosa ifodasini yumshatish kerak.","qs":[["Nima o‘zgartirilishi kerak?",["Nazorat guruhini yashirish","Xulosa ifodasini ehtiyotkorroq qilish","Barcha ma’lumotni o‘chirish","Ikki o‘zgaruvchini birlashtirish"]]]});
+GRAM.push(...[["단기적인 여론에 흔들리지 않고 장기적 관점에서 정책을 ___ 사회적 합의를 이끌어 내야 한다.","검토하더라도",["검토하더라도","검토할수록","검토하는 한","검토하고자"],"-더라도 “... bo‘lsa ham” qarama-qarshi shartini beradi; gapda siyosatni ko‘rib chiqish qiyin bo‘lsa ham, kelishuv zarurligi aytilgan.","TOPIK 6"],["본 연구는 지역 간 교육 격차의 구조적 원인을 규명___ 다양한 자료를 비교·분석하였다.","하고자",["하고자","하더라도","하는 한","할수록"],"-고자 rasmiy yozuvda maqsadni, ya’ni “... maqsadida”ni bildiradi.","TOPIK 6"],["정책의 성패는 예산 규모에만 달려 있는 ___ 집행 과정의 투명성에도 달려 있다.","것이 아니라",["것이 아니라","채","척","탓에"],"것이 아니라 “... emas, balki ...” tuzilmasi bir omil bilan cheklanmaslikni bildiradi.","TOPIK 6"],["검증되지 않은 정보가 반복적으로 유통될 ___ 공공기관에 대한 불신이 커질 수 있다.","경우",["수록","경우","채","척"],"-을 경우 “... holatida” shartini bildiradi va oqibatni ehtiyotkor bayon qilishga mos.","TOPIK 6"],["선행 연구를 종합해 ___ 이 가설은 특정 조건에서만 성립한다.","보면",["보면","더라도","채","고자"],"-에 따르면 emas, bu gapdagi “종합해 ___”dan keyin xulosa chiqaruvchi “보면” shakli “qaralsa/ko‘rilsa” ma’nosini beradi.","TOPIK 6"],["규제를 전면적으로 강화하기보다는 위험이 큰 영역에 우선 적용하는 방안을 ___ 한다.","바람직하다고",["바람직하다고","불가피하다고","뚜렷하다고","지나치다고"],"바람직하다 “maqbul” degani; -다고 한다 shakli rasmiy taklifni baholash uchun mos.","TOPIK 6"]]);
+GCATS.push("TOPIK 6");
 const DKEY="Lug'at · chastota bo'yicha";
-let DICT=[],DLV={1:[],2:[],3:[],4:[],5:[]};
+let DICT=[],DLV={1:[],2:[],3:[],4:[],5:[],6:[]};
 function buildDict(){
   const cur=new Set(Object.entries(TOPICS).filter(([key])=>key!==DKEY).flatMap(([,words])=>words).map(w=>w[0]));
   DICT=DRAW.filter(d=>!cur.has(d[0])).map(d=>[d[0],"",d[1]]);
   const a=DRAW.filter(d=>!d[3]&&!cur.has(d[0])).map(d=>[d[0],"",d[1]]),b=DRAW.filter(d=>d[3]&&!cur.has(d[0])).map(d=>[d[0],"",d[1]]);
   const ha=Math.ceil(a.length/2),hb=Math.ceil(b.length/2);
-  DLV={1:a.slice(0,ha),2:a.slice(ha),3:b.slice(0,hb),4:b.slice(hb),5:[]};
+  DLV={1:a.slice(0,ha),2:a.slice(ha),3:b.slice(0,hb),4:b.slice(hb),5:[],6:[]};
 }
 const tl=n=>LVMAP[n]||+((/ · T(\d)$/.exec(n)||[])[1]||0);
-const lvTopics=()=>Object.keys(TOPICS).filter(t=>!tl(t)||tl(t)===S.lvl).concat(DLV[S.lvl].length?[DKEY]:[]);
-const lvWords=()=>{const w=lvTopics().flatMap(t=>TOPICS[t]||[]).concat(DLV[S.lvl]);return w.length>=10?w:ALL};
+const lvTopics=()=>Object.keys(TOPICS).filter(t=>!tl(t)||tl(t)===S.lvl).concat((DLV[S.lvl]||[]).length?[DKEY]:[]);
+const lvWords=()=>{const w=lvTopics().flatMap(t=>TOPICS[t]||[]).concat(DLV[S.lvl]||[]);return w.length>=10?w:ALL};
 let ALL=[];function rebuild(){buildDict();ALL=Object.values(TOPICS).flat().concat(DICT)}
 
 let sampleFn=null,ttsNs=null,dict=null,capsReady=false;
@@ -3136,7 +3148,7 @@ function speakBoth(ko,uz){
   if(ttsNs)ttsNs.speak([{text:ko,language:"ko",rate:.9}].concat(uz?[{text:uz,language:"uz"}]:[])).catch(()=>{});
   else speakLocal(ko);
 }
-const lvlCtl=()=>`<div class="lvl"><span>TOPIK darajasi</span><div class="seg" role="group" aria-label="TOPIK darajasi">${[1,2,3,4,5].map(n=>`<button data-lvl="${n}" aria-pressed="${n===S.lvl}">${n}</button>`).join("")}</div></div>`;
+const lvlCtl=()=>`<div class="lvl"><span>TOPIK darajasi</span><div class="seg" role="group" aria-label="TOPIK darajasi">${[1,2,3,4,5,6].map(n=>`<button data-lvl="${n}" aria-pressed="${n===S.lvl}">${n}</button>`).join("")}</div></div>`;
 const HANGUL=/[\uAC00-\uD7A3]/;
 let A={busy:"",err:"",q:"",dict:null};
 function aiErr(e){return e&&e.code==="bad_key"?"Kalit qabul qilinmadi. Sozlamalarda kalitni tekshiring.":e&&e.code==="bad_model"?"Model topilmadi. Sozlamalarda model nomini tekshiring.":e&&e.code==="network"?"Internetga ulanib bo'lmadi.":e&&e.code==="not_granted"?"AI'dan foydalanishga ruxsat berilmadi. Sahifani qayta ochib, ruxsat bering.":e&&e.code==="rate_limited"?(SOLO?"Gemini bepul chegarasi tugadi (daqiqalik yoki kunlik). Bir daqiqa kutib ko'ring; takrorlansa, ertaga davom eting yoki boshqa kalit kiriting.":"So'rovlar ko'payib ketdi. Bir daqiqadan keyin urinib ko'ring."):"AI javob bera olmadi. Qayta urinib ko'ring."}
@@ -3186,18 +3198,18 @@ function speakLocal(text){
   }catch(e){toast("Ovozni chiqarib bo'lmadi")}
 }
 const ICON='<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 9v6h4l5 4V5L8 9H4zm12.5 3a4.5 4.5 0 0 0-2.5-4v8a4.5 4.5 0 0 0 2.5-4z"/></svg>';
-const knownCount=()=>ALL.filter(w=>S.known[w[0]]).length;
+const knownCount=()=>new Set(ALL.filter(w=>S.known[w[0]]).map(w=>w[0])).size;
 const seenCount=()=>CONS.concat(VOWS).filter(l=>S.seen[l[0]]).length;
 
 /* ---------- views ---------- */
 const V={};
-const PEEK=[["AI ustoz","O'zbekcha tushuntiradigan AI bilan ovozli suhbat: kafeda, do'konda, erkin dars. Xatoingizni darhol tuzatadi.","suhbat","AI bilan gaplashish"],["Reja","Maqsad, daraja va kunlik vaqtingizga qarab har kungi mashqlar ro'yxati.","reja","Rejamni tuzish"],["Testlar","So'z testi va 90 ta grammatika savoli, TOPIK 1 dan 5 gacha. AI har safar yangi savol tuzadi.","grammatika","Grammatikani boshlash"],["Tinglash","Suhbat va e'lonlar ikki xil ovozda, tushunish savollari bilan.","tinglash","Tinglab ko'rish"],["O'qish","Darajangizga mos matnlar, tarjima va ovoz bilan.","oqish","Matn o'qish"],["O'yinlar","Tezlikka so'z topish va 60 soniya to'xtamay gapirish.","oyinlar","O'ynash"],["Lug'at",DRAW.length+" so'zli koreyscha–o'zbekcha lug'at, qidiruv va ovoz bilan.","lugat","Lug'atni ochish"]];
+const PEEK=[["AI ustoz","O'zbekcha tushuntiradigan AI bilan ovozli suhbat: kafeda, do'konda, erkin dars. Xatoingizni darhol tuzatadi.","suhbat","AI bilan gaplashish"],["Reja","Maqsad, daraja va kunlik vaqtingizga qarab har kungi mashqlar ro'yxati.","reja","Rejamni tuzish"],["Testlar","So'z testi va 96 ta grammatika savoli, TOPIK 1 dan 6 gacha. AI har safar yangi savol tuzadi.","grammatika","Grammatikani boshlash"],["Tinglash","Suhbat va e'lonlar ikki xil ovozda, tushunish savollari bilan.","tinglash","Tinglab ko'rish"],["O'qish","Darajangizga mos matnlar, tarjima va ovoz bilan.","oqish","Matn o'qish"],["O'yinlar","Tezlikka so'z topish va 60 soniya to'xtamay gapirish.","oyinlar","O'ynash"],["Lug'at",DRAW.length+" so'zli koreyscha–o'zbekcha lug'at, qidiruv va ovoz bilan.","lugat","Lug'atni ochish"]];
 let peek=0;
 const FAQ=[["Ro'yxatdan o'tish kerakmi?","Yo'q. Natijalaringiz shu qurilmada saqlanadi. AI bo'limlari (suhbat, AI lug'at, AI mashqlar) Gemini kaliti yoki platforma AI xizmati bilan ishlaydi."],["Bu rasmiy TOPIK materialimi?","Yo'q. Mashqlar TOPIK uslubida tuzilgan, lekin imtihonning rasmiy savollari emas."],["Darajani qanday tanlayman?","«Mening rejam» bo'limida uchta savolga javob bering yoki istalgan sahifadagi TOPIK darajasi tugmalaridan foydalaning. Daraja o'zgarsa, so'zlar, matnlar va AI mashqlari ham o'zgaradi."],["Lug'at qayerdan olingan?","Koreya Milliy til institutining o'rganuvchilar uchun so'zlar ro'yxatidan (A va B bosqich). O'zbekcha tarjimalar AI yordamida qo'shilgan va rasmiy tarjima emas."],["TOPIK darajasi qanday hisoblanadi?","TOPIK I da 200 balldan 80 ball 1-daraja, 140 ball 2-daraja. TOPIK II da 300 balldan 120, 150, 190 va 230 ball mos ravishda 3, 4, 5 va 6-daraja. Vositalar bo'limida kalkulyator bor."]];
 V.bosh=()=>`<section class="view">
  <div class="hero2">
-  <div class="score" aria-hidden="true"><i>ㅎ</i><b class="gt">5급</b><i>ㄱ</i></div>
-  <h1>Koreys tilini noldan <em>TOPIK 5</em> gacha o'rganing</h1>
+  <div class="score" aria-hidden="true"><i>ㅎ</i><b class="gt">6급</b><i>ㄱ</i></div>
+  <h1>Koreys tilini noldan <em>TOPIK 6</em> gacha o'rganing</h1>
   <p class="lead">So'z, grammatika, tinglash, o'qish va AI ustoz. Hammasi bitta joyda, o'zbek tilida.</p>
   <div class="col"><a class="btn cta wide" href="#reja">${S.plan?"Bugungi reja":"O'rganishni boshlash"} →</a><button class="btn ghost cta wide" data-peekgo>Platforma</button></div>
  </div>
@@ -3211,7 +3223,7 @@ V.bosh=()=>`<section class="view">
   <div class="peek"><h3>${PEEK[peek][0]}</h3><p class="muted">${esc(PEEK[peek][1])}</p></div>
   <div class="row"><a class="btn" href="#${PEEK[peek][2]}">${PEEK[peek][3]} →</a></div></div>
  <h2>O'quv yo'li</h2>
- <ol class="path">${[["1","alifbo","Alifbo","14 undosh va 10 unli harf, talaffuzi bilan",seenCount()+" / 24"],["2","sozlar","So'zlar","TOPIK darajasiga qarab kartochkalar",knownCount()+" ta"],["3","iboralar","Iboralar","Kundalik suhbat uchun tayyor gaplar",PHRASES.length+" ta"],["4","grammatika","Grammatika",GRAM.length+" savol, TOPIK 1–5","eng yaxshi: "+S.gram+" / 10"],["5","tinglash","Tinglash va o'qish","Yozuvlar, matnlar va tushunish savollari","TOPIK 1–5"],["6","suhbat","AI bilan suhbat","Ovoz bilan gaplashing, AI o'zbekcha tushuntiradi",SCN.length+" vaziyat"]].map(r=>`<li><a href="#${r[1]}"><span class="n">${r[0]}</span><span class="t"><b>${r[2]}</b><span>${r[3]}</span></span><span class="p">${r[4]}</span></a></li>`).join("")}</ol>
+ <ol class="path">${[["1","alifbo","Alifbo","14 undosh va 10 unli harf, talaffuzi bilan",seenCount()+" / 24"],["2","sozlar","So'zlar","TOPIK darajasiga qarab kartochkalar",knownCount()+" ta"],["3","iboralar","Iboralar","Kundalik suhbat uchun tayyor gaplar",PHRASES.length+" ta"],["4","grammatika","Grammatika",GRAM.length+" savol, TOPIK 1–6","eng yaxshi: "+S.gram+" / 10"],["5","tinglash","Tinglash va o'qish","Yozuvlar, matnlar va tushunish savollari","TOPIK 1–6"],["6","suhbat","AI bilan suhbat","Ovoz bilan gaplashing, AI o'zbekcha tushuntiradi",SCN.length+" vaziyat"]].map(r=>`<li><a href="#${r[1]}"><span class="n">${r[0]}</span><span class="t"><b>${r[2]}</b><span>${r[3]}</span></span><span class="p">${r[4]}</span></a></li>`).join("")}</ol>
  <h2>Ko'p beriladigan savollar</h2>
  <div class="faq">${FAQ.map(f=>`<details><summary>${f[0]}</summary><p>${f[1]}</p></details>`).join("")}</div>
 </section>`;
@@ -3684,9 +3696,9 @@ let DQ={q:"",st:-1,n:60};
 const nq=t=>t.toLowerCase().replace(/[‘’`ʻʼ]/g,"'");
 function dictRows(){
   const q=nq(DQ.q.trim());let out=[],n=0;
-  for(const d of DRAW){if(DQ.st>=0&&d[3]!==DQ.st)continue;if(q&&!d[0].includes(q)&&!nq(d[1]).includes(q))continue;n++;if(out.length<DQ.n)out.push(d)}
+  for(const d of DRAW){if(DQ.st>=0&&d[3]!==DQ.st)continue;if(q&&!d[0].includes(q)&&!nq(d[1]).includes(q))continue;n++;if(out.length<Math.min(DQ.n,240))out.push(d)}
   if(!n)return `<p class="muted">Topilmadi. Boshqacha yozib ko'ring${sampleFn?" yoki So'zlar bo'limidagi AI lug'atdan qidiring":""}.</p>`;
-  return `<p class="muted">${n} ta so'zdan ${out.length} tasi ko'rsatilgan</p><ul class="phr">${out.map(d=>`<li><div><div class="k">${esc(d[0])} <span class="tag">${d[3]?"B":"A"}</span></div><div class="r">${esc(DPOS[d[2]])}</div><div>${esc(d[1])}</div></div><button class="say" data-say="${esc(d[0])}" aria-label="Eshitish">${ICON}</button></li>`).join("")}</ul>${n>out.length?`<div class="row" style="justify-content:center;margin-top:14px"><button class="btn" data-more>Yana 60 ta ko'rsatish</button><button class="btn ghost" data-more="all">Hammasini ko'rsatish (${n})</button></div>`:""}`;
+  return `<p class="muted">${n} ta so'zdan ${out.length} tasi ko'rsatilgan</p><ul class="phr">${out.map(d=>`<li><div><div class="k">${esc(d[0])} <span class="tag">${d[3]?"B":"A"}</span></div><div class="r">${esc(DPOS[d[2]])}</div><div>${esc(d[1])}</div></div><button class="say" data-say="${esc(d[0])}" aria-label="Eshitish">${ICON}</button></li>`).join("")}</ul>${n>out.length&&out.length<240?`<div class="row" style="justify-content:center;margin-top:14px"><button class="btn" data-more>Yana 60 ta ko'rsatish</button><button class="btn ghost" data-more="all">240 tagacha ko'rsatish</button></div>`:n>240?`<p class="note">Tez ishlash uchun 240 qator bilan cheklangan. Qidiruvni aniqlashtiring yoki <a href="#keng_lugat">katta lug'atdan</a> foydalaning.</p>`:""}`;
 }
 V.lugat=()=>`<section class="view"><h2>Koreyscha–o'zbekcha lug'at</h2>
  <p class="lead">${DRAW.length} ta so'z, eng ko'p ishlatiladiganidan boshlab. Koreyscha yoki o'zbekcha yozib qidiring.</p>
@@ -3764,7 +3776,7 @@ function quizView(kind,title,intro0){
   </div></section>`;
 }
 V.test=()=>quizView("vocab","So'z testi","Tanlangan TOPIK darajasidagi so'zlardan 10 ta savol. Har to'g'ri javob 10 XP beradi.");
-V.grammatika=()=>quizView("gram","Grammatika mashqi",GRAM.length+" savol, TOPIK 1–5. Har urinishda 10 ta tasodifiy savol chiqadi, javobdan keyin qoida izohi ko'rsatiladi.");
+V.grammatika=()=>quizView("gram","Grammatika mashqi",GRAM.length+" savol, TOPIK 1–6. Har urinishda 10 ta tasodifiy savol chiqadi, javobdan keyin qoida izohi ko'rsatiladi.");
 
 /* ---------- router & events ---------- */
 function route(){const h=(location.hash||"#bosh").slice(1);return V[h]?h:"bosh"}
@@ -3857,4 +3869,5 @@ wk();drawXp();render();fbInit();
 </script>
 <script src="tutor-controller.js"></script>
 <script src="premium.js"></script>
+<script src="learning.js"></script>
 </body></html>
