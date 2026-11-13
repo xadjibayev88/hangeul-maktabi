@@ -20,11 +20,13 @@ GOOGLE_APPLICATION_CREDENTIALS=/run/secrets/google-tts.json
 
 # ElevenLabs ishlatilsa
 ELEVENLABS_API_KEY=server-only-secret
-ELEVENLABS_KO_VOICE_ID=server-only-voice-id
+ELEVENLABS_KO_VOICE_ID=cgSgspJ2msm6clMCkdW9
 ELEVENLABS_MODEL_ID=eleven_flash_v2_5
 ```
 
 Google adapter Application Default Credentials orqali autentifikatsiya qilinadi. ElevenLabs API key hech qachon frontend, `index.html` yoki `localStorage`ga qo‘yilmaydi.
+
+Manus’dagi ElevenLabs connector muvaffaqiyatli tekshirildi. U koreyscha test audio’ni `Ogg/Opus 48 kHz mono` formatida yaratdi va shu testda ishlatilgan voice ID `cgSgspJ2msm6clMCkdW9` adapterning default voice’i sifatida qo‘yildi. Connector Manus agentining o‘zida ishlaydi; GitHub Pages esa connector secret’ini ko‘rmaydi. Production `/api/tts` serverida `ELEVENLABS_API_KEY` environment secret sifatida berilishi kerak.
 
 ## Express adapteri
 

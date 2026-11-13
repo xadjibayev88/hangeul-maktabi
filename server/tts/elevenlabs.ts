@@ -18,7 +18,9 @@ export class ElevenLabsProvider implements TtsProvider {
   constructor(options: ElevenLabsOptions = {}) {
     this.apiKey = options.apiKey ?? process.env.ELEVENLABS_API_KEY ?? "";
     this.voiceId =
-      options.voiceId ?? process.env.ELEVENLABS_KO_VOICE_ID ?? "";
+      options.voiceId ??
+      process.env.ELEVENLABS_KO_VOICE_ID ??
+      "cgSgspJ2msm6clMCkdW9";
     this.modelId =
       options.modelId ??
       process.env.ELEVENLABS_MODEL_ID ??
@@ -84,7 +86,8 @@ export class ElevenLabsProvider implements TtsProvider {
     }
 
     return {
-      contentType: response.headers.get("content-type") || "audio/opus",
+      contentType:
+        response.headers.get("content-type") || "audio/ogg; codecs=opus",
       chunks: chunks(),
     };
   }
