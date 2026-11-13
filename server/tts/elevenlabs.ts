@@ -25,18 +25,18 @@ export class ElevenLabsProvider implements TtsProvider {
       "eleven_flash_v2_5";
     this.fetchImpl = options.fetchImpl ?? fetch;
 
-    if (!this.apiKey) throw new Error("ELEVENLABS_API_KEY is not configured");
-    if (!this.voiceId) {
-      throw new Error("ELEVENLABS_KO_VOICE_ID is not configured");
-    }
   }
 
   async stream(request: TtsRequest): Promise<TtsStream> {
     if (request.language !== "ko-KR") {
       throw new Error("ElevenLabs adapter currently supports ko-KR only");
     }
+    if (!this.apiKey) throw new Error("ELEVENLABS_API_KEY is not configured");
 
     const voiceId = request.voice || this.voiceId;
+    if (!voiceId) {
+      throw new Error("ELEVENLABS_KO_VOICE_ID is not configured");
+    }
     const url = new URL(
       `https://api.elevenlabs.io/v1/text-to-speech/${encodeURIComponent(voiceId)}/stream`,
     );
