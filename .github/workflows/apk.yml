@@ -27,15 +27,15 @@ jobs:
         working-directory: android
         run: gradle --no-daemon assembleDebug -PverCode=${{ github.run_number }}
       - name: Rename
-        run: cp android/app/build/outputs/apk/debug/app-debug.apk HangeulMaktabi.apk
+        run: cp android/app/build/outputs/apk/debug/app-debug.apk GoTopic.apk
       - uses: actions/upload-artifact@v4
         with:
-          name: HangeulMaktabi-apk
-          path: HangeulMaktabi.apk
+          name: GoTopic-apk
+          path: GoTopic.apk
       - uses: softprops/action-gh-release@v2
         with:
           tag_name: apk-latest
-          name: Hangeul Maktabi APK
+          name: Go Topic APK
           body: "Android uchun o'rnatish fayli. Telefonda yuklab oling va oching. Sinov (debug) imzosi bilan yig'ilgan."
-          files: HangeulMaktabi.apk
+          files: GoTopic.apk
           make_latest: true

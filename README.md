@@ -1,4 +1,4 @@
-# Hangeul Maktabi
+# Go Topic
 
 Koreys tilini noldan TOPIK 5 gacha o'rgatadigan o'zbekcha platforma: alifbo, so'z kartochkalari, lug'at, grammatika, tinglash, o'qish, o'yinlar, vositalar va ovozli AI ustoz.
 
